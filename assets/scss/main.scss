@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Aeonik-Regular";
+    src: url("/fonts/Aeonik-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Aeonik-Medium";
+    src: url("/fonts/Aeonik-Medium.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  .page-enter {
+    animation: fade-in 0.25s ease;
+  }
+  
+  .page-leave-to {
+    animation: fade-out 0.25s ease;
+  }
+  
+
+h1, h6, p, span, div {
+    font-family: "Aeonik-Regular";
+    margin: 0;
+}
+
+h2, h3, h4, h5 {
+    font-family: "Aeonik-Medium";
+    margin: 0;
+}
+
+h1 {
+    color: #2c2c2c;
+    font-family: "Aeonik-Regular";
+    font-size: 110px;
+    font-size: 6.4705882353vw;
+    letter-spacing: -0.01em;
+    line-height: 1em;
+}
+
+.page-title {
+    translate: none;
+    rotate: none;
+    scale: none;
+    transform: translate(0px, 0px);
+    opacity: 1;
+    visibility: inherit;
+    max-width: 62.5%;
+
+    @media screen and (max-width: 768px) {
+        max-width: 87.5%;
+    }
+
+    .title {
+        color: #fff;
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.13);
+        font-size: 6.4705882353vw;
+
+        @media screen and (max-width: 768px) {
+            font-size: calc(1.5rem + 5.10417vw)
+        }
+    }
+}
+
+.scroll-btn {
+    margin-top: -60px;
+
+    @media screen and (max-width: 768px) {
+        margin-top: -10px;
+    }
+}
+
+.big-circle-btn {
+    align-items: center;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
+    background-color: #fff;
+    height: 7.5rem;
+    width: 7.5rem;
+
+    &:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
+        background-color: hsla(0, 0%, 100%, 0);
+        border: 4px solid #fff;
+
+        .icon-container {
+            svg {
+                path {
+                    stroke: #fff !important;
+                }
+            }
+        }
+    }
+
+    .icon-container {
+        position: relative;
+        z-index: 3;
+
+        svg {
+            position: relative;
+            top: 4px;
+            transform-origin: center;
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+                opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            will-change: transform;
+
+            path {
+                stroke: $stroke !important;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+.green {
+    .icon-container {
+        svg {
+            path {
+                stroke: #c3d1ab !important;
+            }
+        }
+    }
+}
+
+.blue {
+    .icon-container {
+        svg {
+            path {
+                stroke: #1bd6ce !important;
+            }
+        }
+    }
+}
+
+.audio-btn {
+    align-items: center;
+    border-radius: 60px;
+    display: flex;
+    height: 54px;
+    justify-content: center;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    white-space: nowrap;
+    will-change: transform;
+
+    .bg {
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        background-color: rgba(44, 44, 44, 0.15);
+        border-radius: 60px;
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        transform: scale(0.7);
+        transform-origin: right;
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+            opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        width: 100%;
+        will-change: transform;
+
+        .icon {
+            align-items: center;
+            border-radius: 100%;
+            display: flex;
+            height: 44px;
+            justify-content: center;
+            margin-right: 5px;
+            position: relative;
+            width: 44px;
+            will-change: transform;
+
+            .audio-on {
+                position: relative;
+                transform-origin: center;
+                transition: transform .5s cubic-bezier(.19,1,.22,1);
+                will-change: transform;
+            }
+        }
+    }
+}

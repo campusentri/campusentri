@@ -1,0 +1,438 @@
+<script setup>
+const items = [
+    {
+        title: 'AJ Institute',
+        text: 'AJ institute has SIX institutes offering studies to Medical Industry',
+        image: '/images/technologies/technology-1.png'
+    },
+    {
+        title: 'Yenepaya Institute',
+        text: '(NIRF) ranked 97 among the top 100 universities in India',
+        image: '/images/technologies/technology-2.png'
+    },
+    {
+        title: 'NITTE Institute',
+        text: 'Placed in the Top 65-80 rank band in NIRF',
+        image: '/images/technologies/technology-3.png'
+    },
+    {
+        title: 'Srinivas Institute',
+        text: 'Private research and skill focused university in Mangalore',
+        image: '/images/technologies/technology-4.png'
+    },
+    {
+        title: 'Mangala College',
+        text: 'A 250 bedded Multi-speciality Hospital',
+        image: '/images/technologies/technology-5.png'
+    },
+    {
+        title: 'Father Muller Institute',
+        text: 'Father Muller Medical College has been re-accredited with `A` grade with a score of 3.21 CGPA for the period 2021-2026',
+        image: '/images/technologies/technology-6.png'
+    },
+    {
+        title: 'Kanachur Institute',
+        text: '300 bedded multi-speciality teaching hospital which provides 24-hours, seven-day-a-week services.',
+        image: '/images/technologies/technology-1.png'
+    },
+    {
+        title: 'Kasthurba College',
+        text: 'Father Muller Medical College has been ranked 31 by NIRF with a score of 52.83',
+        image: '/images/technologies/technology-2.png'
+    },
+    {
+        title: 'Tejasvini College',
+        text: '206 bedded state of art hospital for Orthopaedics & Trauma with other specialities like',
+        image: '/images/technologies/technology-3.png'
+    },
+    {
+        title: 'Shree Devi Institute',
+        text: 'Shree Devi Institute has Four Institutes offering studies to Medical industry oriented specialized courses of UG, PG and research levels.',
+        image: '/images/technologies/technology-4.png'
+    },
+    {
+        title: 'Indiana College',
+        text: 'Indiana Hospital & Heart Institute is a state-of-the-art, 300-bed multi-speciality hospital.',
+        image: '/images/technologies/technology-5.png'
+    },
+    {
+        title: 'MV Shetty College',
+        text: 'First private college to offer comprehensive courses in Nursing, Physiotherapy and Speech and Hearing.',
+        image: '/images/technologies/technology-6.png'
+    },
+    {
+        title: 'City College',
+        text: 'The campus is spread over 3.23 acres and has a student count of 112 and a faculty count of 10.',
+        image: '/images/technologies/technology-1.png'
+    },
+    {
+        title: 'Athena College',
+        text: 'The college has a campus size of 4 acres and has a female student count of 338 and a faculty count of 43.',
+        image: '/images/technologies/technology-2.png'
+    },
+    {
+        title: 'Indira College',
+        text: 'The trust was founded by Dr. Syed Nizamuddin, a well-known Orthopaedic and Arthroscopic Surgeon.',
+        image: '/images/technologies/technology-3.png'
+    },
+    {
+        title: 'SCS College',
+        text: 'SCS Hospital is the first Hospital in D.K District to admit medico-legal cases and road traffic accident cases.',
+        image: '/images/technologies/technology-4.png'
+    },
+]
+</script>
+
+<template>
+    <div id="list" class="technologies-list-wrapper mt-28">
+        <ul class="items-list">
+            <li v-for="(item, index) of items" :key="index" class="item">
+                <span class="top-line"></span>
+                <span class="right-line"></span>
+                <div class="left-col">
+                    <div class="top-row">
+                        <div class="order-number-wrapper">
+                            <span class="index">0{{ index + 1 }}</span>
+                        </div>
+                        <h2 class="title">{{ item.title }}</h2>
+                        <h3 class="subtitle">{{ item.text }}</h3>
+                    </div>
+                    <div class="bottom-row">
+                        <div class="read-more">
+                            <button class="read-more-btn big-size black-color" data-v-a2720cde="">
+                                <div class="inner" data-v-a2720cde="">
+                                    <span class="icon arrow-right" data-v-a2720cde="">
+                                        <span class="icon-container arrow-right-icon-container"
+                                            data-v-a2720cde="">
+                                            <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="arrow-right-icon shadow-icon" data-v-a2720cde="">
+                                                <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
+                                                    stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" data-v-a2720cde=""></path>
+                                                <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
+                                                    stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" data-v-a2720cde=""></path>
+                                            </svg>
+                                            <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon"
+                                                data-v-a2720cde="">
+                                                <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
+                                                    stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" data-v-a2720cde=""></path>
+                                                <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
+                                                    stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" data-v-a2720cde=""></path>
+                                            </svg>
+                                        </span>
+                                    </span>
+                                    <span class="label-sizer" data-v-a2720cde="">More</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-col">
+                    <img :src="item.image" />
+                </div>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+.technologies-list-wrapper {
+    .items-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+
+        .item {
+            padding-left: 2.25rem;
+            padding: 2.5rem 0 3.125rem 3.875rem;
+            cursor: pointer;
+            display: flex;
+            height: 65vh;
+            position: relative;
+            
+            @media screen and (max-width: 768px) {
+                height: 100%;
+                padding: calc(1.40625rem + 1.45833vw) 2rem calc(1.48438rem + 2.1875vw);
+            }
+
+            .top-line {
+                transform-origin: right;
+                background-color: hsla(188, 8%, 60%, .3);
+                height: 1px;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+            }
+
+            .right-line {
+                background-color: hsla(188, 8%, 60%, .3);
+                height: 100%;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform-origin: top;
+                width: 1px;
+            }
+
+            .left-col {
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                justify-content: space-between;
+                position: relative;
+
+                .order-number-wrapper {
+                    align-items: center;
+                    border-radius: 34px;
+                    display: flex;
+                    height: 34px;
+                    justify-content: center;
+                    position: relative;
+                    width: 34px;
+
+                    &:before {
+                        border: 1px solid #2c2c2c;
+                        border-radius: 34px;
+                        content: "";
+                        height: 100%;
+                        left: 0;
+                        position: absolute;
+                        top: 0;
+                        transition: background-color .5s cubic-bezier(.19, 1, .22, 1), transform .5s cubic-bezier(.19, 1, .22, 1);
+                        width: 100%;
+                        will-change: transform;
+                    }
+
+                    span {
+                        color: #2c2c2c;
+                        font-family: 'Aeonik-Medium';
+                        font-size: .875rem;
+                        letter-spacing: .02em;
+                        line-height: 1em;
+                        position: relative;
+                        transition: color .5s cubic-bezier(.19, 1, .22, 1);
+                    }
+                }
+
+                .title {
+                    font-size: 3.375rem;
+                    color: #2c2c2c;
+                    font-family: 'Aeonik-Medium';
+                    letter-spacing: -.03em;
+                    line-height: 1em;
+                    margin-bottom: 1.25rem;
+                    margin-top: 1.25rem;
+                    position: relative;
+                    
+                    @media screen and (max-width: 768px) {
+                        font-size: calc(1.51563rem + 2.47917vw);
+                    }
+                }
+
+                .subtitle {
+                    line-height: 1.2em;
+                    font-size: 1rem;
+                    color: #2c2c2c;
+                    font-family: 'Aeonik-Regular';
+                    position: relative;
+                    width: 80%;
+                    
+                    @media screen and (max-width: 768px) {
+                        line-height: 1.3em;
+                        margin-bottom: 20px;
+                        padding-right: 20vw;
+                        width: auto;
+                    }
+                }
+
+                .bottom-row {
+                    .read-more {
+                        .read-more-btn {
+                            cursor: pointer;
+                            position: relative;
+                            transition: transform .5s cubic-bezier(.19, 1, .22, 1);
+
+                            &:active {
+                                transform: scale(.9);
+                            }
+
+                            &:hover {
+                                .inner {
+                                    transform: scale(1.15);
+
+                                    .icon {
+                                        &:before {
+                                            opacity: 1;
+                                            transform: scale(1);
+                                        }
+                                    }
+
+                                    .arrow-right-icon-container {
+                                        .shadow-icon {
+                                            opacity: 1 !important;
+                                            transform: translate(0) !important;
+                                        }
+
+                                        svg {
+                                            path {
+                                                stroke: #fff;
+                                            }
+                                        }
+
+                                        .arrow-right-icon {
+                                            opacity: 0;
+                                            transform: translate(30px);
+                                        }
+                                    }
+                                }
+
+                            }
+
+                            .inner {
+                                height: 3.5rem;
+                                border-radius: 60px;
+                                align-items: center;
+                                border: 1px solid transparent;
+                                display: flex;
+                                position: relative;
+                                transition: transform .5s cubic-bezier(.19, 1, .22, 1);
+                                will-change: transform;
+
+                                &:before {
+                                    background-color: #2c2c2c;
+                                    border-radius: 60px;
+                                    transform-origin: center;
+                                    transition: transform .5s cubic-bezier(.19, 1, .22, 1);
+                                    content: "";
+                                    display: block;
+                                    height: 100%;
+                                    left: 0;
+                                    position: absolute;
+                                    top: 0;
+                                    width: 100%;
+                                    z-index: 0;
+                                }
+
+                                .icon {
+                                    height: 2.125rem;
+                                    width: 2.125rem;
+                                    border-radius: 50px;
+                                    margin-left: 11px;
+                                    align-items: center;
+                                    background-color: #fff;
+                                    display: flex;
+                                    justify-content: center;
+                                    overflow: hidden;
+                                    position: relative;
+
+                                    svg {
+                                        path {
+                                            transition: stroke .5s cubic-bezier(.19, 1, .22, 1);
+                                        }
+                                    }
+
+                                    &:before {
+                                        background-color: #2c2c2c;
+                                        border-radius: 100%;
+                                        content: "";
+                                        display: block;
+                                        height: calc(100% - 4px);
+                                        left: 2px;
+                                        opacity: 0;
+                                        position: absolute;
+                                        top: 2px;
+                                        transform: scale(0);
+                                        transform-origin: center;
+                                        transition: opacity .5s cubic-bezier(.19, 1, .22, 1), transform .5s cubic-bezier(.19, 1, .22, 1);
+                                        width: calc(100% - 4px);
+                                    }
+
+                                    .arrow-right-icon-container {
+                                        transform: scale(1.2);
+                                        transform-origin: center;
+
+                                        .arrow-right-icon {
+                                            display: block;
+                                            left: 1px;
+                                            position: relative;
+                                            transition: opacity .5s cubic-bezier(.19, 1, .22, 1), transform .5s cubic-bezier(.19, 1, .22, 1);
+                                        }
+
+                                        .shadow-icon {
+                                            display: block;
+                                            left: 0;
+                                            position: absolute;
+                                            top: 0;
+                                            transform: translate(-30px);
+                                            width: 100%;
+                                            opacity: 0;
+                                            transition: opacity .5s cubic-bezier(.19, 1, .22, 1), transform .5s cubic-bezier(.19, 1, .22, 1);
+                                        }
+                                    }
+                                }
+                            }
+
+                            .label-container {
+                                left: 3.75rem;
+                                align-items: center;
+                                display: flex;
+                                height: 100%;
+                                position: absolute;
+                                top: 0;
+                                width: 100%;
+                            }
+
+                            .label-sizer {
+                                color: #fff;
+                                display: inline-block;
+                                font-size: 1.3125rem;
+                                padding: 0 2.125rem 0 1.375rem;
+                                letter-spacing: -.01em;
+                                line-height: 1em;
+                                position: relative;
+                                top: -1px;
+                                transition: transform .5s cubic-bezier(.19, 1, .22, 1);
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right-col {
+                bottom: 20px;
+                position: absolute;
+                right: 20px;
+                width: 40%;
+                align-items: flex-end;
+                display: flex;
+
+                img {
+                    left: 0;
+                    margin: 0 auto;
+                    max-height: 100%;
+                    max-width: 100%;
+                    position: relative;
+                    top: 15%;
+                    width: 100%;
+                    
+                    @media screen and (max-width: 768px) {
+                        width: 85%;
+                    }
+                }
+            }
+        }
+    }
+}
+</style>
