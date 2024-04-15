@@ -1,3 +1,20 @@
+<script>
+export default {
+    methods: {
+        async scrollToNextComponent() {
+            const nextComponent = document.getElementsByClassName('page-content');
+            if (nextComponent) {
+                const offsetTop = nextComponent[0].offsetTop;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth' // smooth scrolling behavior
+                });
+            }
+        }
+    }
+}
+</script>
+
 <template>
     <div id="hero" class="service-container h-screen relative">
         <div class="background-video relative inset-0 overflow-hidden">
@@ -12,7 +29,7 @@
             </div>
             <div class="flex items-stretch mt-10 w-full px-3 md:px-10">
                 <div class="scroll-btn h-full flex flex-grow-0">
-                    <button class="big-circle-btn">
+                    <button class="big-circle-btn" @click="scrollToNextComponent">
                         <span class="icon-container">
                             <IconsArrowDown />
                         </span>

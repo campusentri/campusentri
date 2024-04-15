@@ -2,10 +2,14 @@
 export default {
     methods: {
         async scrollToNextComponent() {
-            const nextComponent = document.getElementById('home-expertise');
-            // if (nextComponent) {
-            this.$gsap.to(window, { duration: 1, scrollTo: 400 });
-            // }
+            const nextComponent = document.getElementsByClassName('page-content');
+            if (nextComponent) {
+                const offsetTop = nextComponent[0].offsetTop;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth' // smooth scrolling behavior
+                });
+            }
         }
     }
 }

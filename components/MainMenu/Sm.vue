@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed top-0 left-0 bg-[#ff4134] p-8 w-full h-full z-[1000]">
+    <div ref="nav" class="fixed top-0 left-0 bg-[#ff4134] p-8 w-full h-full z-[1000]">
         <div class="absolute top-0 left-0 w-full h-full" @click="closeNavbar"></div>
         <nav>
             <div class="flex justify-between">
@@ -40,8 +40,17 @@
 export default {
     methods: {
         closeNavbar() {
-            this.$emit('close');
-        }
+            const bottomNavAnim = this.$gsap.to(this.$refs.nav, { y: window.innerHeight, duration: 0.5 });
+            Promise.all([bottomNavAnim]).then(() => {
+                this.$emit('close');
+            });
+        },
+        animateNav() {
+            this.$gsap.from(this.$refs.nav, { y: -window.innerHeight, duration: 0.5 });
+        },
+    },
+    mounted() {
+        this.animateNav();
     }
 };
 </script>
