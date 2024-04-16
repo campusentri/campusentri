@@ -17,7 +17,7 @@ export default {
 <template>
     <div id="hero" class="home-container h-screen relative">
         <div class="background-video relative inset-0 overflow-hidden">
-            <video autoplay muted loop class="min-w-full min-h-full">
+            <video autoplay muted loop webkit-playsinline playsinline class="min-w-full min-h-full">
                 <source src="/videos/homepage-hd.mp4" type="video/mp4">
             </video>
         </div>
