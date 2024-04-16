@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="image-container">
-            <video autoplay muted loop>
+            <video autoplay muted loop="loop" webkit-playsinline="true" playsinline="true" disableRemotePlayback="true">
                 <source src="/videos/promo-block-small-uhd.mp4" type="video/mp4">
             </video>
         </div>

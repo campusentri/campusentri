@@ -33,7 +33,7 @@ export default {
 <template>
     <div id="hero" class="college-container h-screen relative">
         <div class="background-video relative inset-0 overflow-hidden">
-            <video autoplay muted loop webkit-playsinline playsinline class="min-w-full min-h-full">
+            <video autoplay muted loop="loop" webkit-playsinline="true" playsinline="true" disableRemotePlayback="true" class="min-w-full min-h-full">
                 <source src="/videos/technologies-hd.mp4" type="video/mp4">
             </video>
         </div>

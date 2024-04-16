@@ -130,7 +130,7 @@ export default {
                     </div>
                 </div>
                 <div class="background-video promo-video relative inset-0 overflow-hidden h-full order-1 md:order-2">
-                    <video autoplay muted loop class="min-w-full min-h-full">
+                    <video autoplay muted loop="loop" webkit-playsinline="true" playsinline="true" disableRemotePlayback="true" class="min-w-full min-h-full">
                         <source src="/videos/promo-block-big-uhd.mp4" type="video/mp4">
                     </video>
                 </div>
