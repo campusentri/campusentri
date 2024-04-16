@@ -63,7 +63,7 @@ export default {
                 <h2 class="title">Our Core Values</h2>
             </div>
         </div>
-        <div class="flex items-center px-8">
+        <div class="flex flex-col md:flex-row items-center px-8">
             <div class="relative ml-0 md:ml-[6.25%] w-full md:w-[56.25%] images-container">
                 <img :style="selectedIndex === 0 && 'z-index: 2;'" src="/images/company/core-1.png" />
                 <img :style="selectedIndex === 1 && 'z-index: 2;'" src="/images/company/core-2.png" />

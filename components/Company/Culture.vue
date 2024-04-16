@@ -62,7 +62,7 @@ export default {
         </div>
         <div class="list-container flex justify-center px-6">
             <div class="w-full md:w-[87.5%] px-0 md:px-3">
-                <div class="values-list mt-32 md:mt-64 grid grid-cols-1 md:grid-cols-3">
+                <div class="values-list mt-24 md:mt-64 hidden md:grid grid-cols-1 md:grid-cols-3">
                     <div v-for="(item, index) of items" :key="index" class="item culture-items">
                         <span class="name">
                             <span class="short-name">{{ item.shortName }}</span>
@@ -73,6 +73,9 @@ export default {
                             <p>{{ item.text }}</p>
                         </span>
                     </div>
+                </div>
+                <div class="block md:hidden mt-32">
+                    <CompanyCultureSlider />
                 </div>
             </div>
         </div>
