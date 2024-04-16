@@ -51,7 +51,7 @@ export default {
             x: -60,
             duration: 0.5,
         });
-        tl.from('.clinical-trials-block .text-container-text', {
+        tl.from('.clinical-trials-block .fee-text-container-text', {
             opacity: 0,
             y: 40,
             duration: 0.2,
@@ -68,16 +68,16 @@ export default {
 
 <template>
     <div id="clinical-trials" class="clinical-trials-block py-24 md:py-48">
-        <div class="flex items-center px-16 md:px-12">
+        <div class="flex items-center px-8 md:px-12">
             <h2 class="w-3/4 mb-6 text-8xl title md:mx-auto fee-title">Fee Structure</h2>
         </div>
-        <div class="text-container flex flex-col md:flex-row py-6 pl-16 md:pl-0 px-8 md:px-12 mt-8">
-            <div class="w-full md:w-[31.25%] ml-0 md:ml-[12.5%] mb-12 md:mb-0 text-container-text">
-                <h3 class=" m-0 text-4xl">CampusEntri's mission is to assist young minds bring novel success from bench
+        <div class="text-container flex flex-col md:flex-row py-6 pl-8 md:pl-0 px-8 md:px-12 mt-8">
+            <div class="w-full md:w-[31.25%] ml-0 md:ml-[12.5%] mb-12 md:mb-0 fee-text-container-text">
+                <h3 class="m-0">CampusEntri's mission is to assist young minds bring novel success from bench
                     to bedside.</h3>
             </div>
-            <div class="w-full md:w-[38.25%] ml-0 md:ml-[8.5%] text-container-text">
-                <p class="text-3xl">Our use of sophisticated plan, highly responsive analyses, and insights from expert
+            <div class="w-full md:w-[38.25%] ml-0 md:ml-[8.5%] fee-text-container-text">
+                <p>Our use of sophisticated plan, highly responsive analyses, and insights from expert
                     career counselors ensures a standard of excellence that enhances the effectiveness of innovative
                     guidance.</p>
             </div>
@@ -151,6 +151,27 @@ export default {
         letter-spacing: -.02em;
         line-height: 1em;
         white-space: pre-line;
+    }
+
+    .text-container {
+        h3 {
+            font-family: 'Aeonik-Medium';
+            font-size: 32px;
+            line-height: 1.1em;
+            color: #2c2c2c;
+            @media screen and (max-width: 768px) {
+                font-size: calc(1.26563rem + .14583vw);
+            }
+        }
+        p {
+            color: #2c2c2c;
+            font-family: 'Aeonik-Regular';
+            font-size: 32px;
+            line-height: 1.1em;
+            @media screen and (max-width: 768px) {
+                font-size: calc(1.26563rem + .14583vw);
+            }
+        }
     }
 
     .inner {
