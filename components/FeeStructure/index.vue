@@ -11,6 +11,21 @@ export default {
                 });
             }
         }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.fee-structure-container',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.fee-structure-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.1,
+        });
     }
 }
 </script>
@@ -24,7 +39,7 @@ export default {
         </div>
         <div class="text-overlay absolute inset-0 flex items-center flex-col justify-center">
             <div class="page-title flex justify-center items-center">
-                <h1 class="text-gray-100 text-start title">Impacting the Lives of Bright Students WorldWide
+                <h1 class="text-gray-100 text-start title fee-structure-title">Impacting the Lives of Bright Students WorldWide
                 </h1>
             </div>
             <div class="flex items-stretch mt-10 w-full px-3 md:px-10">

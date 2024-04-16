@@ -11,11 +11,26 @@ export default {
                 });
             }
         }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.course-container',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.course-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.1,
+        });
     }
 }
 </script>
 <template>
-    <div id="hero" class="home-container h-screen relative">
+    <div id="hero" class="home-container course-container h-screen relative">
         <div class="background-video relative inset-0 overflow-hidden">
             <video autoplay muted loop class="min-w-full min-h-full">
                 <source src="/videos/course-hd.mp4" type="video/mp4">
@@ -23,7 +38,7 @@ export default {
         </div>
         <div class="text-overlay absolute inset-0 flex items-center flex-col justify-center">
             <div class="page-title flex justify-center items-center">
-                <h1 class="text-gray-100 text-start title">Transforming Futures One Day at a Time
+                <h1 class="text-gray-100 text-start title course-title">Transforming Futures One Day at a Time
                 </h1>
             </div>
             <div class="flex items-stretch mt-10 w-full px-3 md:px-10">

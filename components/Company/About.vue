@@ -1,8 +1,28 @@
+<script>
+export default {
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#about',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.about-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.1,
+        });
+    }
+}
+</script>
+
 <template>
     <div id="about" class="about-wrapper relative pb-48">
         <div class="flex justify-center items-center px-6">
             <div class="w-full md:w-[62.5%] px-3">
-                <h2 class="title">
+                <h2 class="title about-title">
                     CampusEntri® provides services in Manglore and Kerala. We assist our students with finding new and more effective ways to find the right course at the best colleges.
                 </h2>
             </div>

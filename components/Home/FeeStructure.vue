@@ -36,6 +36,32 @@ export default {
                 }
             ]
         };
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#clinical-trials',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.fee-title', {
+            opacity: 0,
+            x: -60,
+            duration: 0.5,
+        });
+        tl.from('.text-container-text', {
+            opacity: 0,
+            y: 40,
+            duration: 0.5,
+        });
+
+        tl.from(['.fee-img', '.fee-section'], {
+            scale: 0,
+            duration: 2,
+            ease: 'power2.out',
+        }, '-=1');
     }
 };
 </script>
@@ -43,14 +69,14 @@ export default {
 <template>
     <div id="clinical-trials" class="clinical-trials-block py-24 md:py-48">
         <div class="flex items-center px-16 md:px-12">
-            <h2 class="w-3/4 mb-6 text-8xl title md:mx-auto">Fee Structure</h2>
+            <h2 class="w-3/4 mb-6 text-8xl title md:mx-auto fee-title">Fee Structure</h2>
         </div>
         <div class="text-container flex flex-col md:flex-row py-6 pl-16 md:pl-0 px-8 md:px-12 mt-8">
-            <div class="w-full md:w-[31.25%] ml-0 md:ml-[12.5%] mb-12 md:mb-0">
+            <div class="w-full md:w-[31.25%] ml-0 md:ml-[12.5%] mb-12 md:mb-0 text-container-text">
                 <h3 class=" m-0 text-4xl">CampusEntri's mission is to assist young minds bring novel success from bench
                     to bedside.</h3>
             </div>
-            <div class="w-full md:w-[38.25%] ml-0 md:ml-[8.5%]">
+            <div class="w-full md:w-[38.25%] ml-0 md:ml-[8.5%] text-container-text">
                 <p class="text-3xl">Our use of sophisticated plan, highly responsive analyses, and insights from expert
                     career counselors ensures a standard of excellence that enhances the effectiveness of innovative
                     guidance.</p>
@@ -58,10 +84,10 @@ export default {
         </div>
         <div class="flex justify-center px-4 md:px-14 h-full mt-16 inner">
             <div class="flex flex-col md:flex-row px-0 md:px-3 w-[95%] md:w-[87.25%] h-full">
-                <div class="image-col w-full md:w-1/2 h-full">
+                <div class="image-col w-full md:w-1/2 h-full fee-img">
                     <img src="@/assets/imgs/fee-structure/fee-structure.png" />
                 </div>
-                <div class="text-col flex items-start flex-col w-full md:w-1/2 h-full">
+                <div class="text-col flex items-start flex-col w-full md:w-1/2 h-full fee-section">
                     <div>
                         <h3>At a Glance</h3>
                         <ul class="list my-6 grid grid-cols-2 gap-2">

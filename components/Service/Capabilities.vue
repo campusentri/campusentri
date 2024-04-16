@@ -1,21 +1,74 @@
-<script setup>
-const pillars = [
-    '/images/services/pillar-1.png',
-    '/images/services/pillar-2.png',
-    '/images/services/pillar-3.png'
-]
-const appreciations = [
-    { name: 'IAO-Accredited', image: 'images/services/cap.png' },
-    { name: 'NACAC-Certified', image: 'images/services/clia.png' },
-    { name: 'ECS-Complaint' },
-    { name: 'A Global Reference Team & System' },
-];
+<script>
+export default {
+    data() {
+        const pillars = [
+            '/images/services/pillar-1.png',
+            '/images/services/pillar-2.png',
+            '/images/services/pillar-3.png'
+        ]
+        const appreciations = [
+            { name: 'IAO-Accredited', image: 'images/services/cap.png' },
+            { name: 'NACAC-Certified', image: 'images/services/clia.png' },
+            { name: 'ECS-Complaint' },
+            { name: 'A Global Reference Team & System' },
+        ];
+        return {
+            pillars,
+            appreciations
+        }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#capabilities',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.capabilities-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.2,
+        });
+        tl.from('.list-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.3,
+        });
+        tl.from('.list-description', {
+            opacity: 0,
+            y: 20,
+            duration: 0.4,
+        });
+        this.pillars.forEach((item, index) => {
+            const delay = index * 0.1; // Adjust the delay for each item
+
+            tl.from(`.pillars-items:nth-child(${index + 1})`, {
+                opacity: 0,
+                y: 30,
+                duration: 0.2,
+                delay,
+            });
+        });
+        this.appreciations.forEach((item, index) => {
+            const delay = index * 0.2; // Adjust the delay for each item
+
+            tl.from(`.capabilities-items:nth-child(${index + 1})`, {
+                opacity: 0,
+                x: -60,
+                duration: 0.2,
+                delay,
+            });
+        });
+    }
+}
 </script>
 
 <template>
     <div id="capabilities" class="intro-block-wrapper">
         <div class="px-8 flex justify-center">
-            <div class="md:w-1/2 px-3 text-center">
+            <div class="md:w-1/2 px-3 text-center capabilities-title">
                 <div class="order-number-wrapper">
                     <span class="index">01</span>
                 </div>
@@ -25,7 +78,7 @@ const appreciations = [
         <div class="px-8 flex justify-center">
             <div class="px-3 md:w-[87.5%]">
                 <div class="pillars-list grid grid-cols-1 md:grid-cols-3">
-                    <div v-for="(pillar, index) of pillars" :key="index" class="item">
+                    <div v-for="(pillar, index) of pillars" :key="index" class="item pillars-items">
                         <img :src="pillar" />
                     </div>
                 </div>
@@ -39,7 +92,7 @@ const appreciations = [
             </div>
             <div class="px-3 md:w-[43.75%]">
                 <ul class="list">
-                    <li v-for="(appreciation, index) of appreciations" :key="index" class="item">
+                    <li v-for="(appreciation, index) of appreciations" :key="index" class="item capabilities-items">
                         <span class="label">{{ appreciation.name }}</span>
                         <img v-if="appreciation.image" :src="appreciation.image" :alt="appreciation.name" />
                     </li>

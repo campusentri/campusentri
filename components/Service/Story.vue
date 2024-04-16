@@ -1,28 +1,55 @@
-<script setup>
-const slides = [
-    {
-        name: 'Sidharth',
-        department: 'Renal Dialysis',
-        text: '“We greatly appreciate all the hard work from the CampusEntri team! Everything for our trial was handled with ease. Would definitely use them again for other studies. ”'
+<script>
+export default {
+    data() {
+        const slides = [
+            {
+                name: 'Sidharth',
+                department: 'Renal Dialysis',
+                text: '“We greatly appreciate all the hard work from the CampusEntri team! Everything for our trial was handled with ease. Would definitely use them again for other studies. ”'
+            },
+            {
+                name: 'Anisha',
+                department: 'BSc AT OT',
+                text: "“I couldn't be more satisfied! GREAT JOB! I look forward to working together on the next project.”"
+            },
+            {
+                name: 'Raj',
+                department: 'Pharma D',
+                text: "“The quality of the data from your site was excellent.”"
+            },
+        ]
+        return {
+            slides
+        }
     },
-    {
-        name: 'Anisha',
-        department: 'BSc AT OT',
-        text: "“I couldn't be more satisfied! GREAT JOB! I look forward to working together on the next project.”"
-    },
-    {
-        name: 'Raj',
-        department: 'Pharma D',
-        text: "“The quality of the data from your site was excellent.”"
-    },
-]
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.story-block-wrapper',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play none none reverse',
+            },
+        });
+        tl.from('.story-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.15,
+        });
+        tl.from('.slider-list', {
+            opacity: 0,
+            x: -30,
+            duration: 0.2,
+        });
+    }
+}
 </script>
 
 <template>
     <div id="stories" class="story-block-wrapper">
         <div class="flex px-8 title-container">
             <div class="title-col w-[62.5%] md:ml-[18.75%] px-3">
-                <h2 class="title">Student Stories</h2>
+                <h2 class="title story-title">Student Stories</h2>
             </div>
             <!-- <div class="arrow-container w-[12.5%]">
                 <SwiperControls />

@@ -103,6 +103,31 @@ export default {
         openModal() {
             this.$emit('open-modal');
         }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#fee-structures',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.fee-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.2,
+        });
+        this.items.forEach((item, index) => {
+            const delay = index * 0.1; // Adjust the delay for each item
+
+            tl.from(`.fee-items:nth-child(${index + 1})`, {
+                opacity: 0,
+                y: 40,
+                duration: 0.2,
+                delay,
+            });
+        });
     }
 }
 </script>
@@ -118,7 +143,7 @@ export default {
                         </div>
                     </div>
                     <ul class="items-list">
-                        <li v-for="(item, index) of items" :key="index" class="item leave-top">
+                        <li v-for="(item, index) of items" :key="index" class="item fee-items leave-top">
                             <span class="bottom-line"></span>
                             <span class="inner-list">
                                 <div class="item-row">

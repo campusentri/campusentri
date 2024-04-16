@@ -7,10 +7,25 @@ export default {
                 const offsetTop = nextComponent[0].offsetTop;
                 window.scrollTo({
                     top: offsetTop,
-                    behavior: 'smooth' // smooth scrolling behavior
+                    behavior: 'smooth'
                 });
             }
         }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.company-container',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.company-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.15,
+        });
     }
 }
 </script>
@@ -24,7 +39,7 @@ export default {
         </div>
         <div class="text-overlay absolute inset-0 flex items-center flex-col justify-center">
             <div class="page-title flex justify-center items-center">
-                <h1 class="text-gray-100 text-start title">Our story. Firm, Yet Flexible.
+                <h1 class="text-gray-100 text-start title company-title">Our story. Firm, Yet Flexible.
                 </h1>
             </div>
             <div class="flex items-stretch mt-10 w-full px-3 md:px-10">

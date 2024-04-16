@@ -1,15 +1,53 @@
-<script setup>
-const items = [
-    { name: 'AJ Institute', img: '/images/technologies/technology-4.png' },
-    { name: 'Yenepaya Institute', img: '/images/technologies/technology-2.png' },
-    { name: 'Nitte Institute', img: '/images/technologies/technology-1.png' },
-    { name: 'Srinivas Institute', img: '/images/technologies/technology-5.png' }
-]
+<script>
+export default {
+    data() {
+        const items = [
+            { name: 'AJ Institute', img: '/images/technologies/technology-4.png' },
+            { name: 'Yenepaya Institute', img: '/images/technologies/technology-2.png' },
+            { name: 'Nitte Institute', img: '/images/technologies/technology-1.png' },
+            { name: 'Srinivas Institute', img: '/images/technologies/technology-5.png' }
+        ]
+        return {
+            items
+        }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#results',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play none none reverse',
+            },
+        });
+        tl.from('.result-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.2,
+        });
+        const tl2 = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.result-list-items',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play none none reverse',
+            },
+        });
+        this.items.forEach((item, index) => {
+
+            tl2.from(`.results-list .results-items:nth-child(${index + 1})`, {
+                scale: 0, // Start with a scale of 0
+                duration: 0.5, // Adjust duration for the desired speed
+                ease: 'power2.out', // You can experiment with different easing functions
+            });
+        });
+    }
+}
 </script>
 
 <template>
     <div id="results" class="results-block-wrapper">
-        <div class="px-8 flex justify-center">
+        <div class="px-8 flex justify-center result-title">
             <div class="md:w-1/2 px-3 text-center">
                 <div class="order-number-wrapper">
                     <span class="index">03</span>
@@ -17,7 +55,7 @@ const items = [
                 <h2 class="title">Integrated Results</h2>
             </div>
         </div>
-        <div class="flex justify-center px-8">
+        <div class="flex justify-center px-8 result-list-items">
             <div class="relative w-[87.5%] px-1 md:px-3 list-container">
                 <svg viewBox="0 0 1132 624" fill="none" xmlns="http://www.w3.org/2000/svg" class="lines-landscape"
                     data-v-4b2d19a0="">
@@ -47,7 +85,7 @@ const items = [
                         stroke-dasharray="2 10" data-v-4b2d19a0=""></path>
                 </svg>
                 <ul class="results-list">
-                    <li v-for="(item, index) of items" :key="index" class="item">
+                    <li v-for="(item, index) of items" :key="index" class="item results-items">
                         <img :src="item.img" />
                         <span class="item-title">{{ item.name }}</span>
                         <div class="read-more item-title">

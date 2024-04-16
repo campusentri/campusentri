@@ -1,92 +1,122 @@
-<script setup>
-const items = [
-    {
-        title: 'AJ Institute',
-        text: 'AJ institute has SIX institutes offering studies to Medical Industry',
-        image: '/images/technologies/technology-1.png'
+<script>
+export default {
+    data() {
+        const items = [
+            {
+                title: 'AJ Institute',
+                text: 'AJ institute has SIX institutes offering studies to Medical Industry',
+                image: '/images/technologies/technology-1.png'
+            },
+            {
+                title: 'Yenepaya Institute',
+                text: '(NIRF) ranked 97 among the top 100 universities in India',
+                image: '/images/technologies/technology-2.png'
+            },
+            {
+                title: 'NITTE Institute',
+                text: 'Placed in the Top 65-80 rank band in NIRF',
+                image: '/images/technologies/technology-3.png'
+            },
+            {
+                title: 'Srinivas Institute',
+                text: 'Private research and skill focused university in Mangalore',
+                image: '/images/technologies/technology-4.png'
+            },
+            {
+                title: 'Mangala College',
+                text: 'A 250 bedded Multi-speciality Hospital',
+                image: '/images/technologies/technology-5.png'
+            },
+            {
+                title: 'Father Muller Institute',
+                text: 'Father Muller Medical College has been re-accredited with `A` grade with a score of 3.21 CGPA for the period 2021-2026',
+                image: '/images/technologies/technology-6.png'
+            },
+            {
+                title: 'Kanachur Institute',
+                text: '300 bedded multi-speciality teaching hospital which provides 24-hours, seven-day-a-week services.',
+                image: '/images/technologies/technology-1.png'
+            },
+            {
+                title: 'Kasthurba College',
+                text: 'Father Muller Medical College has been ranked 31 by NIRF with a score of 52.83',
+                image: '/images/technologies/technology-2.png'
+            },
+            {
+                title: 'Tejasvini College',
+                text: '206 bedded state of art hospital for Orthopaedics & Trauma with other specialities like',
+                image: '/images/technologies/technology-3.png'
+            },
+            {
+                title: 'Shree Devi Institute',
+                text: 'Shree Devi Institute has Four Institutes offering studies to Medical industry oriented specialized courses of UG, PG and research levels.',
+                image: '/images/technologies/technology-4.png'
+            },
+            {
+                title: 'Indiana College',
+                text: 'Indiana Hospital & Heart Institute is a state-of-the-art, 300-bed multi-speciality hospital.',
+                image: '/images/technologies/technology-5.png'
+            },
+            {
+                title: 'MV Shetty College',
+                text: 'First private college to offer comprehensive courses in Nursing, Physiotherapy and Speech and Hearing.',
+                image: '/images/technologies/technology-6.png'
+            },
+            {
+                title: 'City College',
+                text: 'The campus is spread over 3.23 acres and has a student count of 112 and a faculty count of 10.',
+                image: '/images/technologies/technology-1.png'
+            },
+            {
+                title: 'Athena College',
+                text: 'The college has a campus size of 4 acres and has a female student count of 338 and a faculty count of 43.',
+                image: '/images/technologies/technology-2.png'
+            },
+            {
+                title: 'Indira College',
+                text: 'The trust was founded by Dr. Syed Nizamuddin, a well-known Orthopaedic and Arthroscopic Surgeon.',
+                image: '/images/technologies/technology-3.png'
+            },
+            {
+                title: 'SCS College',
+                text: 'SCS Hospital is the first Hospital in D.K District to admit medico-legal cases and road traffic accident cases.',
+                image: '/images/technologies/technology-4.png'
+            },
+        ]
+        return {
+            items
+        }
     },
-    {
-        title: 'Yenepaya Institute',
-        text: '(NIRF) ranked 97 among the top 100 universities in India',
-        image: '/images/technologies/technology-2.png'
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#list',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play none none reverse',
+            },
+        });
+
+        this.items.forEach((item, index) => {
+            const direction = index % 2 === 0 ? -1 : 1; // Set the direction based on index
+
+            tl.from(`.technologies-list .technologies-item:nth-child(${index + 1})`, {
+                scale: 0, // Start with a scale of 0
+                duration: 0.5, // Adjust duration for the desired speed
+                ease: 'power2.out', // You can experiment with different easing functions
+                transformOrigin: direction === -1 ? 'left center' : 'right center', // Set transform origin based on direction
+            });
+        });
     },
-    {
-        title: 'NITTE Institute',
-        text: 'Placed in the Top 65-80 rank band in NIRF',
-        image: '/images/technologies/technology-3.png'
-    },
-    {
-        title: 'Srinivas Institute',
-        text: 'Private research and skill focused university in Mangalore',
-        image: '/images/technologies/technology-4.png'
-    },
-    {
-        title: 'Mangala College',
-        text: 'A 250 bedded Multi-speciality Hospital',
-        image: '/images/technologies/technology-5.png'
-    },
-    {
-        title: 'Father Muller Institute',
-        text: 'Father Muller Medical College has been re-accredited with `A` grade with a score of 3.21 CGPA for the period 2021-2026',
-        image: '/images/technologies/technology-6.png'
-    },
-    {
-        title: 'Kanachur Institute',
-        text: '300 bedded multi-speciality teaching hospital which provides 24-hours, seven-day-a-week services.',
-        image: '/images/technologies/technology-1.png'
-    },
-    {
-        title: 'Kasthurba College',
-        text: 'Father Muller Medical College has been ranked 31 by NIRF with a score of 52.83',
-        image: '/images/technologies/technology-2.png'
-    },
-    {
-        title: 'Tejasvini College',
-        text: '206 bedded state of art hospital for Orthopaedics & Trauma with other specialities like',
-        image: '/images/technologies/technology-3.png'
-    },
-    {
-        title: 'Shree Devi Institute',
-        text: 'Shree Devi Institute has Four Institutes offering studies to Medical industry oriented specialized courses of UG, PG and research levels.',
-        image: '/images/technologies/technology-4.png'
-    },
-    {
-        title: 'Indiana College',
-        text: 'Indiana Hospital & Heart Institute is a state-of-the-art, 300-bed multi-speciality hospital.',
-        image: '/images/technologies/technology-5.png'
-    },
-    {
-        title: 'MV Shetty College',
-        text: 'First private college to offer comprehensive courses in Nursing, Physiotherapy and Speech and Hearing.',
-        image: '/images/technologies/technology-6.png'
-    },
-    {
-        title: 'City College',
-        text: 'The campus is spread over 3.23 acres and has a student count of 112 and a faculty count of 10.',
-        image: '/images/technologies/technology-1.png'
-    },
-    {
-        title: 'Athena College',
-        text: 'The college has a campus size of 4 acres and has a female student count of 338 and a faculty count of 43.',
-        image: '/images/technologies/technology-2.png'
-    },
-    {
-        title: 'Indira College',
-        text: 'The trust was founded by Dr. Syed Nizamuddin, a well-known Orthopaedic and Arthroscopic Surgeon.',
-        image: '/images/technologies/technology-3.png'
-    },
-    {
-        title: 'SCS College',
-        text: 'SCS Hospital is the first Hospital in D.K District to admit medico-legal cases and road traffic accident cases.',
-        image: '/images/technologies/technology-4.png'
-    },
-]
+
+}
+
 </script>
 
 <template>
     <div id="list" class="technologies-list-wrapper mt-28">
-        <ul class="items-list">
-            <li v-for="(item, index) of items" :key="index" class="item">
+        <ul class="items-list technologies-list">
+            <li v-for="(item, index) of items" :key="index" class="item technologies-item">
                 <span class="top-line"></span>
                 <span class="right-line"></span>
                 <div class="left-col">
@@ -102,14 +132,13 @@ const items = [
                             <button class="read-more-btn big-size black-color" data-v-a2720cde="">
                                 <div class="inner" data-v-a2720cde="">
                                     <span class="icon arrow-right" data-v-a2720cde="">
-                                        <span class="icon-container arrow-right-icon-container"
-                                            data-v-a2720cde="">
+                                        <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">
                                             <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                class="arrow-right-icon shadow-icon" data-v-a2720cde="">
+                                                xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon shadow-icon"
+                                                data-v-a2720cde="">
                                                 <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
-                                                    stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" data-v-a2720cde=""></path>
+                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                                    data-v-a2720cde=""></path>
                                                 <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
                                                     stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round" data-v-a2720cde=""></path>
@@ -118,8 +147,8 @@ const items = [
                                                 xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon"
                                                 data-v-a2720cde="">
                                                 <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
-                                                    stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" data-v-a2720cde=""></path>
+                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                                    data-v-a2720cde=""></path>
                                                 <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
                                                     stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round" data-v-a2720cde=""></path>
@@ -146,7 +175,7 @@ const items = [
         display: grid;
         grid-template-columns: 1fr 1fr;
         width: 100%;
-        
+
         @media screen and (max-width: 768px) {
             grid-template-columns: 1fr;
         }
@@ -158,7 +187,7 @@ const items = [
             display: flex;
             height: 65vh;
             position: relative;
-            
+
             @media screen and (max-width: 768px) {
                 height: 100%;
                 padding: calc(1.40625rem + 1.45833vw) 2rem calc(1.48438rem + 2.1875vw);
@@ -234,7 +263,7 @@ const items = [
                     margin-bottom: 1.25rem;
                     margin-top: 1.25rem;
                     position: relative;
-                    
+
                     @media screen and (max-width: 768px) {
                         font-size: calc(1.51563rem + 2.47917vw);
                     }
@@ -247,7 +276,7 @@ const items = [
                     font-family: 'Aeonik-Regular';
                     position: relative;
                     width: 80%;
-                    
+
                     @media screen and (max-width: 768px) {
                         line-height: 1.3em;
                         margin-bottom: 20px;
@@ -426,7 +455,7 @@ const items = [
                     position: relative;
                     top: 15%;
                     width: 100%;
-                    
+
                     @media screen and (max-width: 768px) {
                         width: 85%;
                     }

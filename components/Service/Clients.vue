@@ -1,15 +1,47 @@
-<script setup>
-const clients = [
-    { text: 'Our Counselors are renowned, with expertise in several subspecialities', svg: '/images/services/client-1.svg' },
-    { text: 'Our Counselors are available to serve as Principal investigators and Consultants', svg: '/images/services/client-2.svg' },
-    { text: 'Our Counselors are also employed full-time and at all our locations', svg: '/images/services/client-3.svg' },
-]
+<script>
+export default {
+    data() {
+        const clients = [
+            { text: 'Our Counselors are renowned, with expertise in several subspecialities', svg: '/images/services/client-1.svg' },
+            { text: 'Our Counselors are available to serve as Principal investigators and Consultants', svg: '/images/services/client-2.svg' },
+            { text: 'Our Counselors are also employed full-time and at all our locations', svg: '/images/services/client-3.svg' },
+        ]
+        return {
+            clients
+        }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.client-students',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.client-title-container', {
+            opacity: 0,
+            y: 20,
+            duration: 0.15,
+        });
+        this.clients.forEach((item, index) => {
+            const delay = index * 0.2; // Adjust the delay for each item
+
+            tl.from(`.client-student-list:nth-child(${index + 1})`, {
+                opacity: 0,
+                x: -20,
+                duration: 0.5,
+                delay,
+            });
+        });
+    }
+}
 </script>
 
 <template>
-    <div id="clients" class="client-block-wrapper bg-[#D4E6DF]">
+    <div id="clients" class="client-block-wrapper client-students bg-[#D4E6DF]">
         <div class="title-col flex justify-center px-8">
-            <div class="text-center md:w-[37.5%] px-3">
+            <div class="text-center md:w-[37.5%] px-3 client-title-container">
                 <div class="order-number-wrapper">
                     <span class="index">02</span>
                 </div>
@@ -59,7 +91,7 @@ const clients = [
         <div class="flex justify-center px-6 mt-24">
             <div class="w-full md:w-3/4 px-3 mb-12">
                 <div class="flex justify-between items-center flex-col md:flex-row clients-list">
-                    <div v-for="(client, index) of clients" :key="index" class="item flex flex-col justify-around px-3">
+                    <div v-for="(client, index) of clients" :key="index" class="item flex flex-col justify-around px-3 client-student-list">
                         <div class="image-wrapper">
                             <img :src="client.svg" />
                         </div>

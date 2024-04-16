@@ -1,18 +1,48 @@
+<script>
+export default {
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#careers',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.careers-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.1,
+        });
+        tl.from('.careers-text', {
+            opacity: 0,
+            y: 20,
+            duration: 0.3,
+        });
+        tl.from('.careers-btn', {
+            opacity: 0,
+            y: 20,
+            duration: 0.4,
+        });
+    }
+}
+</script>
+
 <template>
     <div id="careers" class="careers-block-container">
         <div class="flex px-6">
             <div class="w-full md:w-[31.25%] ml-0 md:ml-[6.25%] px-3">
-                <h2 class="title">Come work with us!</h2>
+                <h2 class="title careers-title">Come work with us!</h2>
             </div>
         </div>
         <div class="flex mb-20 px-6">
             <div class="w-full md:w-[37.5%] ml-0 md:ml-[43.75%] px-3">
                 <div class="text">
-                    <p class="mb-8">CampusEntri is a fast-growing specialty reference laboratory committed to excellence
+                    <p class="mb-8 careers-text">CampusEntri is a fast-growing specialty reference laboratory committed to excellence
                         and high-quality services. We treat all individuals with mutual respect and integrity, and we
                         value their contributions. We are committed to providing a positive and flexible environment
                         that supports work-life balance.</p>
-                    <p class="mb-8">We are always looking for talented and highly motivated individuals to join our
+                    <p class="mb-8 careers-text">We are always looking for talented and highly motivated individuals to join our
                         team. We offer a very competitive benefits package and career development opportunities to help
                         you achieve your highest professional and personal goals. We are eager to show you all we have
                         to offer!</p>
@@ -22,14 +52,14 @@
         <div class="resume-container pb-52">
             <div class="flex justify-center px-6">
                 <div class="text-center w-full md:w-[62.5%]">
-                    <h2 class="title">Do you want to be considered for future openings?</h2>
+                    <h2 class="title careers-title">Do you want to be considered for future openings?</h2>
                 </div>
             </div>
             <div class="flex justify-center px-6">
                 <div class="w-full md:w-[37.5%] text-center">
-                    <p class="mb-12">If you believe that you have what it takes to be part of a highly successful team
+                    <p class="mb-12 careers-text">If you believe that you have what it takes to be part of a highly successful team
                         and you share our commitment to improve patient care, please send us your resume.</p>
-                    <button class="read-more-btn big-size black-color" data-v-a2720cde="">
+                    <button class="read-more-btn big-size black-color careers-btn" data-v-a2720cde="">
                         <div class="inner" data-v-a2720cde="">
                             <span class="icon arrow-right" data-v-a2720cde="">
                                 <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">

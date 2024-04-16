@@ -1,3 +1,28 @@
+<script>
+export default {
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#leaders',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.leader-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.3,
+        });
+        tl.from('.leader-text', {
+            opacity: 0,
+            y: 20,
+            duration: 0.3,
+        }, '-=0.1');
+    }
+}
+</script>
+
 <template>
     <div id="leaders" class="leader-wrapper pb-48">
         <div class="flex flex-col md:flex-row px-6">
@@ -6,18 +31,18 @@
             </div>
             <div class="text-container ml-0 md:ml-[6.25%] w-full md:w-[31.25%] px-3">
                 <div>
-                    <h2>Industry Leaders</h2>
+                    <h2 class="leader-title">Industry Leaders</h2>
                 </div>
-                <p class="mb-12">We are industry leaders in the field of Admission Guidance for career transition and skill
+                <p class="mb-12 leader-text">We are industry leaders in the field of Admission Guidance for career transition and skill
                     development.</p>
-                <p class="mb-12">Since 2019, we have been optimizing our methods to provide the highest levels of performance, quality
+                <p class="mb-12 leader-text">Since 2019, we have been optimizing our methods to provide the highest levels of performance, quality
                     and sustainability.</p>
-                <h3 class="mb-5">Firm ...</h3>
-                <p class="mb-12">CampusEntri® was established with a clear commitment to put students needs above all. We are firm
+                <h3 class="mb-5 leader-text">Firm ...</h3>
+                <p class="mb-12 leader-text">CampusEntri® was established with a clear commitment to put students needs above all. We are firm
                     when it comes to being student centric. With no venture capitalists or shareholders to influence our
                     decisions, we refuse to put finances above student's education.</p>
-                <h3 class="mb-5">... Yet Flexible</h3>
-                <p>We also pride ourselves in being flexible by providing high quality service with rapid turnaround
+                <h3 class="mb-5 leader-text">... Yet Flexible</h3>
+                <p class="leader-text">We also pride ourselves in being flexible by providing high quality service with rapid turnaround
                     times. We are attentive.</p>
             </div>
         </div>

@@ -1,27 +1,72 @@
+<script>
+export default {
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#technologies',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.technology-title', {
+            opacity: 0,
+            x: -60,
+            duration: 0.5,
+        });
+
+        tl.from('.choice-btn', {
+            opacity: 0,
+            x: 90,
+            duration: 0.3,
+        }, '-=0.2');
+        tl.from('.text-container-text', {
+            opacity: 0,
+            y: 40,
+            duration: 0.5,
+        });
+        tl.from('.promo-block-wrapper', {
+            scale: 0,
+            duration: 1,
+            ease: 'power2.out',
+        });
+
+        tl.from(['.inner-promo', '.promo-video'], {
+            scale: 0,
+            duration: 1,
+            ease: 'power2.out',
+        }, '-=1');
+    }
+}
+</script>
+
 <template>
     <div id="technologies" class="technologies-wrapper">
         <section class="relative py-12 md:py-28 pb-24 md:pb-52">
             <div class="flex justify-between px-12 w-full md:w-3/4 mx-auto">
-                <h1>Top Choices</h1>
+                <h1 class="technology-title">Top Choices</h1>
                 <div class="w-1/4 top-coices-wrapper hidden md:block">
                     <NuxtLink to="/colleges">
-                        <button class="read-more-btn w-full big-size black-color" data-v-a2720cde="">
+                        <button class="read-more-btn w-full big-size black-color choice-btn" data-v-a2720cde="">
                             <div class="inner" data-v-a2720cde="">
                                 <span class="icon arrow-right" data-v-a2720cde="">
                                     <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">
                                         <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon shadow-icon"
                                             data-v-a2720cde="">
-                                            <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" data-v-a2720cde=""></path>
+                                            <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                                data-v-a2720cde=""></path>
                                             <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526" stroke="#2C2C2C"
                                                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
                                                 data-v-a2720cde=""></path>
                                         </svg>
                                         <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon" data-v-a2720cde="">
-                                            <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" data-v-a2720cde=""></path>
+                                            xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon"
+                                            data-v-a2720cde="">
+                                            <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                                data-v-a2720cde=""></path>
                                             <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526" stroke="#2C2C2C"
                                                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
                                                 data-v-a2720cde=""></path>
@@ -35,11 +80,11 @@
                 </div>
             </div>
             <div class="text-container flex flex-col md:flex-row py-6 px-12 mt-12">
-                <div class="w-full md:w-[31.25%] ml-0 md:ml-[12.5%]">
+                <div class="w-full md:w-[31.25%] ml-0 md:ml-[12.5%] text-container-text">
                     <h3 class="m-0 text-4xl">Our team features the top most colleges available that goes beyond
                         Traditional boundaries.</h3>
                 </div>
-                <div class="w-full md:w-[31.25%] mt-12 md:mt-0 ml-0 md:ml-[12.5%]">
+                <div class="w-full md:w-[31.25%] mt-12 md:mt-0 ml-0 md:ml-[12.5%] text-container-text">
                     <p class="text-4xl">We continuously invest in Top technologies to provide the highest quality of
                         data to our students.</p>
                 </div>
@@ -50,14 +95,14 @@
         </section>
         <section class="promo-block-wrapper ">
             <div class="grid grid-cols-1 md:grid-cols-2 md:flex-row h-full">
-                <div class="inner p-6 md:p-0 bg-[#ff4134] text-white h-full flex justify-center order-2 md:order-1 items-center flex-col">
+                <div
+                    class="inner inner-promo p-6 md:p-0 bg-[#ff4134] text-white h-full flex justify-center order-2 md:order-1 items-center flex-col">
                     <h2 class="title">We are here to support you.</h2>
                     <div class="cta-container flex items-center gap-8 pl-0 md:pl-20 mt-6 md:mt-10">
                         <button class="read-more-btn big-size white-color" data-v-a2720cde="">
                             <div class="inner" data-v-a2720cde="">
                                 <span class="icon message" data-v-a2720cde="">
-                                    <span class="icon-container message-icon-container"
-                                        data-v-a2720cde="">
+                                    <span class="icon-container message-icon-container" data-v-a2720cde="">
                                         <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" class="message-icon shadow-icon"
                                             data-v-a2720cde="">
@@ -66,7 +111,7 @@
                                                 fill="#2C2C2C" data-v-a2720cde=""></path>
                                             <path d="M17.0985 17.1003H0V19.0002H17.0985V17.1003Z" fill="#2C2C2C"
                                                 data-v-a2720cde=""></path>
-                                        </svg> 
+                                        </svg>
                                         <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" class="message-icon" data-v-a2720cde="">
                                             <path
@@ -76,16 +121,15 @@
                                                 data-v-a2720cde=""></path>
                                         </svg>
                                     </span>
-                                </span> 
-                                <span class="label-sizer"
-                                    data-v-a2720cde="">Contact us
+                                </span>
+                                <span class="label-sizer" data-v-a2720cde="">Contact us
                                 </span>
                             </div>
                         </button>
                         <p>A member of our team will contact you shortly.</p>
                     </div>
                 </div>
-                <div class="background-video relative inset-0 overflow-hidden h-full order-1 md:order-2">
+                <div class="background-video promo-video relative inset-0 overflow-hidden h-full order-1 md:order-2">
                     <video autoplay muted loop class="min-w-full min-h-full">
                         <source src="/videos/promo-block-big-uhd.mp4" type="video/mp4">
                     </video>
@@ -98,7 +142,7 @@
 <style lang="scss" scoped>
 .technologies-wrapper {
     h1 {
-        @media screen and (max-width:768px ) {
+        @media screen and (max-width:768px) {
             font-size: calc(1.79688rem + 5.10417vw);
         }
     }
@@ -109,43 +153,43 @@
         cursor: pointer;
         position: relative;
         transition: transform .5s cubic-bezier(.19, 1, .22, 1);
-    
+
         &:active {
             transform: scale(.9);
         }
-    
+
         &:hover {
             .inner {
                 transform: scale(1.15);
-    
+
                 .icon {
                     &:before {
                         opacity: 1;
                         transform: scale(1);
                     }
                 }
-    
+
                 .arrow-right-icon-container {
                     .shadow-icon {
                         opacity: 1 !important;
                         transform: translate(0) !important;
                     }
-    
+
                     svg {
                         path {
                             stroke: #fff;
                         }
                     }
-    
+
                     .arrow-right-icon {
                         opacity: 0;
                         transform: translate(30px);
                     }
                 }
             }
-    
+
         }
-    
+
         .inner {
             height: 4.5rem;
             border-radius: 60px;
@@ -155,7 +199,7 @@
             position: relative;
             transition: transform .5s cubic-bezier(.19, 1, .22, 1);
             will-change: transform;
-    
+
             &:before {
                 background-color: #2c2c2c;
                 border-radius: 60px;
@@ -170,7 +214,7 @@
                 width: 100%;
                 z-index: 0;
             }
-    
+
             .icon {
                 height: 3.125rem;
                 width: 3.125rem;
@@ -182,13 +226,13 @@
                 justify-content: center;
                 overflow: hidden;
                 position: relative;
-    
+
                 svg {
                     path {
                         transition: stroke .5s cubic-bezier(.19, 1, .22, 1);
                     }
                 }
-    
+
                 &:before {
                     background-color: #2c2c2c;
                     border-radius: 100%;
@@ -204,18 +248,18 @@
                     transition: opacity .5s cubic-bezier(.19, 1, .22, 1), transform .5s cubic-bezier(.19, 1, .22, 1);
                     width: calc(100% - 4px);
                 }
-    
+
                 .arrow-right-icon-container {
                     transform: scale(1.2);
                     transform-origin: center;
-    
+
                     .arrow-right-icon {
                         display: block;
                         left: 1px;
                         position: relative;
                         transition: opacity .5s cubic-bezier(.19, 1, .22, 1), transform .5s cubic-bezier(.19, 1, .22, 1);
                     }
-    
+
                     .shadow-icon {
                         display: block;
                         left: 0;
@@ -229,7 +273,7 @@
                 }
             }
         }
-    
+
         .label-container {
             left: 3.75rem;
             align-items: center;
@@ -239,7 +283,7 @@
             top: 0;
             width: 100%;
         }
-    
+
         .label-sizer {
             color: #fff;
             display: inline-block;
@@ -262,6 +306,7 @@
     max-height: 90vh;
     overflow: hidden;
     position: relative;
+    transform: scale(1);
 
     @media screen and (max-width: 768px) {
         height: 100%;
@@ -287,46 +332,47 @@
         cursor: pointer;
         position: relative;
         transition: transform .5s cubic-bezier(.19, 1, .22, 1);
-    
+
         &:active {
             transform: scale(.9);
         }
-    
+
         &:hover {
             .inner {
                 transform: scale(1.15);
-    
+
                 .icon {
                     &:before {
                         opacity: 1;
                         transform: scale(1);
                     }
                 }
-    
+
                 .message-icon-container {
                     .shadow-icon {
                         opacity: 1 !important;
                         transform: translate(0) !important;
+
                         path {
                             fill: #ff4134 !important;
                         }
                     }
-    
+
                     // svg {
                     //     path {
                     //         fill: #ff4134;
                     //     }
                     // }
-    
+
                     .message-icon {
                         opacity: 0;
                         transform: translate(30px);
                     }
                 }
             }
-    
+
         }
-    
+
         .inner {
             height: 4.5rem;
             border-radius: 60px;
@@ -336,7 +382,7 @@
             position: relative;
             transition: transform .5s cubic-bezier(.19, 1, .22, 1);
             will-change: transform;
-    
+
             &:before {
                 background-color: #fff;
                 border-radius: 60px;
@@ -351,7 +397,7 @@
                 width: 100%;
                 z-index: 0;
             }
-    
+
             .icon {
                 height: 3.125rem;
                 width: 3.125rem;
@@ -363,13 +409,13 @@
                 justify-content: center;
                 overflow: hidden;
                 position: relative;
-    
+
                 svg {
                     path {
                         transition: stroke .5s cubic-bezier(.19, 1, .22, 1);
                     }
                 }
-    
+
                 &:before {
                     background-color: #fff;
                     border-radius: 100%;
@@ -385,21 +431,22 @@
                     transition: opacity .5s cubic-bezier(.19, 1, .22, 1), transform .5s cubic-bezier(.19, 1, .22, 1);
                     width: calc(100% - 4px);
                 }
-    
+
                 .message-icon-container {
                     transform: scale(1.2);
                     transform-origin: center;
-    
+
                     .message-icon {
                         display: block;
                         left: 1px;
                         position: relative;
                         transition: opacity .5s cubic-bezier(.19, 1, .22, 1), transform .5s cubic-bezier(.19, 1, .22, 1);
+
                         path {
                             fill: #fff;
                         }
                     }
-    
+
                     .shadow-icon {
                         display: block;
                         left: 0;
@@ -413,7 +460,7 @@
                 }
             }
         }
-    
+
         .label-container {
             left: 3.75rem;
             align-items: center;
@@ -423,7 +470,7 @@
             top: 0;
             width: 100%;
         }
-    
+
         .label-sizer {
             color: #2c2c2c;
             display: inline-block;

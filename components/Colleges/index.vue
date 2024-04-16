@@ -11,12 +11,27 @@ export default {
                 });
             }
         }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.college-container',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.college-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.1,
+        });
     }
 }
 </script>
 
 <template>
-    <div id="hero" class="company-container h-screen relative">
+    <div id="hero" class="college-container h-screen relative">
         <div class="background-video relative inset-0 overflow-hidden">
             <video autoplay muted loop class="min-w-full min-h-full">
                 <source src="/videos/technologies-hd.mp4" type="video/mp4">
@@ -24,7 +39,7 @@ export default {
         </div>
         <div class="text-overlay absolute inset-0 flex items-center flex-col justify-center">
             <div class="page-title flex justify-center items-center">
-                <h1 class="text-gray-100 text-start title">Bring Bright Career to Everyone
+                <h1 class="text-gray-100 text-start title college-title">Bring Bright Career to Everyone
                 </h1>
             </div>
             <div class="flex items-stretch mt-10 w-full px-3 md:px-10">
@@ -44,7 +59,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.company-container {
+.college-container {
     .line {
         background-color: #fff;
         display: block;

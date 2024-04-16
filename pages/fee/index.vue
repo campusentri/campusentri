@@ -1,19 +1,33 @@
 <script>
-
 export default {
-  data() {
-    return {
-      isModalOpen: false
-    }
-  },
-  methods: {
-    openModal() {
-      this.isModalOpen = true;
+    data() {
+        return {
+            isModalOpen: false
+        }
     },
-    closeModal() {
-      this.isModalOpen = false;
+    methods: {
+        openModal() {
+            this.isModalOpen = true;
+        },
+        closeModal() {
+            this.isModalOpen = false;
+        }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.hero-text-wrapper',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.hero-text', {
+            opacity: 0,
+            y: 20,
+            duration: 0.2,
+        });
     }
-  }
 }
 </script>
 

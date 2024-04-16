@@ -1,9 +1,29 @@
+<script>
+export default {
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.about-clients',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.client-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.1,
+        });
+    }
+}
+</script>
+
 <template>
-    <div id="clients" class="clients-block-wrapper">
+    <div id="clients" class="clients-block-wrapper about-clients">
         <div class="bg-gradient"></div>
         <div class="flex justify-center px-6 relative">
             <div class="w-full md:w-1/2 mx-auto">
-                <h2 class="title">Our students are from Kerala. So are we...</h2>
+                <h2 class="title client-title">Our students are from Kerala. So are we...</h2>
             </div>
         </div>
         <div class="w-full relative px-6 flex image-container">

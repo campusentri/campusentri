@@ -11,6 +11,35 @@ export default {
                 { id: '06', name: 'Bachelor of Medical Imaging Technology' },
             ]
         };
+    },
+    mounted() {
+
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#expertise',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+
+        tl.from('.expertise-title', {
+            opacity: 0,
+            y: 50,
+            duration: 0.2,
+            delay: 0.2
+        });
+        tl.from('.section', {
+            opacity: 0,
+            y: 20,
+            duration: 0.2,
+            delay: 0.2
+        });
+        tl.from('.section-line', {
+            scale: 0,
+            duration: 1,
+            ease: 'power2.out'
+        });
     }
 };
 </script>
@@ -25,14 +54,14 @@ export default {
             <img class="absolute right-0 top-[-7%] w-40" src="@/assets/imgs/expertise/expertise-5.jpg" />
         </div>
         <div class="flex mx-auto px-12">
-            <h1 class="w-1/2 ml-[15.75%] text-white">Transforming Discoveries</h1>
+            <h1 class="w-1/2 ml-[15.75%] expertise-title text-white">Transforming Discoveries</h1>
         </div>
         <div class="bio-list-container z-50 relative flex flex-col md:flex-row px-6 md:px-12 mt-12 md:mt-20 text-white">
             <div class="flex mx-auto w-full md:w-1/4 ml-0 md:ml-[15.75%]">
-                <div>
+                <div class="section">
                     <span class="subtitle flex gap-3 items-center">
                         <span>Our Bio</span>
-                        <span class="line"></span>
+                        <span class="section-line line"></span>
                     </span>
                     <p class="mt-3">Our expertised, counseling and guidance teams have the experience needed to propel
                         students
@@ -41,10 +70,10 @@ export default {
                 </div>
             </div>
             <div class="flex mr-auto mt-8 md:mt-0 w-full md:w-[31.25%] ml-0 md:ml-[0.25%]">
-                <div>
+                <div class="section">
                     <span class="subtitle flex gap-3 items-center">
                         <span>Expertise</span>
-                        <span class="line"></span>
+                        <span class="section-line line"></span>
                     </span>
                     <ul class="mt-3">
                         <li class="list" v-for="item in expertise" :key="item.id">
@@ -80,6 +109,7 @@ export default {
         flex-grow: 1;
         height: 1px;
         position: relative;
+        transform-origin: left;
     }
 
     .list {
@@ -89,9 +119,10 @@ export default {
                 opacity: 0.7;
             }
         }
+
         .label {
             flex-grow: 1;
-            transition: transform .5s cubic-bezier(.19,1,.22,1), opacity .5s cubic-bezier(.19,1,.22,1);
+            transition: transform .5s cubic-bezier(.19, 1, .22, 1), opacity .5s cubic-bezier(.19, 1, .22, 1);
         }
     }
 }

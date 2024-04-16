@@ -1,26 +1,77 @@
-<script setup>
-const slides = [
-    '/images/services/service-1.png',
-    '/images/services/service-2.png',
-    '/images/services/service-3.png',
-    '/images/services/service-4.png'
-];
-const services = [
-    { name: 'College Selection', image: 'images/services/service-5.png' },
-    { name: 'Free Campus Visits', image: 'images/services/service-6.png' },
-    { name: 'Loan Assistance', image: 'images/services/service-7.png' },
-];
-const appreciations = [
-    { name: 'IAO-Accredited', image: 'images/services/cap.png' },
-    { name: 'NACAC-Certified', image: 'images/services/clia.png' },
-    { name: 'ECS-Complaint' },
-    { name: 'A Global Reference Team & System' },
-];
-const clients = [
-    { text: 'Our Counselors are renowned, with expertise in several subspecialities', svg: '/images/services/client-1.svg' },
-    { text: 'Our Counselors are available to serve as Principal investigators and Consultants', svg: '/images/services/client-2.svg' },
-    { text: 'Our Counselors are also employed full-time and at all our locations', svg: '/images/services/client-3.svg' },
-]
+<script>
+export default {
+    data() {
+        const slides = [
+            '/images/services/service-1.png',
+            '/images/services/service-2.png',
+            '/images/services/service-3.png',
+            '/images/services/service-4.png'
+        ];
+        const services = [
+            { name: 'College Selection', image: 'images/services/service-5.png' },
+            { name: 'Free Campus Visits', image: 'images/services/service-6.png' },
+            { name: 'Loan Assistance', image: 'images/services/service-7.png' },
+        ];
+        const appreciations = [
+            { name: 'IAO-Accredited', image: 'images/services/cap.png' },
+            { name: 'NACAC-Certified', image: 'images/services/clia.png' },
+            { name: 'ECS-Complaint' },
+            { name: 'A Global Reference Team & System' },
+        ];
+        const clients = [
+            { text: 'Our Counselors are renowned, with expertise in several subspecialities', svg: '/images/services/client-1.svg' },
+            { text: 'Our Counselors are available to serve as Principal investigators and Consultants', svg: '/images/services/client-2.svg' },
+            { text: 'Our Counselors are also employed full-time and at all our locations', svg: '/images/services/client-3.svg' },
+        ]
+        return {
+            slides,
+            services,
+            appreciations,
+            clients
+        }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '#services',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.service-title', {
+            opacity: 0,
+            x: -60,
+            duration: 0.5,
+        });
+
+        tl.from('.service-btn', {
+            opacity: 0,
+            x: 90,
+            duration: 0.3,
+        }, '-=0.2');
+        tl.from('.service-text', {
+            opacity: 0,
+            y: 40,
+            duration: 0.5,
+        });
+        tl.from('.service-item', {
+            opacity: 0,
+            x: -20,
+            duration: 0.3,
+        });
+        tl.from('.service-list', {
+            opacity: 0,
+            y: 60,
+            duration: 0.3,
+        });
+        tl.from('.clients-item', {
+            opacity: 0,
+            y: 60,
+            duration: 0.8,
+        });
+    }
+}
 </script>
 
 <template>
@@ -53,25 +104,28 @@ const clients = [
         <section class="services-block">
             <div class="flex justify-start md:justify-center px-0 md:px-6">
                 <div class="flex justify-between items-center w-3/4 px-3 mb-4 md:mb-12">
-                    <h2>Services</h2>
+                    <h2 class="service-title">Services</h2>
                     <NuxtLink to="/services">
-                        <button class="read-more-btn big-size black-color hidden md:block" data-v-a2720cde="">
+                        <button class="read-more-btn big-size black-color hidden md:block service-btn" data-v-a2720cde="">
                             <div class="inner" data-v-a2720cde="">
                                 <span class="icon arrow-right" data-v-a2720cde="">
                                     <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">
                                         <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon shadow-icon"
                                             data-v-a2720cde="">
-                                            <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" data-v-a2720cde=""></path>
+                                            <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                                data-v-a2720cde=""></path>
                                             <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526" stroke="#2C2C2C"
                                                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
                                                 data-v-a2720cde=""></path>
                                         </svg>
                                         <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon" data-v-a2720cde="">
-                                            <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" data-v-a2720cde=""></path>
+                                            xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon"
+                                            data-v-a2720cde="">
+                                            <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                                data-v-a2720cde=""></path>
                                             <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526" stroke="#2C2C2C"
                                                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
                                                 data-v-a2720cde=""></path>
@@ -87,9 +141,9 @@ const clients = [
             <div class="flex justify-center my-12">
                 <div class="flex justify-between items-start flex-col md:flex-row w-full md:w-3/4 px-3 mb-12">
                     <div class="w-full md:w-[42.25%]">
-                        <h3 class="block md:hidden">Propelling Career Guidance & placements for free</h3>
+                        <h3 class="block md:hidden service-text">Propelling Career Guidance & placements for free</h3>
                         <ul class="services-list">
-                            <li v-for="(service, index) of services" :key="index" class="item">
+                            <li v-for="(service, index) of services" :key="index" class="item service-item">
                                 <div class="image-wrapper">
                                     <img :src="service.image" />
                                 </div>
@@ -98,9 +152,9 @@ const clients = [
                         </ul>
                     </div>
                     <div class="w-full md:w-[37.5%] mt-12 md:mt-0">
-                        <h3 class="mb-8 hidden md:block">Propelling Career Guidance & placements for free</h3>
+                        <h3 class="mb-8 hidden md:block service-text">Propelling Career Guidance & placements for free</h3>
                         <ul class="list">
-                            <li v-for="(appreciation, index) of appreciations" :key="index" class="item">
+                            <li v-for="(appreciation, index) of appreciations" :key="index" class="item service-list">
                                 <span class="label">{{ appreciation.name }}</span>
                                 <img v-if="appreciation.image" :src="appreciation.image" :alt="appreciation.name" />
                             </li>
@@ -111,7 +165,8 @@ const clients = [
             <div class="flex justify-center px-6">
                 <div class="w-full md:w-3/4 px-3 mb-12">
                     <div class="flex justify-between items-center flex-col md:flex-row clients-list">
-                        <div v-for="(client, index) of clients" :key="index" class="item flex flex-col justify-around px-3">
+                        <div v-for="(client, index) of clients" :key="index"
+                            class="item clients-item flex flex-col justify-around px-3">
                             <div class="image-wrapper">
                                 <img :src="client.svg" />
                             </div>

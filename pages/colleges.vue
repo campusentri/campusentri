@@ -1,3 +1,23 @@
+<script>
+export default {
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.hero-text-wrapper',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.hero-text', {
+            opacity: 0,
+            y: 20,
+            duration: 0.2,
+        });
+    }
+}
+</script>
+
 <template>
     <div class="technology-content">
         <Colleges />

@@ -1,19 +1,34 @@
 <script>
 
 export default {
-  data() {
-    return {
-      isModalOpen: false
-    }
-  },
-  methods: {
-    openModal() {
-      this.isModalOpen = true;
+    data() {
+        return {
+            isModalOpen: false
+        }
     },
-    closeModal() {
-      this.isModalOpen = false;
+    methods: {
+        openModal() {
+            this.isModalOpen = true;
+        },
+        closeModal() {
+            this.isModalOpen = false;
+        }
+    },
+    mounted() {
+        const tl = this.$gsap.timeline({
+            scrollTrigger: {
+                trigger: '.hero-text-wrapper',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: "play none none reverse",
+            }
+        });
+        tl.from('.hero-text', {
+            opacity: 0,
+            y: 20,
+            duration: 0.3,
+        });
     }
-  }
 }
 </script>
 
@@ -31,7 +46,8 @@ export default {
                     <div class="flex justify-center items-center px-8">
                         <div class="px-3 md:w-[56.25%]">
                             <h2 class="hero-text">
-                                Our scientific experts at CampusEntri® have the experience and tools that allow them to be highly responsive to the needs of our students.
+                                Our scientific experts at CampusEntri® have the experience and tools that allow them to
+                                be highly responsive to the needs of our students.
                             </h2>
                         </div>
                     </div>
