@@ -50,7 +50,7 @@ export default {
                     in the medical field.</p>
             </div>
         </div>
-        <div class="flex justify-center px-8">
+        <!-- <div class="flex justify-center px-8">
             <div class="webgl-clients">
                 <ul class="percentage-list">
                     <li class="item">
@@ -87,7 +87,7 @@ export default {
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div class="flex justify-center px-6 mt-24">
             <div class="w-full md:w-3/4 px-3 mb-12">
                 <div class="flex justify-between items-center flex-col md:flex-row clients-list">

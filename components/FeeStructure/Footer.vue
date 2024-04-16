@@ -15,7 +15,7 @@ const footerData = [
         title: 'Colleges',
         links: [
             'AJ Institute',
-            'Yenepaya Institute',
+            'Yenepoya Institute',
             'Nitte Institute',
             'Srinivas Institute',
             'Mangala Institute',

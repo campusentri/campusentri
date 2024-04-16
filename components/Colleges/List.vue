@@ -8,7 +8,7 @@ export default {
                 image: '/images/technologies/technology-1.png'
             },
             {
-                title: 'Yenepaya Institute',
+                title: 'Yenepoya Institute',
                 text: '(NIRF) ranked 97 among the top 100 universities in India',
                 image: '/images/technologies/technology-2.png'
             },

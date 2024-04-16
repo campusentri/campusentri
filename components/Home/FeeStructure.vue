@@ -51,10 +51,10 @@ export default {
             x: -60,
             duration: 0.5,
         });
-        tl.from('.text-container-text', {
+        tl.from('.clinical-trials-block .text-container-text', {
             opacity: 0,
             y: 40,
-            duration: 0.5,
+            duration: 0.2,
         });
 
         tl.from(['.fee-img', '.fee-section'], {
@@ -83,11 +83,11 @@ export default {
             </div>
         </div>
         <div class="flex justify-center px-4 md:px-14 h-full mt-16 inner">
-            <div class="flex flex-col md:flex-row px-0 md:px-3 w-[95%] md:w-[87.25%] h-full">
-                <div class="image-col w-full md:w-1/2 h-full fee-img">
+            <div class="grid grid-cols-1 md:grid-cols-2  px-0 md:px-3 w-[95%] md:w-[87.25%] h-full">
+                <div class="image-col  h-full fee-img">
                     <img src="@/assets/imgs/fee-structure/fee-structure.png" />
                 </div>
-                <div class="text-col flex items-start flex-col w-full md:w-1/2 h-full fee-section">
+                <div class="text-col flex items-start flex-col  h-full fee-section">
                     <div>
                         <h3>At a Glance</h3>
                         <ul class="list my-6 grid grid-cols-2 gap-2">

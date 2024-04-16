@@ -46,7 +46,7 @@ export default {
                     <div class="flex justify-center items-center px-8">
                         <div class="px-3 md:w-[56.25%]">
                             <h2 class="hero-text">
-                                Our scientific experts at CampusEntri® have the experience and tools that allow them to
+                                Our academic experts at CampusEntri® have the experience and tools that allow them to
                                 be highly responsive to the needs of our students.
                             </h2>
                         </div>

@@ -6,6 +6,7 @@
             <CompanyLeader />
             <CompanyClients />
             <CompanyCulture />
+            <CompanyValues />
             <CompanyCareers />
         </div>
         <CompanyFooter />

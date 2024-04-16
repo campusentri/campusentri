@@ -3,7 +3,7 @@ export default {
     data() {
         const items = [
             { name: 'AJ Institute', img: '/images/technologies/technology-4.png' },
-            { name: 'Yenepaya Institute', img: '/images/technologies/technology-2.png' },
+            { name: 'Yenepoya Institute', img: '/images/technologies/technology-2.png' },
             { name: 'Nitte Institute', img: '/images/technologies/technology-1.png' },
             { name: 'Srinivas Institute', img: '/images/technologies/technology-5.png' }
         ]

@@ -19,8 +19,8 @@ const items = [
         sixthYear: '12,00,000',
     },
     {
-        college: 'Yenepaya Institute ',
-        info: 'The MBBS program at Yenepaya spans five and a half years, including a one-year rotating internship',
+        college: 'Yenepoya Institute ',
+        info: 'The MBBS program at Yenepoya spans five and a half years, including a one-year rotating internship',
         firstYear: '6,40,000',
         secondYear: '6,47,000',
         thirdYear: '6,54,000',

@@ -23,7 +23,7 @@ export default {
         <div class="flex justify-center items-center px-6">
             <div class="w-full md:w-[62.5%] px-3">
                 <h2 class="title about-title">
-                    CampusEntri® provides services in Manglore and Kerala. We assist our students with finding new and more effective ways to find the right course at the best colleges.
+                    CampusEntri® provides services in Mangalore and Kerala. We assist our students with finding new and more effective ways to find the right course at the best colleges.
                 </h2>
             </div>
         </div>
