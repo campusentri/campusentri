@@ -38,6 +38,108 @@ export default {
                 paginate: 'Bachelor of Science in Medical Imaging Technology',
                 image: '/images/courses/course-6.png'
             },
+            {
+                title: 'BSc AT & OT Technology',
+                description: 'BSc. Anesthesia & Operation Theatre Technology is an undergraduate program designed to train healthcare professionals in the field of anesthesia and surgical procedures.',
+                paginate: 'Bachelor of Science in Anesthesia & Operation Theatre Technology',
+                image: '/images/courses/course-1.png'
+            },
+            {
+                title: 'Renal Dialysis Technology',
+                description: 'BSc. Renal Dialysis Technology is an undergraduate degree program that focuses on training students in the field of renal care and dialysis technology.',
+                paginate: 'Bachelor of Sience in Renal Dialysis Technology',
+                image: '/images/courses/course-2.png'
+            },
+            {
+                title: 'BSc. Radiology',
+                description: 'BSc. Radialogy is an undergraduate program designed to train students in the field of medical imaging and radiological sciences.',
+                paginate: 'Bachelor of Science in Radiology',
+                image: '/images/courses/course-3.png'
+            },
+            {
+                title: 'BSc. Optometry',
+                description: 'BSc. Optometry is an undergraduate program designed to train healthcare professionals in the field of optometry.',
+                paginate: 'Bachelor of Science in Optometry',
+                image: '/images/courses/course-4.png'
+            },
+            {
+                title: 'BSc. Respiratory Therapy',
+                description: 'BSc. Respiratory Therapy is an undergradute program focused on training healthcare professionals to assess, treat and manage patients with respiratory disorders.',
+                paginate: 'Bachelor of Science in Respiratory Therapy',
+                image: '/images/courses/course-5.png'
+            },
+            {
+                title: 'BSc. Occupational Therapy',
+                description: 'BSc. Occupational Therapy is an undergraduate program designed to train students in the field of occupational therapy.',
+                paginate: 'Bachelor of Science in Occupational Therapy',
+                image: '/images/courses/course-6.png'
+            },
+            {
+                title: 'BSc. Perfusion Technology',
+                description: 'BSc. Perfusion Technology is an undergraduate program designed to train healthcare professionals in the field of perfusion, a critical aspect of cardiac surgery.',
+                paginate: 'Bachelor of Science in Perfusion Technology',
+                image: '/images/courses/course-1.png'
+            },
+            {
+                title: 'Cardiovascular Technology',
+                description: 'BSc. Cardiovascular Technology is an undergraduate program aimed at training healthcare professionals to specialize in cardiovascular diagnostics, monitoring, and therapeutic interventions.',
+                paginate: 'Bachelor of Science in Cardiovascular Technology',
+                image: '/images/courses/course-2.png'
+            },
+            {
+                title: 'BSc. Cardiac Care Technology',
+                description: 'BSc. Cardiac Care Technology is an undergraduate program designed to train healthcare professionals in the field of cardiac care.',
+                paginate: 'Bachelor of Science in Cardiac Care Technology',
+                image: '/images/courses/course-3.png'
+            },
+            {
+                title: 'BSc. Emergency Medicine',
+                description: 'BSc. Emergency Medicine is an undergraduate program designed to train healthcare professionals in the specialized field of emergency care..',
+                paginate: 'Bachelor of Science in Emergency Medicine',
+                image: '/images/courses/course-4.png'
+            },
+            {
+                title: 'BSc. MLT',
+                description: 'BSc. MLT is an undergraduate program designed to train healthcare professionals in medical laboratory sciences.',
+                paginate: 'Bachelor of Science in Medical Laboratory Technology',
+                image: '/images/courses/course-5.png'
+            },
+            {
+                title: 'BSc. Neuroscience',
+                description: 'BSc. Neuroscience is an undergraduate program designed to provide students with a comprehensive understanding of the structure and function of the nervous system.',
+                paginate: 'Bachelor of Science in Neuroscience',
+                image: '/images/courses/course-6.png'
+            },
+            {
+                title: 'Food Nutrition and Dietetics',
+                description: 'BSc. Food Nutrition and Dietetics is an undergraduate program designed to educate students about the principles of nutrition, food science, and dietetics.',
+                paginate: 'Bachelor of Science in Food Nutrition and Dietetics',
+                image: '/images/courses/course-1.png'
+            },
+            {
+                title: 'BSc. Microbiology',
+                description: 'BSc. Microbiology is an undergraduate program designed to provide students with a comprehensive understanding of microorganisms, their structure, functions.',
+                paginate: 'Bachelor of Science in Microbiology',
+                image: '/images/courses/course-2.png'
+            },
+            {
+                title: 'BSc. Emergency and Trauma Care',
+                description: 'BSc. Emergency and Trauma Care is an undergraduate program designed to train students in the specialized field of emergency medical care.',
+                paginate: 'Bachelor of Science in Emergency and Trauma Care',
+                image: '/images/courses/course-3.png'
+            },
+            {
+                title: 'B Pharm',
+                description: 'Our mission is to advance the reach of precision medicine to all patients.',
+                paginate: 'Bachelor of Pharmacy Courses',
+                image: '/images/courses/course-4.png'
+            },
+            {
+                title: 'Pharm D',
+                description: 'Pharm.D is a professional doctoral-level program designed to train students as clinical pharmacists.',
+                paginate: 'Doctor of Pharmacy Courses',
+                image: '/images/courses/course-5.png'
+            },
         ];
         return {
             courses

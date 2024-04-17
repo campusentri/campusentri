@@ -15,11 +15,12 @@
             <div class="grid grid-cols-3 gap-8 h-full">
                 <div class="col-span-2 flex items-center">
                     <ul class="menu-items">
-                        <li><NuxtLink to="/" class="text-[5rem] mb-2 text-white" href="#"><span>Home</span></NuxtLink></li>
-                        <li><NuxtLink to="/courses" class="text-[5rem] mb-2 text-white" href="#"><span>Course</span></NuxtLink></li>
-                        <li><NuxtLink to="/colleges" class="text-[5rem] mb-2 text-white" href="#"><span>College</span></NuxtLink></li>
-                        <li><NuxtLink to="/fee" class="text-[5rem] mb-2 text-white" href="#"><span>Fee Structure</span></NuxtLink></li>
-                        <li><NuxtLink to="/company" class="text-[5rem] text-white" href="#"><span>Company</span></NuxtLink></li>
+                        <li><NuxtLink to="/" class="text-[4.5rem] mb-2 text-white" href="#"><span>Home</span></NuxtLink></li>
+                        <li><NuxtLink to="/courses" class="text-[4.5rem] mb-2 text-white" href="#"><span>Course</span></NuxtLink></li>
+                        <li><NuxtLink to="/colleges" class="text-[4.5rem] mb-2 text-white" href="#"><span>College</span></NuxtLink></li>
+                        <li><NuxtLink to="/fee" class="text-[4.5rem] mb-2 text-white" href="#"><span>Fee Structure</span></NuxtLink></li>
+                        <li><NuxtLink to="/company" class="text-[4.5rem] text-white" href="#"><span>Company</span></NuxtLink></li>
+                        <li><NuxtLink to="/services" class="text-[4.5rem] text-white" href="#"><span>Services</span></NuxtLink></li>
                     </ul>
                 </div>
                 <div class="flex justify-between flex-col">

@@ -26,6 +26,7 @@
                 <li><NuxtLink to="/colleges" class="main-links mb-1 text-white" href="#"><span>College</span></NuxtLink></li>
                 <li><NuxtLink to="/fee" class="main-links mb-1 text-white" href="#"><span>Fee Structure</span></NuxtLink></li>
                 <li><NuxtLink to="/company" class="main-links text-white" href="#"><span>Company</span></NuxtLink></li>
+                <li><NuxtLink to="/services" class="main-links text-white" href="#"><span>Services</span></NuxtLink></li>
             </ul>
             <ul class="menu-items mt-12">
                 <li><a class="other-links mb-2 text-white" href="#"><span>Careers</span></a></li>

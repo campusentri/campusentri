@@ -1,6 +1,6 @@
 <template>
     <div class="slider">
-        <div class="slide" v-for="(slide, index) in slides" :key="index" v-show="currentIndex === index">
+        <NuxtLink to="blogs" class="slide" v-for="(slide, index) in slides" :key="index" v-show="currentIndex === index">
             <div class="progress-bar" :style="{ width: progressBarWidth + '%' }"></div>
             <div class="press-release-container" :class="{ 'active': currentIndex === index }">
                 <span class="label-wrapper">
@@ -20,7 +20,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </NuxtLink>
     </div>
 </template>
 
@@ -36,7 +36,7 @@ export default {
             currentIndex: 0,
             progressInterval: null,
             progressBarWidth: 0,
-            progressBarDuration: 7000 // Duration in milliseconds for each slide
+            progressBarDuration: 7000000000000 // Duration in milliseconds for each slide
         };
     },
     mounted() {
