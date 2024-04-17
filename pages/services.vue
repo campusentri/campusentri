@@ -6,6 +6,7 @@
             <ServiceClients />
             <ServiceResults />
             <ServiceStory />
+            <ServicePanels />
         </div>
         <ServiceFooter />
     </div>

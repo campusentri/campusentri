@@ -25,7 +25,7 @@ export default {
             <div class="hero-text-wrapper pb-24 md:pb-48 relative">
                 <div class="flex items-center justify-center px-6">
                     <div class="w-full md:w-[62.5%] px-3">
-                        <h2 class="hero-text">Our team features the most Colleges available. We continuously invest in top Technologies to provide the highest quality of data to our Students.</h2>
+                        <h2 class="hero-text">Our team features the best Colleges available. We continuously invest in top Technologies to provide the highest quality of data to our Students.</h2>
                     </div>
                 </div>
             </div>

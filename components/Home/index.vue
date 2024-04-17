@@ -23,7 +23,7 @@ export default {
         </div>
         <div class="text-overlay absolute inset-0 flex items-center flex-col justify-center">
             <div class="page-title flex justify-center items-center">
-                <h1 class="text-gray-100 text-start title">Finding your Dreamy University made easy with CampusEntri
+                <h1 class="text-gray-100 text-start title">Finding your Dream University made easy with CampusEntri
                 </h1>
             </div>
             <div class="flex items-stretch mt-10 w-full px-3 md:px-10">
