@@ -70,6 +70,9 @@ export default {
         flex-direction: column;
         min-height: 90vh;
         width: 90vw;
+        @media screen and (max-width: 768px) {
+            width: 95vw;
+        }
         .modal-header {
             position: relative;
             justify-content: space-between;

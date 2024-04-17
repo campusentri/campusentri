@@ -107,7 +107,7 @@ export default {
     mounted() {
         const tl = this.$gsap.timeline({
             scrollTrigger: {
-                trigger: '#fee-structures',
+                trigger: '#fee-strutures',
                 start: 'top center',
                 end: 'bottom center',
                 toggleActions: "play none none reverse",
@@ -119,12 +119,12 @@ export default {
             duration: 0.2,
         });
         this.items.forEach((item, index) => {
-            const delay = index * 0.1; // Adjust the delay for each item
+            const delay = index * 0.01; // Adjust the delay for each item
 
             tl.from(`.fee-items:nth-child(${index + 1})`, {
                 opacity: 0,
-                y: 40,
-                duration: 0.2,
+                y: 20,
+                duration: 0.1,
                 delay,
             });
         });

@@ -25,26 +25,6 @@ export default {
             slides
         }
     },
-    mounted() {
-        const tl = this.$gsap.timeline({
-            scrollTrigger: {
-                trigger: '.story-block-wrapper',
-                start: 'top center',
-                end: 'bottom center',
-                toggleActions: 'play none none reverse',
-            },
-        });
-        tl.from('.story-title', {
-            opacity: 0,
-            y: 20,
-            duration: 0.15,
-        });
-        tl.from('.slider-list', {
-            opacity: 0,
-            x: -30,
-            duration: 0.2,
-        });
-    }
 }
 </script>
 

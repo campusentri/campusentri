@@ -26,7 +26,7 @@ const articles = [
             <div class="page-builder">
                 <article class="page-block">
                     <section class="image-block-wrapper grid-inner">
-                        <div class="flex flex-col md:flex-row px-8">
+                        <div class="flex flex-col md:flex-row px-3 md:px-8 gap-4 md:gap-0">
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2>MBBS is a professional undergraduate degree awarded to individuals upon completion of medical school.</h2>
@@ -43,7 +43,7 @@ const articles = [
                 </article>
                 <article class="page-block">
                     <section class="text-block-wrapper">
-                        <div class="flex flex-col md:flex-row px-8">
+                        <div class="flex flex-col md:flex-row px-3 md:px-8 gap-4 md:gap-0">
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2 class="title">Duration</h2>
@@ -61,7 +61,7 @@ const articles = [
                 </article>
                 <article class="page-block">
                     <section class="text-block-wrapper">
-                        <div class="flex flex-col md:flex-row px-8">
+                        <div class="flex flex-col md:flex-row px-3 md:px-8 gap-4 md:gap-0">
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2 class="title">Affiliation/Accreditation</h2>
@@ -79,7 +79,7 @@ const articles = [
                 </article>
                 <article class="page-block">
                     <section class="text-block-wrapper">
-                        <div class="flex flex-col md:flex-row px-8">
+                        <div class="flex flex-col md:flex-row px-3 md:px-8 gap-4 md:gap-0">
                             <div class="w-full flex">
                                 <div class="w-[13.5%] px-3">
                                     <div class="order-number-wrapper">
@@ -124,7 +124,7 @@ const articles = [
                 </article>
                 <article class="page-block">
                     <section class="text-block-wrapper">
-                        <div class="flex flex-col md:flex-row px-8">
+                        <div class="flex flex-col md:flex-row px-3 md:px-8 gap-4 md:gap-0">
                             <div class="w-full flex">
                                 <div class="w-[13.5%] px-3">
                                     <div class="order-number-wrapper">
@@ -162,7 +162,7 @@ const articles = [
                 </article>
                 <article class="page-block">
                     <section class="text-block-wrapper">
-                        <div class="flex flex-col md:flex-row px-8">
+                        <div class="flex flex-col md:flex-row px-3 md:px-8 gap-4 md:gap-0">
                             <div class="w-full flex">
                                 <div class="w-[13.5%] px-3">
                                     <div class="order-number-wrapper">
@@ -200,13 +200,13 @@ const articles = [
                 </article>
                 <article class="page-block">
                     <section class="image-block-wrapper grid-inner">
-                        <div class="px-8 flex flex-col md:flex-row gap-6">
+                        <div class="px-3 md:px-8 flex flex-row gap-6">
                             <div class="order-number-wrapper">
                                 <span class="index">07</span>
                             </div>
                             <h2>Quality</h2>
                         </div>
-                        <div class="flex px-8 flex-col md:flex-row-reverse">
+                        <div class="flex px-3 md:px-8 flex-col md:flex-row-reverse">
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <p  class="text-center">The program is designed to train students in the theoretical and practical aspects of medicine, preparing them for a career as medical practitioners. It covers wide range of subjects including anatomy, physiology, biochemistry, pathology, pharmacology, microbiology and clinical training.</p>
@@ -222,7 +222,7 @@ const articles = [
                 </article>
                 <article class="page-block">
                     <section class="text-block-wrapper">
-                        <div class="flex flex-col md:flex-row px-8">
+                        <div class="flex flex-col md:flex-row px-3 md:px-8 gap-4 md:gap-0">
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2 class="title text-center">Contact Information</h2>
@@ -249,9 +249,13 @@ const articles = [
     min-height: calc(100% - 40px);
     left: 20px;
     position: absolute;
-    top: 20px;
+    top: 40px;
     width: calc(100% - 40px);
     padding: 3.5rem 0rem;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        left: 0;
+    }
 
 .order-number-wrapper {
     align-items: center;
@@ -310,6 +314,10 @@ const articles = [
                 padding: calc(1.48438rem + 2.1875vw) 0;
                 position: relative;
 
+                @media screen and (max-width: 960px) {
+                    padding: calc(0.48438rem + 2.1875vw) 0;
+                }
+
                 h2 {
                     color: #2c2c2c;
                     font-family: 'Aeonik-Regular';
@@ -338,14 +346,21 @@ const articles = [
             .text-block-wrapper {
                 padding: calc(1.48438rem + 2.1875vw) 0;
                 position: relative;
+                @media screen and (max-width: 960px) {
+                    padding: calc(0.48438rem + 2.1875vw) 0;
+                }
 
                 h2 {
                     color: #2c2c2c;
                     font-family: 'Aeonik-Regular';
-                    font-size: calc(1.5625rem + 2.91667vw);
+                    font-size: calc(1.2rem + 2.91667vw);
                     line-height: 1.1em;
                     margin-bottom: calc(1.28906rem + .36458vw);
                     position: relative;
+
+                    @media screen and (max-width: 960px) {
+                        font-size: calc(1.3rem + 2.91667vw);
+                    }
                 }
 
                 .full-form {

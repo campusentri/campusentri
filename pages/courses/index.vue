@@ -93,6 +93,9 @@ export default {
         position: absolute;
         top: 90%;
         width: 240px;
+        @media screen and (max-width: 768px) {
+            left: 35%;
+        }
     }
 
     .bubble-3 {

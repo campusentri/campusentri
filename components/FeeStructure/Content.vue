@@ -82,12 +82,12 @@ const items = [
     min-height: calc(100% - 40px);
     left: 20px;
     position: absolute;
-    top: 20px;
+    top: 40px;
     width: calc(100% - 40px);
     padding: 8rem 3rem;
 
     @media screen and (max-width: 768px) {
-        padding: 4rem 1.5rem;
+        padding: 4rem 0.5rem;
     }
 
     .title {
@@ -99,12 +99,19 @@ const items = [
         margin-bottom: 8px;
         position: relative;
         text-transform: uppercase;
+        @media screen and (max-width: 768px) {
+            font-size: 3rem;
+        }
     }
 
     tr {
         th {
             padding: 25px 10px;
             text-align: start;
+
+            @media screen and (max-width: 768px) {
+                padding: 5px;
+            }
 
             &:first-child {
                 color: #909ea0;
@@ -125,6 +132,9 @@ const items = [
         td {
             padding: 15px 10px;
             text-align: start;
+            @media screen and (max-width: 768px) {
+                padding: 5px 8px;
+            }
             &:first-child {
                 color: #909ea0;
             }
