@@ -41,7 +41,7 @@ export default {
             duration: 0.1,
         });
 
-        this.releases.forEach((item, index) => {
+        this.publications.forEach((item, index) => {
             const direction = index % 2 === 0 ? -1 : 1; // Set the direction based on index
 
             tl.from(`.publication-list:nth-child(${index + 1})`, {
