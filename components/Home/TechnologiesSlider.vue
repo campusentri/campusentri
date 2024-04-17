@@ -34,7 +34,7 @@ const slides = [
             :height="200" 
             :modules="[SwiperScrollbar]" 
             :slides-per-view="2.5" 
-            :loop="true"
+            :loop="false"
             :effect="'scrollbar'"
             :scrollbar="{
                 el: '.swiper-scrollbar',

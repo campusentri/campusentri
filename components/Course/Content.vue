@@ -255,6 +255,7 @@ const articles = [
     @media screen and (max-width: 768px) {
         width: 100%;
         left: 0;
+        top: 50px;
     }
 
 .order-number-wrapper {

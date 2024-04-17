@@ -57,7 +57,7 @@ export default {
         </div>
         <div class="slider-list mt-12">
 
-            <Swiper :height="200" :modules="[SwiperScrollbar]" :slides-per-view="1.5" :loop="true" :effect="'scrollbar'"
+            <Swiper :height="200" :modules="[SwiperScrollbar]" :slides-per-view="1.5" :loop="false" :effect="'scrollbar'"
                 :scrollbar="{
                 el: '.swiper-scrollbar',
                 draggable: true,

@@ -32,7 +32,7 @@ export default {
     <div class="culture-slider-block-wrapper">
         <div class="slider-list mt-12">
             <div class="values-list">
-                <Swiper :height="200" :modules="[SwiperScrollbar]" :slides-per-view="1" :loop="true"
+                <Swiper :height="200" :modules="[SwiperScrollbar]" :slides-per-view="1" :loop="false"
                     :effect="'scrollbar'" :scrollbar="{
                     el: '.swiper-scrollbar',
                     draggable: true,

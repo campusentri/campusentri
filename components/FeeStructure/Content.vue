@@ -88,6 +88,7 @@ const items = [
 
     @media screen and (max-width: 768px) {
         padding: 4rem 0.5rem;
+        top: 50px;
     }
 
     .title {
