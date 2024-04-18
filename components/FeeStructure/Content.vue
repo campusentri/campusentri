@@ -45,32 +45,32 @@ const items = [
                 <h2 class="title">MBBS</h2>
             </div>
             <div class="table-layout overflow-x-auto mt-6">
-                <div class="inline-block overflow-hidden">
-                    <table class="table-auto min-w-full">
+                <!-- <div class="inline-block overflow-hidden"> -->
+                    <table class="table-fixed min-w-full">
                         <thead>
                             <tr>
-                                <th class="light">Ranked Higher The better</th>
-                                <th class="light">Duration / Info</th>
-                                <th class="blue">First Year</th>
-                                <th>Second Year</th>
-                                <th class="blue">Third Year</th>
-                                <th>Fourth Year</th>
-                                <th class="blue">Fifth Year</th>
+                                <th class="light w-28">Ranked Higher The better</th>
+                                <th class="light w-52">Duration / Info</th>
+                                <th class="blue w-24">First Year</th>
+                                <th class="w-24">Second Year</th>
+                                <th class="blue w-24">Third Year</th>
+                                <th class="w-24">Fourth Year</th>
+                                <th class="blue w-24">Fifth Year</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="(item, index) of items" :key="index">
-                                <td class="light">{{ item.college }}</td>
-                                <td class="light">{{ item.info }}</td>
-                                <td class="blue">{{ item.firstYear ? item.firstYear : '--' }}</td>
-                                <td>{{ item.secondYear ? item.secondYear : '--' }}</td>
-                                <td class="blue">{{ item.thirdYear ? item.thirdYear : '--' }}</td>
-                                <td>{{ item.fifthYear ? item.fifthYear : '--' }}</td>
-                                <td class="blue">{{ item.sixthYear ? item.sixthYear : '--' }}</td>
+                                <td class="light w-28">{{ item.college }}</td>
+                                <td class="light w-52">{{ item.info }}</td>
+                                <td class="blue w-24">{{ item.firstYear ? item.firstYear : '--' }}</td>
+                                <td class="w-24">{{ item.secondYear ? item.secondYear : '--' }}</td>
+                                <td class="blue w-24">{{ item.thirdYear ? item.thirdYear : '--' }}</td>
+                                <td class="w-24">{{ item.fifthYear ? item.fifthYear : '--' }}</td>
+                                <td class="blue w-24">{{ item.sixthYear ? item.sixthYear : '--' }}</td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>
