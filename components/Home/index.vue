@@ -35,7 +35,7 @@ export default {
                         </span>
                     </button>
                 </div>
-                <div class="flex-grow mx-1 md:mx-12">
+                <div class="flex-grow mx-1 md:ml-12 md:mr-6">
                     <HomeBannerSlider />
                 </div>
                 <Audio />

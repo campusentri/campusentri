@@ -36,8 +36,12 @@ export default {
 
 <style lang="scss" scoped>
 .clients-block-wrapper {
-    padding-bottom: 12.5rem;
+    padding-bottom: 3.5rem;
     position: relative;
+
+    @media screen and (max-width: 768px) {
+        padding-bottom: 0;
+    }
 
     .bg-gradient {
         background: linear-gradient(180deg, rgba(247, 158, 190, 0), #ffa5a5 45.8%, rgba(247, 158, 163, 0) 89.72%);

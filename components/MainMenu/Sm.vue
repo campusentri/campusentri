@@ -21,17 +21,17 @@
         </nav>
         <nav class="flex justify-center flex-col h-full px-16">
             <ul class="menu-items">
-                <li><NuxtLink to="/" class="main-links mb-1 text-white" href="#"><span>Home</span></NuxtLink></li>
-                <li><NuxtLink to="/courses" class="main-links mb-1 text-white" href="#"><span>Course</span></NuxtLink></li>
-                <li><NuxtLink to="/colleges" class="main-links mb-1 text-white" href="#"><span>College</span></NuxtLink></li>
-                <li><NuxtLink to="/fee" class="main-links mb-1 text-white" href="#"><span>Fee Structure</span></NuxtLink></li>
-                <li><NuxtLink to="/company" class="main-links text-white" href="#"><span>Company</span></NuxtLink></li>
-                <li><NuxtLink to="/services" class="main-links text-white" href="#"><span>Services</span></NuxtLink></li>
+                <li><NuxtLink to="/" class="main-links mb-1 text-white"><span>Home</span></NuxtLink></li>
+                <li><NuxtLink to="/courses" class="main-links mb-1 text-white"><span>Course</span></NuxtLink></li>
+                <li><NuxtLink to="/colleges" class="main-links mb-1 text-white"><span>College</span></NuxtLink></li>
+                <li><NuxtLink to="/fee" class="main-links mb-1 text-white"><span>Fee Structure</span></NuxtLink></li>
+                <li><NuxtLink to="/company" class="main-links text-white"><span>Company</span></NuxtLink></li>
+                <li><NuxtLink to="/services" class="main-links text-white"><span>Services</span></NuxtLink></li>
             </ul>
             <ul class="menu-items mt-12">
-                <li><a class="other-links mb-2 text-white" href="#"><span>Careers</span></a></li>
-                <li><a class="other-links mb-2 text-white" href="#"><span>Resources</span></a></li>
-                <li><a class="other-links mb-2 text-white" href="#"><span>Contacts</span></a></li>
+                <li><NuxtLink class="other-links mb-2 text-white" to="/company#careers"><span>Careers</span></NuxtLink></li>
+                <li><NuxtLink class="other-links mb-2 text-white" to="/blogs"><span>Resources</span></NuxtLink></li>
+                <li><NuxtLink class="other-links mb-2 text-white" to="/colleges#promo"><span>Contacts</span></NuxtLink></li>
             </ul>
         </nav>
     </div>

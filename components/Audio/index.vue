@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <div class="flex relative justify-end px-3 w-[6.25%] audio-container">
+    <div class="flex relative justify-end px-2 w-[6.25%] audio-container">
         <audio id="audioPlayer" autoplay="autoplay" loop>
             <source src="@/assets/audio/header.mp3" type="audio/mpeg">
         </audio>
@@ -53,7 +53,7 @@ export default {
 <style lang="scss" scoped>
 .audio-container {
     position: relative;
-    top: -18px;
+    top: -25px;
     .off {
         .icon {
             .audio-icon {

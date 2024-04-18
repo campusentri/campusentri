@@ -146,6 +146,27 @@ export default {
             font-size: calc(1.79688rem + 5.10417vw);
         }
     }
+
+    .text-container {
+        h3 {
+            font-size: calc(1.35938rem + 1.02083vw);
+            color: #2c2c2c;
+            font-family: 'Aeonik-Medium';
+            line-height: 1.1em;
+            @media screen and (max-width: 768px) {
+                font-size: calc(1.26563rem + .14583vw);
+            }
+        }
+        p {
+            font-size: calc(1.35938rem + 1.02083vw);
+            color: #2c2c2c;
+            font-family: 'Aeonik-Regular';
+            line-height: 1.1em;
+            @media screen and (max-width: 768px) {
+                font-size: calc(1.26563rem + .14583vw);
+            }
+        }
+    }
 }
 
 .top-coices-wrapper {

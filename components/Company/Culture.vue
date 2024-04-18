@@ -45,7 +45,7 @@ export default {
             tl.from(`.culture-items:nth-child(${index + 1})`, {
                 opacity: 0,
                 x: -20,
-                duration: 0.5,
+                duration: 0.2,
                 delay,
             });
         });
@@ -60,7 +60,7 @@ export default {
                 <h2 class="title culture-title">The elements that form our company</h2>
             </div>
         </div>
-        <div class="list-container flex justify-center px-6">
+        <div class="list-container flex justify-center px-0 md:px-6">
             <div class="w-full md:w-[87.5%] px-0 md:px-3">
                 <div class="values-list mt-24 md:mt-64 hidden md:grid grid-cols-1 md:grid-cols-3">
                     <div v-for="(item, index) of items" :key="index" class="item culture-items">

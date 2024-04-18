@@ -50,7 +50,7 @@ export default {
                         </span>
                     </button>
                 </div>
-                <div class="flex-grow mx-4 md:mx-12">
+                <div class="flex-grow mx-4 md:ml-12 md:mr-6">
                     <span class="line"></span>
                 </div>
                 <Audio />

@@ -8,9 +8,9 @@ export default {
             '/images/services/service-4.png'
         ];
         const services = [
-            { name: 'College Selection', image: 'images/services/service-5.png' },
-            { name: 'Free Campus Visits', image: 'images/services/service-6.png' },
-            { name: 'Loan Assistance', image: 'images/services/service-7.png' },
+            { name: 'College Selection', image: 'images/services/service-5.png', link: '/services#college-selection' },
+            { name: 'Free Campus Visits', image: 'images/services/service-6.png', link: '/services#campus-visits' },
+            { name: 'Loan Assistance', image: 'images/services/service-7.png', link: '/services#loan-assistance' },
         ];
         const appreciations = [
             { name: 'IAO-Accredited', image: 'images/services/cap.png' },
@@ -78,25 +78,18 @@ export default {
     <div id="services">
         <section class="image-slider-warpper relative">
             <div class="slider-list h-full mt-0 md:mt-12">
-                <Swiper
-                    :height="200" 
-                    :modules="[SwiperScrollbar]" 
-                    :slides-per-view="1" 
-                    :loop="true"
-                    :effect="'scrollbar'"
-                    :scrollbar="{
-                        el: '.swiper-scrollbar',
-                        draggable: true,
-                        hide: false,
-                        snapOnRelease: true,
-                        snapOnDrag: true,
-                        releaseOnEdges: true,
-                        clickable: true,
-                    }"
-                    :autoplay="{
-                        delay: 5000,
-                    }"
-                >
+                <Swiper :height="200" :modules="[SwiperScrollbar]" :slides-per-view="1" :loop="true"
+                    :effect="'scrollbar'" :scrollbar="{
+                    el: '.swiper-scrollbar',
+                    draggable: true,
+                    hide: false,
+                    snapOnRelease: true,
+                    snapOnDrag: true,
+                    releaseOnEdges: true,
+                    clickable: true,
+                }" :autoplay="{
+                    delay: 5000,
+                }">
                     <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
                         <div class="slider-item">
                             <div class="image-container">
@@ -113,7 +106,8 @@ export default {
                 <div class="flex justify-between items-center w-3/4 px-3 mb-4 md:mb-12">
                     <h2 class="service-title">Services</h2>
                     <NuxtLink to="/services">
-                        <button class="read-more-btn big-size black-color hidden md:block service-btn" data-v-a2720cde="">
+                        <button class="read-more-btn big-size black-color hidden md:block service-btn"
+                            data-v-a2720cde="">
                             <div class="inner" data-v-a2720cde="">
                                 <span class="icon arrow-right" data-v-a2720cde="">
                                     <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">
@@ -150,16 +144,19 @@ export default {
                     <div class="w-full md:w-[42.25%]">
                         <h3 class="block md:hidden service-text">Propelling Career Guidance & placements for free</h3>
                         <ul class="services-list">
-                            <li v-for="(service, index) of services" :key="index" class="item service-item">
-                                <div class="image-wrapper">
-                                    <img :src="service.image" />
-                                </div>
-                                <span class="label ml-3">{{ service.name }}</span>
+                            <li v-for="(service, index) of services" :key="index">
+                                <NuxtLink  class="item service-item cursor-pointer" :to="service.link">
+                                    <div class="image-wrapper">
+                                        <img :src="service.image" />
+                                    </div>
+                                    <span class="label ml-3">{{ service.name }}</span>
+                                </NuxtLink>
                             </li>
                         </ul>
                     </div>
                     <div class="w-full md:w-[37.5%] mt-12 md:mt-0">
-                        <h3 class="mb-8 hidden md:block service-text">Propelling Career Guidance & placements for free</h3>
+                        <h3 class="mb-8 hidden md:block service-text">Propelling Career Guidance & placements for free
+                        </h3>
                         <ul class="list">
                             <li v-for="(appreciation, index) of appreciations" :key="index" class="item service-list">
                                 <span class="label">{{ appreciation.name }}</span>
@@ -410,7 +407,7 @@ export default {
     }
 
     .services-list {
-        li {
+        .item {
             align-items: center;
             background: #fff;
             border-radius: 12px;

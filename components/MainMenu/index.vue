@@ -15,12 +15,12 @@
             <div class="grid grid-cols-3 gap-8 h-full">
                 <div class="col-span-2 flex items-center">
                     <ul class="menu-items">
-                        <li><NuxtLink to="/" class="text-[4.5rem] mb-2 text-white" href="#"><span>Home</span></NuxtLink></li>
-                        <li><NuxtLink to="/courses" class="text-[4.5rem] mb-2 text-white" href="#"><span>Course</span></NuxtLink></li>
-                        <li><NuxtLink to="/colleges" class="text-[4.5rem] mb-2 text-white" href="#"><span>College</span></NuxtLink></li>
-                        <li><NuxtLink to="/fee" class="text-[4.5rem] mb-2 text-white" href="#"><span>Fee Structure</span></NuxtLink></li>
-                        <li><NuxtLink to="/company" class="text-[4.5rem] text-white" href="#"><span>Company</span></NuxtLink></li>
-                        <li><NuxtLink to="/services" class="text-[4.5rem] text-white" href="#"><span>Services</span></NuxtLink></li>
+                        <li><NuxtLink to="/" class="text-[4.5rem] mb-2 text-white"><span>Home</span></NuxtLink></li>
+                        <li><NuxtLink to="/courses" class="text-[4.5rem] mb-2 text-white"><span>Course</span></NuxtLink></li>
+                        <li><NuxtLink to="/colleges" class="text-[4.5rem] mb-2 text-white"><span>College</span></NuxtLink></li>
+                        <li><NuxtLink to="/fee" class="text-[4.5rem] mb-2 text-white"><span>Fee Structure</span></NuxtLink></li>
+                        <li><NuxtLink to="/company" class="text-[4.5rem] text-white"><span>Company</span></NuxtLink></li>
+                        <li><NuxtLink to="/services" class="text-[4.5rem] text-white"><span>Services</span></NuxtLink></li>
                     </ul>
                 </div>
                 <div class="flex justify-between flex-col">
@@ -34,9 +34,9 @@
                         </button>
                     </div>
                     <ul class="menu-items">
-                        <li><a class="text-3xl mb-2 text-white" href="#"><span>Careers</span></a></li>
-                        <li><a class="text-3xl mb-2 text-white" href="#"><span>Resources</span></a></li>
-                        <li><a class="text-3xl mb-2 text-white" href="#"><span>Contacts</span></a></li>
+                        <li><NuxtLink class="text-3xl mb-2 text-white" to="/company#careers"><span>Careers</span></NuxtLink></li>
+                        <li><NuxtLink class="text-3xl mb-2 text-white" to="/blogs"><span>Resources</span></NuxtLink></li>
+                        <li><NuxtLink class="text-3xl mb-2 text-white" to="/colleges#promo"><span>Contacts</span></NuxtLink></li>
                     </ul>
                 </div>
             </div>

@@ -28,7 +28,7 @@ export default {
 
 <template>
     <div class="panels-container">
-        <div class="panel-container even-panel">
+        <div id="college-selection" class="panel-container even-panel">
             <section class="list-block-wrapper service-even">
                 <span class="background"></span>
                 <div class="block-inner">
@@ -132,7 +132,7 @@ export default {
                 </div>
             </section>
         </div>
-        <div class="panel-container">
+        <div id="campus-visits" class="panel-container">
             <section class="list-block-wrapper service-odd">
                 <span class="background"></span>
                 <div class="block-inner">
@@ -190,7 +190,7 @@ export default {
                 </div>
             </section>
         </div>
-        <div class="panel-container">
+        <div id="loan-assistance" class="panel-container">
             <section class="list-block-wrapper service-odd">
                 <span class="background"></span>
                 <div class="block-inner">

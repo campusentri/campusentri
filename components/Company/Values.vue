@@ -64,16 +64,16 @@ export default {
             </div>
         </div>
         <div class="flex flex-col md:flex-row items-center px-8">
-            <div class="relative ml-0 md:ml-[6.25%] w-full md:w-[56.25%] images-container">
-                <img :style="selectedIndex === 0 && 'z-index: 2;'" src="/images/company/core-1.png" />
-                <img :style="selectedIndex === 1 && 'z-index: 2;'" src="/images/company/core-2.png" />
-                <img :style="selectedIndex === 2 && 'z-index: 2;'" src="/images/company/core-3.png" />
+            <div class="relative mb-8 md:mb-0 ml-0 md:ml-[6.25%] w-full md:w-[56.25%] images-container">
+                <img :class="selectedIndex === 0 && 'active-img'" :style="selectedIndex === 0 && 'z-index: 2;'" src="/images/company/core-1.png" />
+                <img :class="selectedIndex === 1 && 'active-img'" :style="selectedIndex === 1 && 'z-index: 2;'" src="/images/company/core-2.png" />
+                <img :class="selectedIndex === 2 && 'active-img'" :style="selectedIndex === 2 && 'z-index: 2;'" src="/images/company/core-3.png" />
             </div>
             <div class="w-full md:w-[31.25%] m-auto">
                 <ul class="mission-list">
                     <li @click="toggleDescription(index)" v-for="(item, index) of items" :key="index">
                         <h6 class="mission-title">{{ item.title }}</h6>
-                        <span v-if="selectedIndex === index" class="mission-description">
+                        <span :class="selectedIndex === index && 'active-description'" class="mission-description">
                             <p>{{ item.description }}</p>
                         </span>
                     </li>
@@ -135,6 +135,9 @@ export default {
     }
 
     .images-container {
+        .active-img {
+            transform: translate(20px, 20px);
+        }
         img {
             display: block;
             left: 0;
@@ -142,6 +145,7 @@ export default {
             top: 0;
             width: 480px;
             z-index: 0;
+            transition: transform 0.4s;
 
             &:first-child {
                 position: relative;
@@ -169,6 +173,13 @@ export default {
             border-top: 1px solid #fff;
             cursor: pointer;
             overflow: hidden;
+
+            &:hover {
+                .mission-title {
+                    opacity: .7;
+                    transform: translate3d(8px, 0, 0);
+                }
+            }
         }
 
         .active {
@@ -189,13 +200,17 @@ export default {
             transition: transform .5s cubic-bezier(.19, 1, .22, 1), opacity .5s cubic-bezier(.19, 1, .22, 1);
         }
 
+        .active-description {
+            height: auto !important;
+        }
+
         .mission-description {
             display: block;
-            height: auto;
+            height: 0;
             overflow: hidden;
             pointer-events: none;
             position: relative;
-            will-change: height;
+            transition: height 1s;
 
             &:first-child {
                 height: auto;

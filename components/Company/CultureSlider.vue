@@ -32,14 +32,13 @@ export default {
     <div class="culture-slider-block-wrapper">
         <div class="slider-list mt-12">
             <div class="values-list">
-                <Swiper :height="200" :modules="[SwiperScrollbar]" :slides-per-view="1" :loop="false"
+                <Swiper :height="200" :modules="[SwiperScrollbar]" :slides-per-view="1" :centered-slides="true" :loop="false"
                     :effect="'scrollbar'" :scrollbar="{
                     el: '.swiper-scrollbar',
                     draggable: true,
                     hide: false,
                     snapOnRelease: true,
                     snapOnDrag: true,
-                    releaseOnEdges: true,
                     clickable: true,
                 }">
                     <div class="arrows">
@@ -83,7 +82,7 @@ export default {
         position: relative;
 
         @media screen and (max-width: 960px) {
-            padding-left: 20px;
+            padding-left: 0px;
         }
 
         .swiper {
