@@ -78,18 +78,25 @@ export default {
     <div id="services">
         <section class="image-slider-warpper relative">
             <div class="slider-list h-full mt-0 md:mt-12">
-                <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative]" :slides-per-view="1" :loop="true"
-                    :effect="'creative'" :creative-effect="{
-                    prev: {
-                        shadow: false,
-                        translate: ['-20%', 0, -1],
-                    },
-                    next: {
-                        translate: ['100%', 0, 0],
-                    },
-                }" :autoplay="{
-                    delay: 5000,
-                }">
+                <Swiper
+                    :height="200" 
+                    :modules="[SwiperScrollbar]" 
+                    :slides-per-view="1" 
+                    :loop="true"
+                    :effect="'scrollbar'"
+                    :scrollbar="{
+                        el: '.swiper-scrollbar',
+                        draggable: true,
+                        hide: false,
+                        snapOnRelease: true,
+                        snapOnDrag: true,
+                        releaseOnEdges: true,
+                        clickable: true,
+                    }"
+                    :autoplay="{
+                        delay: 5000,
+                    }"
+                >
                     <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
                         <div class="slider-item">
                             <div class="image-container">
@@ -193,6 +200,19 @@ export default {
         .swiper {
             height: 100%;
             position: relative;
+        }
+
+        .slider-item {
+            .image-container {
+                img {
+                    height: 500px;
+                    width: 100%;
+
+                    @media screen and (max-width: 768px) {
+                        height: 300px;
+                    }
+                }
+            }
         }
 
         .caption {

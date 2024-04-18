@@ -130,6 +130,9 @@ export default {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
+            @media screen and (max-width: 768px) {
+                padding: 8px;
+            }
 
             .title {
                 font-size: .875rem;

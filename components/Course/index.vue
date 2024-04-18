@@ -52,6 +52,7 @@ export default {
                 <div class="flex-grow mx-4 md:mx-12">
                     <span class="line"></span>
                 </div>
+                <Audio />
             </div>
         </div>
     </div>

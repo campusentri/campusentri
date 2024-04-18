@@ -1,27 +1,27 @@
 <script setup>
 const slides = [
     {
-        name: 'Flow Cytometry',
+        name: 'AJ Institute',
         image: '/images/technologies/technology-1.png'
     },
     {
-        name: 'Molecular Genetics',
+        name: 'Yenepoya Institute',
         image: '/images/technologies/technology-2.png'
     },
     {
-        name: 'Cytogenetics /FISH',
+        name: 'Nitte Institute',
         image: '/images/technologies/technology-3.png'
     },
     {
-        name: 'History /IHC',
+        name: 'Srinivas Institute',
         image: '/images/technologies/technology-4.png'
     },
     {
-        name: 'Immunoassays & Clinical Chemistry',
+        name: 'Mangala College',
         image: '/images/technologies/technology-5.png'
     },
     {
-        name: 'Digital Pathology',
+        name: 'Father Mullers Institute',
         image: '/images/technologies/technology-6.png'
     },
 ]
