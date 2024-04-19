@@ -53,7 +53,7 @@ export default {
                 <div class="flex-grow mx-4 md:ml-12 md:mr-6">
                     <span class="line"></span>
                 </div>
-                <Audio />
+                <Audio :audioSrc="'/audio/company.mp3'" />
             </div>
         </div>
     </div>

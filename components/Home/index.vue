@@ -38,7 +38,7 @@ export default {
                 <div class="flex-grow mx-1 md:ml-12 md:mr-6">
                     <HomeBannerSlider />
                 </div>
-                <Audio />
+                <Audio :audioSrc="'/audio/home.mp3'" />
             </div>
         </div>
     </div>

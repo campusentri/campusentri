@@ -1,15 +1,15 @@
 <template>
     <div class="slider">
-        <NuxtLink to="blogs" class="slide" v-for="(slide, index) in slides" :key="index" v-show="currentIndex === index">
+        <div to="blogs" class="slide" v-for="(slide, index) in slides" :key="index" v-show="currentIndex === index">
             <div class="progress-bar" :style="{ width: progressBarWidth + '%' }"></div>
             <div class="press-release-container" :class="{ 'active': currentIndex === index }">
                 <span class="label-wrapper">
                     <span>{{ slide.label }}</span>
                 </span>
-                <span class="ml-4">
+                <NuxtLink to="/blogs" class="ml-4">
                     <span class="mr-4">{{ slide.date }}</span>
                     <span class="title">{{ slide.text }}</span>
-                </span>
+                </NuxtLink>
                 <div class="controls">
                     <button @click="prevSlide" :disabled="currentIndex === 0">
                         <IconsChevronLeft />
@@ -20,7 +20,7 @@
                     </button>
                 </div>
             </div>
-        </NuxtLink>
+        </div>
     </div>
 </template>
 

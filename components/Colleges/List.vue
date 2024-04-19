@@ -108,7 +108,11 @@ export default {
             });
         });
     },
-
+    methods: {
+        openModal() {
+            this.$emit('open-modal');
+        }
+    }
 }
 
 </script>
@@ -129,7 +133,7 @@ export default {
                     </div>
                     <div class="bottom-row">
                         <div class="read-more">
-                            <button class="read-more-btn big-size black-color" data-v-a2720cde="">
+                            <button @click="openModal" class="read-more-btn big-size black-color">
                                 <div class="inner" data-v-a2720cde="">
                                     <span class="icon arrow-right" data-v-a2720cde="">
                                         <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">

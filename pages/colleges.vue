@@ -1,5 +1,18 @@
 <script>
 export default {
+    data() {
+        return {
+            isModalOpen: false
+        }
+    },
+    methods: {
+        openModal() {
+            this.isModalOpen = true;
+        },
+        closeModal() {
+            this.isModalOpen = false;
+        }
+    },
     mounted() {
         const tl = this.$gsap.timeline({
             scrollTrigger: {
@@ -29,10 +42,15 @@ export default {
                     </div>
                 </div>
             </div>
-            <CollegesList />
+            <CollegesList @open-modal="openModal" />
             <CollegesPromo />
         </div>
         <CollegesFooter />
+        <!-- <Modal :is-open="isModalOpen" @close-modal="closeModal">
+            <template v-slot:body>
+                <CollegesContent />
+            </template>
+        </Modal> -->
     </div>
 </template>
 

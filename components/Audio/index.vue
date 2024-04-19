@@ -1,5 +1,11 @@
 <script>
 export default {
+    props: {
+        audioSrc: {
+            type: String,
+            required: true
+        }
+    },
     methods: {
         toggleAudio() {
             var audioPlayer = document.getElementById("audioPlayer");
@@ -21,8 +27,8 @@ export default {
 
 <template>
     <div class="flex relative justify-end px-2 w-[6.25%] audio-container">
-        <audio id="audioPlayer" autoplay="autoplay" loop>
-            <source src="@/assets/audio/header.mp3" type="audio/mpeg">
+        <audio id="audioPlayer" autoplay loop>
+            <source :src="audioSrc" type="audio/mpeg">
         </audio>
         <button class="audio-btn" id="audioToggleBtn" @click="toggleAudio">
             <span class="icon">
