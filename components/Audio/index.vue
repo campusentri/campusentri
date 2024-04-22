@@ -10,7 +10,7 @@ export default {
         toggleAudio() {
             var audioPlayer = document.getElementById("audioPlayer");
             var audioToggleBtn = document.getElementById("audioToggleBtn");
-
+            audioPlayer.volume = 0.1;
             if (audioPlayer.paused) {
                 audioPlayer.play();
                 audioToggleBtn.classList.add("on");
@@ -21,6 +21,10 @@ export default {
                 audioToggleBtn.classList.add("off");
             }
         }
+    },
+    mounted() {
+        var audioPlayer = document.getElementById("audioPlayer");
+        audioPlayer.volume = 0.1;
     }
 }
 </script>

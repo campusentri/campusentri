@@ -46,11 +46,11 @@ export default {
             <CollegesPromo />
         </div>
         <CollegesFooter />
-        <!-- <Modal :is-open="isModalOpen" @close-modal="closeModal">
+        <Modal :is-open="isModalOpen" @close-modal="closeModal">
             <template v-slot:body>
                 <CollegesContent />
             </template>
-        </Modal> -->
+        </Modal>
     </div>
 </template>
 

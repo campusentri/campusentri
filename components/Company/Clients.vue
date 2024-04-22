@@ -23,7 +23,7 @@ export default {
         <div class="bg-gradient"></div>
         <div class="flex justify-center px-6 relative">
             <div class="w-full md:w-1/2 mx-auto">
-                <h2 class="title client-title">Our students are from Kerala. So are we...</h2>
+                <h2 class="title client-title">Our students are from across the country. So are we...</h2>
             </div>
         </div>
         <div class="w-full relative px-6 flex image-container">
