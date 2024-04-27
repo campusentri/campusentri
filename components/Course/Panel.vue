@@ -33,7 +33,8 @@ const images = [
                             <div class="subtitle-container flex flex-col-reverse md:flex-row px-8"
                                 :class="index !== 0 && ((index + 1) % 2 === 0 || (index + 1) % 4 === 0) && 'flex-row-reverse'">
                                 <div class="w-full md:w-1/2 ml-[6.25%] px-3">
-                                    <h3 class="description">{{ truncate(get(course, 'description', ''), { length: 200, omission: '...' }) }}</h3>
+                                    <h3 class="description hidden md:block">{{ truncate(get(course, 'description', ''), { length: 200, omission: '...' }) }}</h3>
+                                    <h3 class="description block md:hidden">{{ truncate(get(course, 'description', ''), { length: 150, omission: '...' }) }}</h3>
                                     <span class="read-more">
                                         <button @click="openModal(course)" class="read-more-btn big-size black-color"
                                             data-v-a2720cde="">
@@ -163,8 +164,8 @@ const images = [
 
                     @media screen and (max-width: 768px) {
                         padding-top: 50px;
-                        padding-bottom: 30px;
-                        height: 100vh;
+                        padding-bottom: 70px;
+                        height: 100%;
                     }
 
                     .title-container {
