@@ -1,48 +1,18 @@
 <script setup>
-const items = [
-    {
-        college: 'NITTE',
-        info: 'The MBBS program at NITTE spans five and a half years, including a one-year rotating internship',
-        firstYear: '17,64,500',
-        secondYear: '17,58,500',
-        thirdYear: '17,58,500',
-        fifthYear: '17,58,500',
-        sixthYear: '8,79,000',
-    },
-    {
-        college: 'Srinivas College',
-        info: 'The MBBS program at Srinivas spans five and a half years, including a one-year rotating internship',
-        firstYear: '22,00,000',
-        secondYear: '22,00,000',
-        thirdYear: '22,00,000',
-        fifthYear: '22,00,000',
-        sixthYear: '12,00,000',
-    },
-    {
-        college: 'Yenepoya Institute ',
-        info: 'The MBBS program at Yenepoya spans five and a half years, including a one-year rotating internship',
-        firstYear: '6,40,000',
-        secondYear: '6,47,000',
-        thirdYear: '6,54,000',
-        fifthYear: '6,62,000',
-        sixthYear: '6,54,000',
-    },
-    {
-        college: 'Father Muller',
-        info: 'The MBBS program at Father Muller spans five and a half years, including a one-year rotating internship',
-    },
-    {
-        college: 'AJ Institute',
-        info: 'The MBBS program at AJ Institute spans five and a half years, including a one-year rotating internship',
-    },
-]
+import { get } from 'lodash';
+const props = defineProps({
+    courseInfo: {
+        type: Object,
+        default: () => {}
+    }
+});
 </script>
 
 <template>
     <div class="fee-wrapper">
         <div class="flex px-0 md:px-12 flex-col">
             <div class="mb-8">
-                <h2 class="title">MBBS</h2>
+                <h2 class="title">{{ get(courseInfo, 'shortName', '') }}</h2>
             </div>
             <div class="table-layout overflow-x-auto mt-6">
                 <!-- <div class="inline-block overflow-hidden"> -->
@@ -59,14 +29,14 @@ const items = [
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) of items" :key="index">
-                                <td class="light w-28">{{ item.college }}</td>
-                                <td class="light w-52">{{ item.info }}</td>
-                                <td class="blue w-24">{{ item.firstYear ? item.firstYear : '--' }}</td>
-                                <td class="w-24">{{ item.secondYear ? item.secondYear : '--' }}</td>
-                                <td class="blue w-24">{{ item.thirdYear ? item.thirdYear : '--' }}</td>
-                                <td class="w-24">{{ item.fifthYear ? item.fifthYear : '--' }}</td>
-                                <td class="blue w-24">{{ item.sixthYear ? item.sixthYear : '--' }}</td>
+                            <tr v-for="(item, index) of get(courseInfo, 'colleges', [])" :key="index">
+                                <td class="light w-28">{{ get(item, 'name', '') }}</td>
+                                <td class="light w-52">{{ get(item, 'courseDuration', '') }}</td>
+                                <td class="blue w-24">{{ get(item, 'fees.firstYear', '--') }}</td>
+                                <td class="w-24">{{ get(item, 'fees.secondYear', '--') }}</td>
+                                <td class="blue w-24">{{ get(item, 'fees.thirdYear', '--') }}</td>
+                                <td class="w-24">{{ get(item, 'fees.fourthYear', '--') }}</td>
+                                <td class="blue w-24">{{ get(item, 'fees.fifthYear', '--') }}</td>
                             </tr>
                         </tbody>
                     </table>

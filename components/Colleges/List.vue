@@ -1,126 +1,48 @@
-<script>
-export default {
-    data() {
-        const items = [
-            {
-                title: 'AJ Institute',
-                text: 'AJ institute has SIX institutes offering studies to Medical Industry',
-                image: '/images/technologies/technology-1.png'
-            },
-            {
-                title: 'Yenepoya Institute',
-                text: '(NIRF) ranked 97 among the top 100 universities in India',
-                image: '/images/technologies/technology-2.png'
-            },
-            {
-                title: 'NITTE Institute',
-                text: 'Placed in the Top 65-80 rank band in NIRF',
-                image: '/images/technologies/technology-3.png'
-            },
-            {
-                title: 'Srinivas Institute',
-                text: 'Private research and skill focused university in Mangalore',
-                image: '/images/technologies/technology-4.png'
-            },
-            {
-                title: 'Mangala College',
-                text: 'A 250 bedded Multi-speciality Hospital',
-                image: '/images/technologies/technology-5.png'
-            },
-            {
-                title: 'Father Muller Institute',
-                text: 'Father Muller Medical College has been re-accredited with `A` grade with a score of 3.21 CGPA for the period 2021-2026',
-                image: '/images/technologies/technology-6.png'
-            },
-            {
-                title: 'Kanachur Institute',
-                text: '300 bedded multi-speciality teaching hospital which provides 24-hours, seven-day-a-week services.',
-                image: '/images/technologies/technology-1.png'
-            },
-            {
-                title: 'Kasthurba College',
-                text: 'Father Muller Medical College has been ranked 31 by NIRF with a score of 52.83',
-                image: '/images/technologies/technology-2.png'
-            },
-            {
-                title: 'Tejasvini College',
-                text: '206 bedded state of art hospital for Orthopaedics & Trauma with other specialities like',
-                image: '/images/technologies/technology-3.png'
-            },
-            {
-                title: 'Shree Devi Institute',
-                text: 'Shree Devi Institute has Four Institutes offering studies to Medical industry oriented specialized courses of UG, PG and research levels.',
-                image: '/images/technologies/technology-4.png'
-            },
-            {
-                title: 'Indiana College',
-                text: 'Indiana Hospital & Heart Institute is a state-of-the-art, 300-bed multi-speciality hospital.',
-                image: '/images/technologies/technology-5.png'
-            },
-            {
-                title: 'MV Shetty College',
-                text: 'First private college to offer comprehensive courses in Nursing, Physiotherapy and Speech and Hearing.',
-                image: '/images/technologies/technology-6.png'
-            },
-            {
-                title: 'City College',
-                text: 'The campus is spread over 3.23 acres and has a student count of 112 and a faculty count of 10.',
-                image: '/images/technologies/technology-1.png'
-            },
-            {
-                title: 'Athena College',
-                text: 'The college has a campus size of 4 acres and has a female student count of 338 and a faculty count of 43.',
-                image: '/images/technologies/technology-2.png'
-            },
-            {
-                title: 'Indira College',
-                text: 'The trust was founded by Dr. Syed Nizamuddin, a well-known Orthopaedic and Arthroscopic Surgeon.',
-                image: '/images/technologies/technology-3.png'
-            },
-            {
-                title: 'SCS College',
-                text: 'SCS Hospital is the first Hospital in D.K District to admit medico-legal cases and road traffic accident cases.',
-                image: '/images/technologies/technology-4.png'
-            },
-        ]
-        return {
-            items
-        }
-    },
-    mounted() {
-        const tl = this.$gsap.timeline({
-            scrollTrigger: {
-                trigger: '#list',
-                start: 'top center',
-                end: 'bottom center',
-                toggleActions: 'play none none reverse',
-            },
-        });
-
-        this.items.forEach((item, index) => {
-            const direction = index % 2 === 0 ? -1 : 1; // Set the direction based on index
-
-            tl.from(`.technologies-list .technologies-item:nth-child(${index + 1})`, {
-                scale: 0, // Start with a scale of 0
-                duration: 0.5, // Adjust duration for the desired speed
-                ease: 'power2.out', // You can experiment with different easing functions
-                transformOrigin: direction === -1 ? 'left center' : 'right center', // Set transform origin based on direction
-            });
-        });
-    },
-    methods: {
-        openModal() {
-            this.$emit('open-modal');
-        }
+<script setup>
+import { get } from 'lodash';
+const query = groq`*[_type == "colleges"] {
+  ...,
+  "institutes": institutes[] {
+    ...,
+    "coursesOffered": coursesOffered[]-> {
+      shortName
     }
+  }
 }
+`;
+const { data } = await useSanityQuery(query);
+const colleges = get(data, 'value', []);
+const emitOpenModal = defineEmits(['open-modal']);
+function openModal(college) {
+    emitOpenModal('open-modal', college);
+}
+// onMounted(() => {
+//     const tl = this.$gsap.timeline({
+//         scrollTrigger: {
+//             trigger: '#list',
+//             start: 'top center',
+//             end: 'bottom center',
+//             toggleActions: 'play none none reverse',
+//         },
+//     });
 
+//     colleges.forEach((item, index) => {
+//         const direction = index % 2 === 0 ? -1 : 1; // Set the direction based on index
+
+//         tl.from(`.technologies-list .technologies-item:nth-child(${index + 1})`, {
+//             scale: 0, // Start with a scale of 0
+//             duration: 0.5, // Adjust duration for the desired speed
+//             ease: 'power2.out', // You can experiment with different easing functions
+//             transformOrigin: direction === -1 ? 'left center' : 'right center', // Set transform origin based on direction
+//         });
+//     });
+// })
 </script>
 
 <template>
     <div id="list" class="technologies-list-wrapper mt-28">
         <ul class="items-list technologies-list">
-            <li v-for="(item, index) of items" :key="index" class="item technologies-item">
+            <li v-for="(item, index) of colleges" :key="index" class="item technologies-item">
                 <span class="top-line"></span>
                 <span class="right-line"></span>
                 <div class="left-col">
@@ -128,12 +50,12 @@ export default {
                         <div class="order-number-wrapper">
                             <span class="index">0{{ index + 1 }}</span>
                         </div>
-                        <h2 class="title">{{ item.title }}</h2>
-                        <h3 class="subtitle">{{ item.text }}</h3>
+                        <h2 class="title">{{ get(item, 'name', '') }}</h2>
+                        <h3 class="subtitle">{{ get(item, 'shortDescription', '') }}</h3>
                     </div>
                     <div class="bottom-row">
                         <div class="read-more">
-                            <button @click="openModal" class="read-more-btn big-size black-color">
+                            <button @click="openModal(item)" class="read-more-btn big-size black-color">
                                 <div class="inner" data-v-a2720cde="">
                                     <span class="icon arrow-right" data-v-a2720cde="">
                                         <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">
@@ -166,7 +88,8 @@ export default {
                     </div>
                 </div>
                 <div class="right-col">
-                    <img :src="item.image" />
+                    <!-- <img :src="item.image" /> -->
+                    <SanityImage :asset-id="get(item, 'poster.asset._ref', '')" />
                 </div>
             </li>
         </ul>

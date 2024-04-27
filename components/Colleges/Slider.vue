@@ -1,37 +1,11 @@
-<script>
-export default {
-    data() {
-        const slides = [
-            {
-                shortName: 'Qu',
-                fullName: 'Quality',
-                heading: 'AJ Institute of Medical Sciences',
-                text: 'is affiliated with Rajiv Gandhi University of Health Sciences and approved by the National Medical Commission (NMC), formerly known as the Medical Council of India (MCI). The college has also been accredited by the National Accreditation Board for Hospital (NABH) & Healthcare Providers.',
-                secondHeading: 'Laxmi Memorial college of Physiotherapy',
-                text2: 'It is affiliated with Rajiv Gandhi University of Health Sciences and approved by the All Indian Association of Physiotherapist (IAP).'
-            },
-            {
-                shortName: 'Sp',
-                fullName: 'Specialized',
-                heading: 'AJ Institute of Dental Sciences',
-                text: 'It is affiliated with Rajiv Gandhi University of Health Sciences and approved by the Dental Council of India.',
-                secondHeading: 'Laxmi Memorial college of Nursing',
-                text2: 'is affiliated with Rajiv Gandhi University of Health Sciences and is permanently recognized by the Indian Nursing Council (INC), New Delhi and Karnataka State Nursing Council Bangalore..'
-            },
-            {
-                shortName: 'Pa',
-                fullName: 'Patient',
-                heading: 'AJ Institute of Allied Health Science',
-                text: 'It is affiliated with Rajiv Gandhi University of Health Sciences and recognized by the University Grants Commission (UGC)',
-                secondHeading: 'AJ Institute of Hotel Management',
-                text2: 'it is a constituent of A.J. Group of Institutions and is affiliated with Rajiv Gandhi University of Health Sciences.'
-            }
-        ];
-        return {
-            slides
-        }
-    },
-}
+<script setup>
+import { get } from 'lodash';
+const props = defineProps({
+    institutes: {
+        type: Object,
+        default: () => { }
+    }
+});
 </script>
 
 <template>
@@ -50,19 +24,11 @@ export default {
                     <div class="arrows">
                         <SwiperControls />
                     </div>
-                    <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
+                    <SwiperSlide v-for="(institute, idx) in institutes" :key="idx">
                         <div class="slider-item culture-items">
-                            <span class="name">
-                                <span class="short-name">{{ slide.shortName }}</span>
-                                <span class="full-name">{{ slide.fullName }}</span>
-                            </span>
                             <span class="content">
-                                <h3>{{ slide.heading }}</h3>
-                                <p>{{ slide.text }}</p>
-                            </span>
-                            <span class="content">
-                                <h3>{{ slide.secondHeading }}</h3>
-                                <p>{{ slide.text2 }}</p>
+                                <h3>{{ get(institute, 'instituteName', '') }}</h3>
+                                <p>{{ get(institute, 'instituteInformation', '') }}</p>
                             </span>
                         </div>
                     </SwiperSlide>

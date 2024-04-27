@@ -2,11 +2,13 @@
 export default {
     data() {
         return {
-            isModalOpen: false
+            isModalOpen: false,
+            college: {}
         }
     },
     methods: {
-        openModal() {
+        openModal(data) {
+            this.college = data;
             this.isModalOpen = true;
         },
         closeModal() {
@@ -48,7 +50,7 @@ export default {
         <CollegesFooter />
         <Modal :is-open="isModalOpen" @close-modal="closeModal">
             <template v-slot:body>
-                <CollegesContent />
+                <CollegesContent :college="college" />
             </template>
         </Modal>
     </div>

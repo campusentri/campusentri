@@ -1,3 +1,13 @@
+<script setup>
+import { get } from 'lodash';
+const props = defineProps({
+    infrastructure: {
+        type: Object,
+        default: () => { }
+    }
+});
+</script>
+
 <template>
     <div class="infrastructure-block-wrapper">
         <div class="flex px-8">
@@ -9,127 +19,68 @@
             <div class="inner">
                 <img src="/images/colleges/infrastructure-2.png" />
                 <span class="label-title">Clinical Facilities</span>
-                <span class="description">LMCP enjoys access to cutting-edge clinical amenities
-                    provided by the 750-bed A J Hospital, affiliated with
-                    the medical college managed by the Trust. This
-                    hospital offers both outpatient and inpatient services.
-                    Within our college premises, a fully equipped clinic
-                    operates throughout the day, providing services from
-                    morning to evening. During their clinical training, all
-                    students are stationed at the Advanced Clinic located
-                    within the hospital, ensuring excellent exposure and
-                    training in utilizing the latest advanced equipment.
-                    Faculty members closely monitor and supervise
-                    students in the clinical areas.</span>
+                <span class="description">{{ get(infrastructure, 'clinicalFacilities', '') }}</span>
             </div>
         </div>
         <div class="history-item item-1">
             <div class="inner">
                 <span class="label-title">Library</span>
-                <span class="description">The college boasts an extensive library housing the
-                    latest editions of medical and relevant books,
-                    subscriptions to professional and popular periodicals,
-                    journals, and internet facilities. With a direct link to the
-                    Rajiv Gandhi University Consortium (Helinet) and
-                    access to online journals, the library currently holds
-                    around 3,000 books for student and teacher use. Open
-                    until late in the evening, the library provides a
-                    conducive environment for academic pursuits.</span>
+                <span class="description">{{ get(infrastructure, 'library', '') }}</span>
             </div>
         </div>
         <div class="history-item item-2">
             <div class="inner">
-                <img src="/images/colleges/infrastructure-3.png" />
+                <SanityImage :asset-id="get(infrastructure, 'audioVisualLibrary.image.asset._ref', '')" />
+                <!-- <img src="/images/colleges/infrastructure-3.png" /> -->
                 <span class="label-title">Audio-Visual Library</span>
-                <span class="description">The college boasts an extensive library housing the
-                    latest editions of medical and relevant books,
-                    subscriptions to professional and popular periodicals,
-                    journals, and internet facilities. With a direct link to the
-                    Rajiv Gandhi University Consortium (Helinet) and
-                    access to online journals, the library currently holds
-                    around 3,000 books for student and teacher use. Open
-                    until late in the evening, the library provides a
-                    conducive environment for academic pursuits.</span>
+                <span class="description">{{ get(infrastructure, 'audioVisualLibrary.information', '') }}</span>
             </div>
         </div>
         <div class="history-item item-3">
             <div class="inner">
                 <img src="/images/colleges/infrastructure-4.png" />
                 <span class="label-title">Gymnasium</span>
-                <span class="description">The college gymnasium is designed to enhance both
-                    the physical and mental well-being of students
-                    through sports physiotherapy. Expert trainers provide
-                    specialized guidance, with a focus on active sports
-                    participation.</span>
+                <span class="description">{{ get(infrastructure, 'gymnasium', '') }}</span>
             </div>
         </div>
         <div class="history-item item-4">
             <div class="inner">
                 <span class="label-title">Conveyance</span>
-                <span class="description">The college maintains a fleet of buses, facilitating
-                    transport for students to attend classes, clinics,
-                    libraries, and return to hostels. The college bus is also
-                    available for inter-college sports, cultural events, and
-                    academic activities.</span>
+                <span class="description">{{ get(infrastructure, 'conveyance', '') }}</span>
             </div>
         </div>
         <div class="history-item item-5">
             <div class="inner">
                 <img src="/images/colleges/infrastructure-2.png" />
                 <span class="label-title">Medical Care</span>
-                <span class="description">In case of illness, students receive treatment at A. J.
-                    Hospital and Research Institute under the Medicare
-                    scheme. Insurance coverage is provided for accidents
-                    calamities, and serious injuries causing physical
-                    disabilities. Immunization, particularly Hepatitis B
-                    vaccination, is administered, and precautions for
-                    controlling cross-infection are emphasized.</span>
+                <span class="description">{{ get(infrastructure, 'medicalCare', '') }}</span>
             </div>
         </div>
         <div class="history-item item-6">
             <div class="inner">
                 <img src="/images/services/pillar-3.png" />
                 <span class="label-title">Student Support and Extra-Curricular activity</span>
-                <span class="description">Various clubs, including Sports, Cultural, Multimedia
-                    and Magazine clubs, are established to promote
-                    sports, games, and cultural activities. The Student
-                    Welfare Cell addresses the psychological and other
-                    needs of students.</span>
+                <span class="description">{{ get(infrastructure, 'activities', '') }}</span>
             </div>
         </div>
         <div class="history-item item-7">
             <div class="inner">
                 <span class="label-title">Cafeteria</span>
-                <span class="description">Adjacent to the college campus, a canteen and post
-                    office are available, along with essential facilities like
-                    banks, ATMs, and shopping centers nearby.</span>
+                <span class="description">{{ get(infrastructure, 'cafeteria', '') }}</span>
             </div>
         </div>
         <div class="history-item item-8">
             <div class="inner">
                 <img src="/images/services/service-7.png" />
                 <span class="label-title">Hostels</span>
-                <span class="description">Staying in hostels is encouraged, especially for first-
-                    year students. From the second year onward, students
-                    opting for alternative living arrangements must
-                    provide consent from parents. Smoking and alcohol
-                    consumption are strictly prohibited in campus and
-                    hostels.</span>
+                <span class="description">{{ get(infrastructure, 'hostels', '') }}</span>
             </div>
         </div>
         <div class="history-item item-9">
             <div class="inner">
                 <img src="/images/colleges/infrastructure-4.png" />
-                <span class="label-title">AJ Hospital</span>
-                <span class="description">The 750-bed AJ Hospital, fully affiliated with the
-                    institute, offers advanced facilities across various
-                    medical specialties. Special rooms, evening clinics,
-                    health check-up plans, and tie-ups with insurance
-                    agencies for cashless medical services enhance
-                    patient care. The hospital provides a comprehensive
-                    range of healthcare services, including primary,
-                    secondary, and tertiary care, as well as specialized
-                    treatments and surgeries at affordable costs.</span>
+                <span class="label-title">{{ get(infrastructure, 'institueInfo.title', '') }}</span>
+                <span class="description">{{ get(infrastructure, 'institueInfo.description', '') }}</span>
             </div>
         </div>
     </div>

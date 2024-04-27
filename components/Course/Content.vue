@@ -1,16 +1,14 @@
 <script setup>
-const articles = [
-    {
-        title: 'CO',
-        fullForm: 'Career Oppurtunities',
-        description: 'Completion of MBBS opens up various career Oppurtunities in the field of medicine:'
-    },
-    {
-        title: 'CF',
-        fullForm: 'Course Fee',
-        description: 'The total cost of the MBBS program varies based upon factors such as institution, location and amenities. Government medical colleges have lower tuition fees compared to private ones.'
-    },
-]
+import { get } from 'lodash';
+const props = defineProps({
+    course: {
+        type: Object,
+        default: () => {}
+    }
+});
+const query = groq`*[_type == "contact"]`;
+const { data } = await useSanityQuery(query);
+const contactInfo = get(data, 'value[0].contactInfo');
 </script>
 
 <template>
@@ -18,7 +16,7 @@ const articles = [
         <header>
             <div class="title-container">
                 <div class="w-[87.5%] ml-[6.25%] px-3">
-                    <h1 class="title border-t-2 border-b-2 border-black">MBBS</h1>
+                    <h1 class="title border-t-2 border-b-2 border-black">{{get(course, 'shortName', '')}}</h1>
                 </div>
             </div>
         </header>
@@ -29,13 +27,13 @@ const articles = [
                         <div class="flex flex-col md:flex-row px-3 md:px-8 gap-4 md:gap-0">
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
-                                    <h2>MBBS is a professional undergraduate degree awarded to individuals upon completion of medical school.</h2>
-                                    <p class="text-center">The program is designed to train students in the theoretical and practical aspects of medicine, preparing them for a career as medical practitioners. It covers wide range of subjects including anatomy, physiology, biochemistry, pathology, pharmacology, microbiology and clinical training.</p>
+                                    <h2>{{ get(course, 'description', '') }}</h2>
+                                    <!-- <p class="text-center">The program is designed to train students in the theoretical and practical aspects of medicine, preparing them for a career as medical practitioners. It covers wide range of subjects including anatomy, physiology, biochemistry, pathology, pharmacology, microbiology and clinical training.</p> -->
                                 </div>
                             </div>
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div class="image-container">
-                                    <img src="/images/courses/mbbs.webp" />
+                                    <SanityImage :asset-id="get(course, 'mainImage.asset._ref', '')" />
                                 </div>
                             </div>
                         </div>
@@ -47,13 +45,13 @@ const articles = [
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2 class="title">Duration</h2>
-                                    <p>The duration of MBBS course typically spands five and half to six years , including both academic study and clinical rotations. The first few years focus on foundational sciences and pre-clinical studies, followed by clinical rotations in various specialities during later years.</p>
+                                    <p>{{ get(course, 'duration', '') }}</p>
                                 </div>
                             </div>
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2 class="title">Eligibility Criteria</h2>
-                                    <p class="sm-text text-center">Admission requirements generally include completion of 10+2 or equivalent with Physics , Chemistry, Biology and English. Entrance exams like NEET-UG are mandatory in many countries and canditates must meet age criteria, nationality requirements and language proficiency. </p>
+                                    <p class="sm-text text-center">{{get(course, 'eligibilityCriteria', '')}}</p>
                                 </div>
                             </div>
                         </div>
@@ -65,13 +63,13 @@ const articles = [
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2 class="title">Affiliation/Accreditation</h2>
-                                    <p class="sm-text  text-center">Medical colleges offering MBBS programs are affiliated with or accreditated by regulatory bodies such as the Medical Council of India (MCI). Accreditation ensures that graduates meet the standards necessary for medical purposes.</p>
+                                    <p class="sm-text  text-center">{{ get(course, 'affiliation', '') }}</p>
                                 </div>
                             </div>
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2 class="title">Curriculum</h2>
-                                    <p class="sm-text text-center">The MBBS curriculum is structured to provide a comprehensive understanding of medical sciences such as anatomy, physiology, biochemistry, pathology, pharmacology, microbiology, forensic medicine, community medicine and clinical rotations in various specialities such as internal medicine, surgery and more.</p>
+                                    <p class="sm-text text-center">{{get(course, 'curriculum', '')}}</p>
                                 </div>
                             </div>
                         </div>
@@ -93,12 +91,7 @@ const articles = [
                                             <span class="full-form">Career Oppurtunities</span>
                                         </div>
                                         <div class="text-wrap">
-                                            <p class="sm-text mb-0">Completion of MBBS opens up various career Oppurtunities in the field of medicine: </p>
-                                            <p class="sm-text">- General Physician</p>
-                                            <p class="sm-text">- Surgeon</p>
-                                            <p class="sm-text">- Medical Researcher</p>
-                                            <p class="sm-text">- Public health professional</p>
-                                            <p class="sm-text">- Medical education</p>
+                                            <p class="sm-text mb-0">{{ get(course, 'careerOppurtunities', '') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +108,7 @@ const articles = [
                                             <h2 class="title">CF</h2>
                                             <span class="full-form">Course Fee</span>
                                         </div>
-                                        <p class="sm-text">The total cost of the MBBS program varies based upon factors such as institution, location and amenities. Government medical colleges have lower tuition fees compared to private ones.</p>
+                                        <p class="sm-text">{{ get(course, 'courseFee', '') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +130,7 @@ const articles = [
                                             <h2 class="title">AP</h2>
                                             <span class="full-form">Admission Process</span>
                                         </div>
-                                        <p class="sm-text">The total cost of the MBBS program varies based upon factors such as institution, location and amenities. Government medical colleges have lower tuition fees compared to private ones.</p>
+                                        <p class="sm-text">{{ get(course, 'admissionProcess', '') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +146,7 @@ const articles = [
                                             <h2 class="title">FI</h2>
                                             <span class="full-form">Faculty Information</span>
                                         </div>
-                                        <p class="sm-text">The total cost of the MBBS program varies based upon factors such as institution, location and amenities. Government medical colleges have lower tuition fees compared to private ones.</p>
+                                        <p class="sm-text">{{ get(course, 'facultyInformation', '') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +168,7 @@ const articles = [
                                             <h2 class="title">IF</h2>
                                             <span class="full-form">Infrastructure & Facilities</span>
                                         </div>
-                                        <p class="sm-text">The total cost of the MBBS program varies based upon factors such as institution, location and amenities. Government medical colleges have lower tuition fees compared to private ones.</p>
+                                        <p class="sm-text">{{ get(course, 'infrastructure', '') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +184,7 @@ const articles = [
                                             <h2 class="title">IS-PT</h2>
                                             <span class="full-form">Internship/Practical Training</span>
                                         </div>
-                                        <p class="sm-text">The total cost of the MBBS program varies based upon factors such as institution, location and amenities. Government medical colleges have lower tuition fees compared to private ones.</p>
+                                        <p class="sm-text">{{ get(course, 'internship') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -209,12 +202,12 @@ const articles = [
                         <div class="flex px-3 md:px-8 flex-col md:flex-row-reverse">
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
-                                    <p  class="text-center">The program is designed to train students in the theoretical and practical aspects of medicine, preparing them for a career as medical practitioners. It covers wide range of subjects including anatomy, physiology, biochemistry, pathology, pharmacology, microbiology and clinical training.</p>
+                                    <p  class="text-center">{{ get(course, 'quality', '') }}</p>
                                 </div>
                             </div>
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div class="image-container">
-                                    <img src="/images/courses/mbbs-2.webp" />
+                                    <SanityImage :asset-id="get(course, 'qualityImage.asset._ref', '')" />
                                 </div>
                             </div>
                         </div>
@@ -226,13 +219,13 @@ const articles = [
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2 class="title text-center">Contact Information</h2>
-                                    <p  class="text-center">For specific inquiries or free consultations, students can contact our respective academic counselor or mail us to info@campusentri.com</p>
+                                    <p  class="text-center">{{ contactInfo }}</p>
                                 </div>
                             </div>
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div>
                                     <h2 class="title text-center">Certification</h2>
-                                    <p class="sm-text text-center">Admission requirements generally include completion of 10+2 or equivalent with Physics , Chemistry, Biology and English. Entrance exams like NEET-UG are mandatory in many countries and canditates must meet age criteria, nationality requirements and language proficiency. </p>
+                                    <p class="sm-text text-center">{{ get(course, 'certification', '') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -354,7 +347,7 @@ const articles = [
                 h2 {
                     color: #2c2c2c;
                     font-family: 'Aeonik-Regular';
-                    font-size: calc(1.2rem + 2.91667vw);
+                    font-size: calc(1rem + 2.5vw);
                     line-height: 1.1em;
                     margin-bottom: calc(1.28906rem + .36458vw);
                     position: relative;

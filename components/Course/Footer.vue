@@ -129,6 +129,7 @@ const footerData = [
     background: linear-gradient(0deg,rgba(44,44,44,.05),rgba(44,44,44,.05)),radial-gradient(82.35% 83.58% at 95.5% 2.89%,#a7faf6 0,#7cddd9 100%);
     overflow: hidden;
     position: relative;
+    margin-top: 50px;
 
     @media screen and (max-width: 768px) {
         display: flex;

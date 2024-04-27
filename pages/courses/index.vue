@@ -3,11 +3,13 @@
 export default {
     data() {
         return {
-            isModalOpen: false
+            isModalOpen: false,
+            course: {}
         }
     },
     methods: {
-        openModal() {
+        openModal(data) {
+            this.course = data;
             this.isModalOpen = true;
         },
         closeModal() {
@@ -58,7 +60,7 @@ export default {
         </div>
         <Modal :is-open="isModalOpen" @close-modal="closeModal">
             <template v-slot:body>
-                <CourseContent />
+                <CourseContent :course="course" />
             </template>
         </Modal>
     </div>

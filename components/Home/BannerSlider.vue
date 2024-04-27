@@ -6,8 +6,8 @@
                 <span class="label-wrapper">
                     <span>{{ slide.label }}</span>
                 </span>
-                <NuxtLink to="/blogs" class="ml-4">
-                    <span class="mr-4">{{ slide.date }}</span>
+                <NuxtLink to="/blogs" class="ml-0 md:ml-4 h-full text-container">
+                    <span class="mr-4 date">{{ slide.date }}</span>
                     <span class="title">{{ slide.text }}</span>
                 </NuxtLink>
                 <div class="controls">
@@ -132,14 +132,34 @@ export default {
             transition: opacity 0.5s ease, transform 0.5s ease;
             @media screen and (max-width: 768px) {
                 padding: 8px;
+                height: 60%;
+                gap: 0;
             }
-
+            .text-container {
+                @media screen and (max-width: 768px) {
+                    width: 50%;
+                }
+            }
+            .date {
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
             .title {
                 font-size: .875rem;
                 letter-spacing: .01em;
                 line-height: 1em;
                 font-family: 'Aeonik-medium' !important;
                 text-transform: capitalize;
+                @media screen and (max-width: 768px) {
+                    font-size: .75rem;
+                    line-height: normal;
+                    height: auto;
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
             }
 
             span {
@@ -184,6 +204,9 @@ export default {
                 position: relative;
                 width: 150px;
                 transition: color .5s cubic-bezier(.19, 1, .22, 1), background-color .5s cubic-bezier(.19, 1, .22, 1);
+                @media screen and (max-width: 768px) {
+                    width: 70px;
+                }
             }
 
             &:hover {

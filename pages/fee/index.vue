@@ -2,11 +2,13 @@
 export default {
     data() {
         return {
-            isModalOpen: false
+            isModalOpen: false,
+            courseInfo: {}
         }
     },
     methods: {
-        openModal() {
+        openModal(data) {
+            this.courseInfo = data;
             this.isModalOpen = true;
         },
         closeModal() {
@@ -52,7 +54,7 @@ export default {
         <FeeStructureFooter />
         <Modal :is-open="isModalOpen" @close-modal="closeModal">
             <template v-slot:body>
-                <FeeStructureContent />
+                <FeeStructureContent :courseInfo="courseInfo" />
             </template>
         </Modal>
     </div>
