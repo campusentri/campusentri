@@ -1,8 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { optimizeLodashImports } from "@optimize-lodash/rollup-plugin";
 export default defineNuxtConfig({
   devtools: { enabled: true },
   devServer: {
     port: 3001
+  },
+  hooks: {
+    'vite:extendConfig': (config) => {
+      config.plugins?.push(optimizeLodashImports())
+    },
   },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
