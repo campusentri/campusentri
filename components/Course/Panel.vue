@@ -1,5 +1,5 @@
 <script setup>
-import { get } from 'lodash';
+import { get, truncate } from 'lodash';
 const query = groq`*[_type == "course"]`;
 const { data } = await useSanityQuery(query);
 const courses = get(data, 'value');
@@ -33,7 +33,7 @@ const images = [
                             <div class="subtitle-container flex flex-col-reverse md:flex-row px-8"
                                 :class="index !== 0 && ((index + 1) % 2 === 0 || (index + 1) % 4 === 0) && 'flex-row-reverse'">
                                 <div class="w-full md:w-1/2 ml-[6.25%] px-3">
-                                    <h3 class="description">{{ get(course, 'description', '') }}</h3>
+                                    <h3 class="description">{{ truncate(get(course, 'description', ''), { length: 200, omission: '...' }) }}</h3>
                                     <span class="read-more">
                                         <button @click="openModal(course)" class="read-more-btn big-size black-color"
                                             data-v-a2720cde="">
@@ -139,6 +139,7 @@ const images = [
             .inner-block {
                 height: 100%;
                 position: relative;
+                margin-bottom: 50px;
 
                 .background {
                     background-color: #f8edec;
