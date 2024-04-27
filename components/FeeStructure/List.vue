@@ -1,11 +1,10 @@
 <script setup>
 import { get } from 'lodash';
-const query = groq`*[_type == "course"] {
-  shortName,
-  "colleges": colleges[]->{ 
-    name,
-    courseDuration,
-    fees
+const query = groq`*[_type == "fees"] {
+  ...,
+  course -> {
+    _id,
+    shortName
   }
 }
 `;
@@ -68,7 +67,7 @@ function openModal(course) {
                                         </div>
                                     </div>
                                     <div class="middle-col px-1 md:px-3 w-[68.5%] md:w-[62.5%]">
-                                        <h2 class="title">{{ item.shortName }}</h2>
+                                        <h2 class="title">{{ get(item, 'course.shortName', '') }}</h2>
                                         <div class="read-more">
                                             <!-- <NuxtLink to="/fee/mbbs"> -->
                                             <button @click="openModal(item)" class="read-more-btn big-size black-color"

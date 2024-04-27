@@ -12,7 +12,7 @@ const props = defineProps({
     <div class="fee-wrapper">
         <div class="flex px-0 md:px-12 flex-col">
             <div class="mb-8">
-                <h2 class="title">{{ get(courseInfo, 'shortName', '') }}</h2>
+                <h2 class="title">{{ get(courseInfo, 'course.shortName', '') }}</h2>
             </div>
             <div class="table-layout overflow-x-auto mt-6">
                 <!-- <div class="inline-block overflow-hidden"> -->
@@ -29,9 +29,9 @@ const props = defineProps({
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) of get(courseInfo, 'colleges', [])" :key="index">
-                                <td class="light w-28">{{ get(item, 'name', '') }}</td>
-                                <td class="light w-52">{{ get(item, 'courseDuration', '') }}</td>
+                            <tr v-for="(item, index) of get(courseInfo, 'collegesFees', [])" :key="index">
+                                <td class="light w-28">{{ get(item, 'college', '') }}</td>
+                                <td class="light w-52">{{ get(item, 'information', '') }}</td>
                                 <td class="blue w-24">{{ get(item, 'fees.firstYear', '--') }}</td>
                                 <td class="w-24">{{ get(item, 'fees.secondYear', '--') }}</td>
                                 <td class="blue w-24">{{ get(item, 'fees.thirdYear', '--') }}</td>
