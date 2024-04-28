@@ -2,6 +2,11 @@
 import { get } from 'lodash';
 const query = groq`*[_type == "colleges"] {
   ...,
+  collegeVideo {
+    asset-> {
+      url
+    }
+  },
   "institutes": institutes[] {
     ...,
     "coursesOffered": coursesOffered[]-> {

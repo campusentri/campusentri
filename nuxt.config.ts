@@ -20,7 +20,8 @@ export default defineNuxtConfig({
     }
   },
   sanity: {
-    projectId: '5g2g36ih'
+    projectId: '5g2g36ih',
+    useCdn: true
   },
   lodash: {
     prefix: "_",

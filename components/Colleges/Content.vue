@@ -173,6 +173,11 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                         </div>
                     </div>
                 </div>
+                <div v-if="get(college, 'collegeVideo.asset.url', '')" class="px-8 mt-12">
+                    <video class="p-0 md:h-[350px] w-full" autoplay muted loop="loop" webkit-playsinline="true" playsinline="true" disableRemotePlayback="true">
+                        <source :src="get(college, 'collegeVideo.asset.url', '')" type="video/mp4">
+                    </video>
+                </div>
             </div>
             <div class="flex px-8 md:px-20 mt-8 contact-wrapper">
                 <div>
