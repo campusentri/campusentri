@@ -16,6 +16,9 @@ export default {
         }
     },
     mounted() {
+        useHead({
+            title: 'CampusEntri | Colleges'
+        })
         const tl = this.$gsap.timeline({
             scrollTrigger: {
                 trigger: '.hero-text-wrapper',

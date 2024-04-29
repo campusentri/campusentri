@@ -1,3 +1,9 @@
+<script setup>
+useHead({
+  title: 'CampusEntri'
+})
+</script>
+
 <template>
     <div class="home-content">
         <Home />

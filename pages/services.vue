@@ -1,3 +1,9 @@
+<script setup>
+useHead({
+  title: 'CampusEntri | Services'
+})
+</script>
+
 <template>
     <div class="service-content">
         <Service />

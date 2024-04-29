@@ -1,3 +1,9 @@
+<script setup>
+useHead({
+  title: 'CampusEntri | Company'
+})
+</script>
+
 <template>
     <div class="company-content">
         <Company />

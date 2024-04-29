@@ -16,6 +16,9 @@ export default {
         }
     },
     mounted() {
+        useHead({
+            title: 'CampusEntri | Fee Structure'
+        })
         const tl = this.$gsap.timeline({
             scrollTrigger: {
                 trigger: '.hero-text-wrapper',
