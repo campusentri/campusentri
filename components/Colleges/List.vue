@@ -6,12 +6,6 @@ const query = groq`*[_type == "colleges"] {
     asset-> {
       url
     }
-  },
-  "institutes": institutes[] {
-    ...,
-    "coursesOffered": coursesOffered[]-> {
-      shortName
-    }
   }
 }
 `;

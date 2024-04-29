@@ -48,6 +48,9 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                     </div>
                 </div>
             </div>
+            <div class="px-8 w-full flex justify-end">
+                <SanityImage class="rounded-lg" :asset-id="get(college, 'collegeImage.asset._ref')" />
+            </div>
             <div class="culture-block-wrapper">
                 <div class="flex items-end px-6">
                     <div class="w-full md:w-[50.5%] ml-0 md:ml-[6.25%]">
@@ -148,7 +151,7 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                                     <ul class="courses-list md:w-1/2 w-2/5 md:ml-[25.25%]">
                                         <li v-for="(item, index) of get(course, 'coursesOffered', [])" :key="index" class="course">
                                             <IconsTickCircle />
-                                            <span class="ml-3">{{ get(item, 'shortName', '') }}</span>
+                                            <span class="ml-3">{{ item }}</span>
                                         </li>
                                     </ul>
                                 </div>
