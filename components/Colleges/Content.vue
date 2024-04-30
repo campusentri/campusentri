@@ -21,9 +21,15 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
             <div class="flex flex-col md:flex-row px-8 intro-block-wrapper">
                 <div class="w-full md:w-[43.75%] ml-0 md:ml-[6.25%] px-3 left-col">
                     <h1 class="title">{{ get(college, 'name', '') }}</h1>
-                    <figure>
+                    <div v-if="get(college, 'collegeVideo.asset.url', '')">
+                        <video class="p-0 md:h-[350px] w-full" autoplay muted loop="loop" webkit-playsinline="true"
+                            playsinline="true" disableRemotePlayback="true">
+                            <source :src="get(college, 'collegeVideo.asset.url', '')" type="video/mp4">
+                        </video>
+                    </div>
+                    <figure v-else>
                         <div class="image-wrapper">
-                            <SanityImage :asset-id="get(college, 'poster.asset._ref')" />
+                            <SanityImage class="rounded-lg" :asset-id="get(college, 'poster.asset._ref')" />
                             <!-- <img src="/images/technologies/technology-1.png" /> -->
                         </div>
                         <figcaption>{{ get(college, 'poster.caption', '') }}</figcaption>
@@ -48,7 +54,7 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                     </div>
                 </div>
             </div>
-            <div class="px-8 w-full flex justify-end">
+            <div v-if="get(college, 'collegeImage.asset._ref')" class="px-8 w-full flex justify-end">
                 <SanityImage class="rounded-lg" :asset-id="get(college, 'collegeImage.asset._ref')" />
             </div>
             <div class="culture-block-wrapper">
@@ -149,7 +155,8 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                                         <p class="mt-8">{{ get(course, 'courseOfferedInformation', '') }}</p>
                                     </div>
                                     <ul class="courses-list md:w-1/2 w-2/5 md:ml-[25.25%]">
-                                        <li v-for="(item, index) of get(course, 'coursesOffered', [])" :key="index" class="course">
+                                        <li v-for="(item, index) of get(course, 'coursesOffered', [])" :key="index"
+                                            class="course">
                                             <IconsTickCircle />
                                             <span class="ml-3">{{ item }}</span>
                                         </li>
@@ -164,11 +171,12 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                 <div class="flex flex-col md:flex-row px-8">
                     <div class="flex flex-col justify-start ml-0 md:ml-[6.25%] w-full md:w-[43.75%]">
                         <h2 class="title">Collaboration & Partnership</h2>
-                        <p>{{ get(college, 'collaboration.information', '' )}}</p>
+                        <p>{{ get(college, 'collaboration.information', '') }}</p>
                     </div>
                     <div class="flex flex-col justify-center ml-0 md:ml-[10.75%] w-full md:w-1/2 px-3 mt-0 md:mt-24">
                         <div class="list flex flex-wrap">
-                            <div v-for="(institute, index) of get(college, 'collaboration.institutes', [])" :key="index" class="item my-2 px-3">
+                            <div v-for="(institute, index) of get(college, 'collaboration.institutes', [])" :key="index"
+                                class="item my-2 px-3">
                                 <div class="inner">
                                     <span class="label">{{ institute }}</span>
                                 </div>
@@ -176,11 +184,12 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                         </div>
                     </div>
                 </div>
-                <div v-if="get(college, 'collegeVideo.asset.url', '')" class="px-8 mt-12">
-                    <video class="p-0 md:h-[350px] w-full" autoplay muted loop="loop" webkit-playsinline="true" playsinline="true" disableRemotePlayback="true">
-                        <source :src="get(college, 'collegeVideo.asset.url', '')" type="video/mp4">
-                    </video>
-                </div>
+                <figure v-if="get(college, 'collegeVideo.asset.url', '')" class="px-8 mt-12">
+                    <div class="image-wrapper">
+                        <SanityImage class="rounded-lg" :asset-id="get(college, 'poster.asset._ref')" />
+                    </div>
+                    <figcaption>{{ get(college, 'poster.caption', '') }}</figcaption>
+                </figure>
             </div>
             <div class="flex px-8 md:px-20 mt-8 contact-wrapper">
                 <div>
@@ -630,6 +639,33 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                         text-align: center;
                     }
                 }
+            }
+        }
+
+        figure {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 0;
+            padding-bottom: calc(1.40625rem + 1.45833vw);
+            position: relative;
+
+            @media screen and (max-width: 768px) {
+                height: auto;
+            }
+
+            .image-wrapper {
+                width: 100%
+            }
+
+            figcaption {
+                color: #909ea0;
+                display: block;
+                font-family: 'Aeonik-Regular';
+                font-size: 1rem;
+                line-height: 1.4em;
+                position: relative;
+                text-align: center;
             }
         }
     }
