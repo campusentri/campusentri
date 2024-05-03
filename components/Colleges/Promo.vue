@@ -1,55 +1,77 @@
+<script>
+export default {
+    data() {
+        return {
+            isModalOpen: false
+        }
+    },
+    methods: {
+        openModal() {
+            this.$emit('open-modal');
+            this.isModalOpen = true;
+        },
+        closeModal() {
+            this.isModalOpen = false;
+        }
+    },
+}
+</script>
+
 <template>
-    <div id="promo" class="promo-block-wrapper">
-        <div class="row px-6 flex">
-            <svg viewBox="0 0 375 414" fill="none" xmlns="http://www.w3.org/2000/svg" class="background-svg" data-v-2b22974e=""><path d="M188 8.21774e-06C84.1705 3.67921e-06 -3.67921e-06 84.1705 -8.21774e-06 188L-1.80965e-05 414L376 414L376 188C376 84.1705 291.83 1.27563e-05 188 8.21774e-06Z" fill="#FFFBFB" data-v-2b22974e=""></path></svg>
-            <div class="text-container flex flex-col justify-center px-3 relative h-full md:w-[62.5%] md:ml-[5.5%]">
-                <span class="background"></span>
-                <div class="inner">
-                    <h2 class="title">We are here to support you.</h2>
-                    <h3 class="subtitle">Contact us to find out how our services can help achieve your goals.</h3>
-                    <div class="cta-container inline-flex items-center gap-8 w-full">
-                        <div class="cta-btn">
-                            <button class="read-more-btn big-size white-color" data-v-a2720cde="">
-                                <div class="inner" data-v-a2720cde="">
-                                    <span class="icon message" data-v-a2720cde="">
-                                        <span class="icon-container message-icon-container" data-v-a2720cde="">
-                                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg" class="message-icon shadow-icon"
-                                                data-v-a2720cde="">
-                                                <path
-                                                    d="M13.5015 6.21102C13.8393 5.87317 14.1073 5.47208 14.2902 5.03066C14.473 4.58924 14.5671 4.11613 14.5671 3.63833C14.5671 3.16054 14.473 2.68743 14.2902 2.246C14.1073 1.80458 13.8393 1.40349 13.5015 1.06564C13.1636 0.727793 12.7625 0.459795 12.3211 0.276951C11.8797 0.094108 11.4066 -3.55983e-09 10.9288 0C10.451 3.55983e-09 9.97789 0.094108 9.53646 0.276951C9.09504 0.459795 8.69395 0.727793 8.3561 1.06564L1.01958 8.40533C0.695584 8.72777 0.438668 9.11119 0.26367 9.53347C0.0886718 9.95575 -0.000940527 10.4085 7.44314e-06 10.8656V14.5671H3.70151C4.15915 14.5685 4.61251 14.4791 5.03536 14.3041C5.45821 14.1291 5.84215 13.8719 6.16496 13.5475L13.5015 6.21102ZM3.70151 12.6673H1.89984V10.8656C1.89947 10.6576 1.94011 10.4515 2.01943 10.2592C2.09875 10.0668 2.21521 9.89201 2.36213 9.74471L9.70182 2.41136C10.0311 2.10266 10.4675 1.93413 10.9188 1.94141C11.3701 1.94868 11.8008 2.13119 12.12 2.45033C12.4391 2.76947 12.6216 3.20023 12.6289 3.65151C12.6362 4.10279 12.4676 4.53921 12.1589 4.86847L4.81925 12.205C4.52254 12.501 4.12059 12.6672 3.70151 12.6673Z"
-                                                    fill="#2C2C2C" data-v-a2720cde=""></path>
-                                                <path d="M17.0985 17.1003H0V19.0002H17.0985V17.1003Z" fill="#2C2C2C"
-                                                    data-v-a2720cde=""></path>
-                                            </svg>
-                                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg" class="message-icon"
-                                                data-v-a2720cde="">
-                                                <path
-                                                    d="M13.5015 6.21102C13.8393 5.87317 14.1073 5.47208 14.2902 5.03066C14.473 4.58924 14.5671 4.11613 14.5671 3.63833C14.5671 3.16054 14.473 2.68743 14.2902 2.246C14.1073 1.80458 13.8393 1.40349 13.5015 1.06564C13.1636 0.727793 12.7625 0.459795 12.3211 0.276951C11.8797 0.094108 11.4066 -3.55983e-09 10.9288 0C10.451 3.55983e-09 9.97789 0.094108 9.53646 0.276951C9.09504 0.459795 8.69395 0.727793 8.3561 1.06564L1.01958 8.40533C0.695584 8.72777 0.438668 9.11119 0.26367 9.53347C0.0886718 9.95575 -0.000940527 10.4085 7.44314e-06 10.8656V14.5671H3.70151C4.15915 14.5685 4.61251 14.4791 5.03536 14.3041C5.45821 14.1291 5.84215 13.8719 6.16496 13.5475L13.5015 6.21102ZM3.70151 12.6673H1.89984V10.8656C1.89947 10.6576 1.94011 10.4515 2.01943 10.2592C2.09875 10.0668 2.21521 9.89201 2.36213 9.74471L9.70182 2.41136C10.0311 2.10266 10.4675 1.93413 10.9188 1.94141C11.3701 1.94868 11.8008 2.13119 12.12 2.45033C12.4391 2.76947 12.6216 3.20023 12.6289 3.65151C12.6362 4.10279 12.4676 4.53921 12.1589 4.86847L4.81925 12.205C4.52254 12.501 4.12059 12.6672 3.70151 12.6673Z"
-                                                    fill="#2C2C2C" data-v-a2720cde=""></path>
-                                                <path d="M17.0985 17.1003H0V19.0002H17.0985V17.1003Z" fill="#2C2C2C"
-                                                    data-v-a2720cde=""></path>
-                                            </svg>
+    <div>
+        <div id="promo" class="promo-block-wrapper">
+            <div class="row px-6 flex">
+                <svg viewBox="0 0 375 414" fill="none" xmlns="http://www.w3.org/2000/svg" class="background-svg" data-v-2b22974e=""><path d="M188 8.21774e-06C84.1705 3.67921e-06 -3.67921e-06 84.1705 -8.21774e-06 188L-1.80965e-05 414L376 414L376 188C376 84.1705 291.83 1.27563e-05 188 8.21774e-06Z" fill="#FFFBFB" data-v-2b22974e=""></path></svg>
+                <div class="text-container flex flex-col justify-center px-3 relative h-full md:w-[62.5%] md:ml-[5.5%]">
+                    <span class="background"></span>
+                    <div class="inner">
+                        <h2 class="title">We are here to support you.</h2>
+                        <h3 class="subtitle">Contact us to find out how our services can help achieve your goals.</h3>
+                        <div class="cta-container inline-flex items-center gap-8 w-full">
+                            <div class="cta-btn">
+                                <button class="read-more-btn big-size white-color"  @click="openModal" data-v-a2720cde="">
+                                    <div class="inner" data-v-a2720cde="">
+                                        <span class="icon message" data-v-a2720cde="">
+                                            <span class="icon-container message-icon-container" data-v-a2720cde="">
+                                                <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg" class="message-icon shadow-icon"
+                                                    data-v-a2720cde="">
+                                                    <path
+                                                        d="M13.5015 6.21102C13.8393 5.87317 14.1073 5.47208 14.2902 5.03066C14.473 4.58924 14.5671 4.11613 14.5671 3.63833C14.5671 3.16054 14.473 2.68743 14.2902 2.246C14.1073 1.80458 13.8393 1.40349 13.5015 1.06564C13.1636 0.727793 12.7625 0.459795 12.3211 0.276951C11.8797 0.094108 11.4066 -3.55983e-09 10.9288 0C10.451 3.55983e-09 9.97789 0.094108 9.53646 0.276951C9.09504 0.459795 8.69395 0.727793 8.3561 1.06564L1.01958 8.40533C0.695584 8.72777 0.438668 9.11119 0.26367 9.53347C0.0886718 9.95575 -0.000940527 10.4085 7.44314e-06 10.8656V14.5671H3.70151C4.15915 14.5685 4.61251 14.4791 5.03536 14.3041C5.45821 14.1291 5.84215 13.8719 6.16496 13.5475L13.5015 6.21102ZM3.70151 12.6673H1.89984V10.8656C1.89947 10.6576 1.94011 10.4515 2.01943 10.2592C2.09875 10.0668 2.21521 9.89201 2.36213 9.74471L9.70182 2.41136C10.0311 2.10266 10.4675 1.93413 10.9188 1.94141C11.3701 1.94868 11.8008 2.13119 12.12 2.45033C12.4391 2.76947 12.6216 3.20023 12.6289 3.65151C12.6362 4.10279 12.4676 4.53921 12.1589 4.86847L4.81925 12.205C4.52254 12.501 4.12059 12.6672 3.70151 12.6673Z"
+                                                        fill="#2C2C2C" data-v-a2720cde=""></path>
+                                                    <path d="M17.0985 17.1003H0V19.0002H17.0985V17.1003Z" fill="#2C2C2C"
+                                                        data-v-a2720cde=""></path>
+                                                </svg>
+                                                <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg" class="message-icon"
+                                                    data-v-a2720cde="">
+                                                    <path
+                                                        d="M13.5015 6.21102C13.8393 5.87317 14.1073 5.47208 14.2902 5.03066C14.473 4.58924 14.5671 4.11613 14.5671 3.63833C14.5671 3.16054 14.473 2.68743 14.2902 2.246C14.1073 1.80458 13.8393 1.40349 13.5015 1.06564C13.1636 0.727793 12.7625 0.459795 12.3211 0.276951C11.8797 0.094108 11.4066 -3.55983e-09 10.9288 0C10.451 3.55983e-09 9.97789 0.094108 9.53646 0.276951C9.09504 0.459795 8.69395 0.727793 8.3561 1.06564L1.01958 8.40533C0.695584 8.72777 0.438668 9.11119 0.26367 9.53347C0.0886718 9.95575 -0.000940527 10.4085 7.44314e-06 10.8656V14.5671H3.70151C4.15915 14.5685 4.61251 14.4791 5.03536 14.3041C5.45821 14.1291 5.84215 13.8719 6.16496 13.5475L13.5015 6.21102ZM3.70151 12.6673H1.89984V10.8656C1.89947 10.6576 1.94011 10.4515 2.01943 10.2592C2.09875 10.0668 2.21521 9.89201 2.36213 9.74471L9.70182 2.41136C10.0311 2.10266 10.4675 1.93413 10.9188 1.94141C11.3701 1.94868 11.8008 2.13119 12.12 2.45033C12.4391 2.76947 12.6216 3.20023 12.6289 3.65151C12.6362 4.10279 12.4676 4.53921 12.1589 4.86847L4.81925 12.205C4.52254 12.501 4.12059 12.6672 3.70151 12.6673Z"
+                                                        fill="#2C2C2C" data-v-a2720cde=""></path>
+                                                    <path d="M17.0985 17.1003H0V19.0002H17.0985V17.1003Z" fill="#2C2C2C"
+                                                        data-v-a2720cde=""></path>
+                                                </svg>
+                                            </span>
                                         </span>
-                                    </span>
-                                    <span class="label-sizer" data-v-a2720cde="">Contact us
-                                    </span>
-                                </div>
-                            </button>
-                        </div>
-                        <div class="person-container">
-                            <span>A member of our team will contact you shortly.</span>
+                                        <span class="label-sizer" data-v-a2720cde="">Contact us
+                                        </span>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="person-container">
+                                <span>A member of our team will contact you shortly.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="image-container">
+                <video autoplay muted loop="loop" webkit-playsinline="true" playsinline="true" disableRemotePlayback="true">
+                    <source src="/videos/promo-block-small-uhd.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
-        <div class="image-container">
-            <video autoplay muted loop="loop" webkit-playsinline="true" playsinline="true" disableRemotePlayback="true">
-                <source src="/videos/promo-block-small-uhd.mp4" type="video/mp4">
-            </video>
-        </div>
+        <ContactForm :is-open="isModalOpen" @close-modal="closeModal" />
     </div>
 </template>
 
