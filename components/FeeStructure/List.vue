@@ -12,10 +12,22 @@ const { data } = await useSanityQuery(query);
 const courses = get(data, 'value', []);
 const svgs = [
     '<svg xml:space="preserve" viewBox="0 0 200 200" y="0" x="0" xmlns="http://www.w3.org/2000/svg" id="Layer_1" version="1.1"><style>.st0{fill:none;stroke:#2c2c2c;stroke-width:1.9;stroke-miterlimit:10}</style><path d="M92.2 68.1h48.9M162.7 71.9c-4.9 4-20.6 18.5-20.6 30.2 0 12.2 9.5 15.4 13.7 15.4 4.2 0 13.7-3.3 13.7-15.4 0-11.7-16.9-28.3-21.8-32.3L65.5 152c-7.9 7.9-20.8 7.9-28.7 0-7.9-7.9-7.9-20.8 0-28.7L119 41.2" class="st0"></path></svg>'
-]
-const emitOpenModal = defineEmits(['open-modal']);
-function openModal(course) {
-    emitOpenModal('open-modal', course);
+];
+const isModalOpen = ref(false);
+const courseInfo = ref({});
+const emitOpenModal = defineEmits(['open-contact-modal', 'close-contact-modal', 'open-modal']);
+// const emitCloseModal = defineEmits(['close-contact-modal']);
+function openCourseModal() {
+    emitOpenModal('open-modal', courseInfo.value);
+}
+function openModal(item) {
+    courseInfo.value = item;
+    isModalOpen.value = true;
+    emitOpenModal('open-contact-modal', item);
+}
+function closeModal() {
+    isModalOpen.value = false;
+    emitOpenModal('close-contact-modal');
 }
 
 // onMounted(() => {
@@ -121,6 +133,7 @@ function openModal(course) {
                 </div>
             </div>
         </div>
+        <ContactForm :is-open="isModalOpen" @close-contact-modal="closeModal" @open-modal="openCourseModal" :course-info="courseInfo" />
     </div>
 </template>
 

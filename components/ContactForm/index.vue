@@ -15,11 +15,15 @@ export default {
         isOpen: {
             type: Boolean,
             default: false
+        },
+        courseInfo: {
+            type: Object,
+            default: {}
         }
     },
     methods: {
         closeModal() {
-            this.$emit('close-modal');
+            this.$emit('close-contact-modal');
         },
         async handleSubmit() {
             const sanity = useSanity();
@@ -36,7 +40,10 @@ export default {
                 }
                 this.submitted = true;
                 setTimeout(()=> {
-                    this.$emit('close-modal');
+                    this.$emit('close-contact-modal');
+                    if(this.courseInfo) {
+                        this.$emit('open-modal', this.courseInfo);
+                    }
                     this.submitted = false;
                 }, 2000);
             } catch (error) {

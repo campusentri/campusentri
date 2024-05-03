@@ -7,7 +7,7 @@ export default {
     },
     methods: {
         openModal() {
-            this.$emit('open-modal');
+            this.$emit('open-contact-modal');
             this.isModalOpen = true;
         },
         closeModal() {
@@ -71,7 +71,7 @@ export default {
                 </video>
             </div>
         </div>
-        <ContactForm :is-open="isModalOpen" @close-modal="closeModal" />
+        <ContactForm :is-open="isModalOpen" @close-contact-modal="closeModal" />
     </div>
 </template>
 
