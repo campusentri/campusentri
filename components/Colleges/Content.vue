@@ -18,11 +18,11 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
 <template>
     <div id="college-content" class="college-content-wrapper">
         <div class="block-inner">
-            <div class="flex flex-col md:flex-row px-8 intro-block-wrapper">
+            <div class="flex flex-col md:flex-row items-center px-8 intro-block-wrapper">
                 <div class="w-full md:w-[43.75%] ml-0 md:ml-[6.25%] px-3 left-col">
                     <h1 class="title">{{ get(college, 'name', '') }}</h1>
                     <div v-if="get(college, 'collegeVideo.asset.url', '')">
-                        <video class="p-0 md:h-[350px] w-full" autoplay muted loop="loop" webkit-playsinline="true"
+                        <video class="p-0 w-full" autoplay muted loop="loop" webkit-playsinline="true"
                             playsinline="true" disableRemotePlayback="true">
                             <source :src="get(college, 'collegeVideo.asset.url', '')" type="video/mp4">
                         </video>
@@ -38,9 +38,12 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                 <div class="px-3 md:w-[43.75%] right-col">
                     <div>
                         <h2>{{ get(college, 'highlight', '') }}</h2>
-                        <p>{{ get(college, 'longDescription', '') }}</p>
+                        <!-- <p>{{ get(college, 'longDescription', '') }}</p> -->
                     </div>
                 </div>
+            </div>
+            <div class="px-10 md:px-20 description-text md:mt-8">
+                <p>{{ get(college, 'longDescription', '') }}</p>
             </div>
             <div class="institute-block-wrapper">
                 <div class="md:ml-[6.25%] px-8 md:px-3 flex">
@@ -85,16 +88,13 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                                 </span>
                             </div>
                         </div>
-                        <div class="values-list mt-8 hidden md:grid grid-cols-1 md:grid-cols-3">
+                        <div class="values-list mt-8 grid grid-cols-1 md:grid-cols-3">
                             <div v-for="(item, index) of filteredInstitutes" :key="index" class="item culture-items">
                                 <span class="content">
                                     <h3>{{ get(item, 'instituteName', '') }}</h3>
                                     <p>{{ get(item, 'instituteInformation', '') }}</p>
                                 </span>
                             </div>
-                        </div>
-                        <div class="block md:hidden mt-32">
-                            <CollegesSlider :institutes="filteredInstitutes" />
                         </div>
                     </div>
                 </div>
@@ -266,6 +266,10 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                 height: 350px;
                 justify-content: center;
                 width: 350px;
+
+                @media screen and (max-width: 768px) {
+                    height: auto;
+                }
             }
         }
 
@@ -289,6 +293,19 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                 line-height: 1.6em;
                 margin-bottom: calc(1.34375rem + .875vw);
             }
+        }
+    }
+
+    .description-text {
+        p {
+            color: #2c2c2c;
+            font-family: 'Aeonik-Regular';
+            font-size: 1.125rem;
+            line-height: 1.6em;
+            margin-bottom: calc(1.34375rem + .875vw);
+            // column-count: 2;
+            // -moz-column-gap: calc(6.25vw + 1.5rem);
+            // column-gap: calc(6.25vw + 0rem);
         }
     }
 
@@ -337,9 +354,6 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
         }
 
         .values-list {
-            @media screen and (max-width: 768px) {
-                gap: 10rem;
-            }
 
             .name {
                 align-items: center;
@@ -446,7 +460,6 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
 
         .title {
             position: relative;
-            text-align: center;
             color: #2c2c2c;
             font-family: 'Aeonik-Regular';
             font-size: 3.8235294118vw;
@@ -455,7 +468,7 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
 
             @media screen and (max-width: 768px) {
                 font-size: calc(1.40625rem + 2.45833vw);
-                margin-bottom: 3rem;
+                margin-bottom: 2rem;
             }
         }
 
@@ -637,6 +650,10 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                         line-height: 1em;
                         padding: 0 10px;
                         text-align: center;
+
+                        @media screen and (max-width: 768px) {
+                            font-size: 0.8rem;
+                        }
                     }
                 }
             }

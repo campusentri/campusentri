@@ -95,6 +95,7 @@ export default {
     position: absolute;
     right: .75rem;
     top: 5px;
+    position: fixed;
 
     &:hover {
         .icon {

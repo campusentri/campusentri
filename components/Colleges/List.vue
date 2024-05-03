@@ -88,7 +88,7 @@ function openModal(college) {
                 </div>
                 <div class="right-col">
                     <!-- <img :src="item.image" /> -->
-                    <SanityImage :asset-id="get(item, 'poster.asset._ref', '')" />
+                    <SanityImage class="rounded-lg" :asset-id="get(item, 'poster.asset._ref', '')" />
                 </div>
             </li>
         </ul>

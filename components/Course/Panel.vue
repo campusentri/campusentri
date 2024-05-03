@@ -21,7 +21,7 @@ const images = [
     <div class="panel-scroll-wrapper">
         <div class="panels-container">
             <div class="expertise-section panel-container">
-                <section v-for="(course, index) of courses" :key="index" class="inner-block">
+                <section v-for="(course, index) of courses" :key="index" :id="get(course, 'shortName', '')" class="inner-block">
                     <span class="background"></span>
                     <div class="block-inner">
                         <div class="scroll-wrapper">
