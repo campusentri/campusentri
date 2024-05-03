@@ -37,6 +37,7 @@ export default {
                 this.submitted = true;
                 setTimeout(()=> {
                     this.$emit('close-modal');
+                    this.submitted = false;
                 }, 2000);
             } catch (error) {
                 console.error('Error submitting lead:', error);
@@ -81,46 +82,46 @@ export default {
                 <section class="modal-body" id="modalDescription">
                     <div v-if="!submitted" class="wrapper">
                         <div class="contact-form-wrapper">
-                            <div class="flex justify-center px-8">
+                            <div class="flex justify-center px-3 md:px-8">
                                 <div class="header-container w-full">
                                     <h2 class="title">We're here to answer your questions!</h2>
                                 </div>
                             </div>
                         </div>
                         <form @submit.prevent="handleSubmit" class="contact-form-container mb-10">
-                            <div class="form-line flex px-8">
-                                <div class="flex items-center px-3 w-1/4">
+                            <div class="form-line flex flex-col md:flex-row md:px-8">
+                                <div class="flex items-center form-cols px-3 w-full md:w-1/4">
                                     <label for="name">Your Name</label>
                                 </div>
-                                <div class="flex items-center px-3 w-3/4">
+                                <div class="flex items-center form-cols px-3 w-full md:w-3/4">
                                     <input class="px-3" name="name" id="name" v-model="lead.name" type="text" required />
                                 </div>
                             </div>
-                            <div class="form-line flex px-8">
-                                <div class="flex items-center px-3 w-1/4">
+                            <div class="form-line flex flex-col md:flex-row md:px-8">
+                                <div class="flex items-center form-cols px-3 w-full md:w-1/4">
                                     <label for="email">Your Email</label>
                                 </div>
-                                <div class="flex items-center px-3 w-3/4">
+                                <div class="flex items-center form-cols px-3 w-full md:w-3/4">
                                     <input class="px-3" name="email" id="email" v-model="lead.email" type="email" required />
                                 </div>
                             </div>
-                            <div class="form-line flex px-8">
-                                <div class="flex items-center px-3 w-1/4">
+                            <div class="form-line flex flex-col md:flex-row md:px-8">
+                                <div class="flex items-center form-cols px-3 w-full md:w-1/4">
                                     <label for="phoneNumber">Phone Number</label>
                                 </div>
-                                <div class="flex items-center px-3 w-3/4">
+                                <div class="flex items-center form-cols px-3 w-full md:w-3/4">
                                     <input class="px-3" name="phoneNumber" id="phoneNumber" v-model="lead.phoneNumber" type="tel" required />
                                 </div>
                             </div>
-                            <div class="form-line text-area-line flex px-8">
-                                <div class="flex items-start px-3 w-1/4">
+                            <div class="form-line text-area-line flex flex-col md:flex-row md:px-8">
+                                <div class="flex items-start px-3 w-full md:w-1/4">
                                     <label for="courseInfo">Course Info</label>
                                 </div>
-                                <div class="flex items-start px-3 w-3/4">
+                                <div class="flex items-start px-3 w-full md:w-3/4">
                                     <textarea name="courseInfo" id="courseInfo" v-model="lead.courseInfo" required></textarea>
                                 </div>
                             </div>
-                            <div class="flex justify-center px-8 mt-12">
+                            <div class="flex justify-center md:px-8 mt-12">
                                 <div class="send-btn">
                                     <button class="read-more-btn big-size black-color" type="submit" data-v-a2720cde="">
                                         <div class="inner-btn" data-v-a2720cde="">
@@ -203,6 +204,11 @@ export default {
                 top: 40px;
                 width: calc(100% - 40px);
 
+                @media screen and (max-width: 768px) {
+                    left: 0;
+                    width: 100%;
+                }
+
                 .success {
                     min-height: 70vh;
                     h2 {
@@ -239,6 +245,13 @@ export default {
                         height: calc(1.48438rem + 2.1875vw);
                         margin-bottom: calc(1.36719rem + 1.09375vw);
                         position: relative;
+                        @media screen and (max-width: 768px) {
+                            height: auto;
+                            .form-cols {
+                                height: auto;
+                                min-height: 40px;
+                            }
+                        }
 
                         label {
                             color: #2c2c2c;
@@ -263,6 +276,9 @@ export default {
                             padding: 0 10px;
                             position: relative;
                             width: 100%;
+                            @media screen and (max-width: 768px) {
+                                height: 40px;
+                            }
                         }
 
                         textarea {
