@@ -25,7 +25,7 @@ export default {
 };
 </script>
 <template>
-    <nav class="bg-transparent pt-6 px-3 absolute w-full">
+    <nav class="bg-transparent pt-6 px-3 absolute z-[1] w-full">
         <div class="flex items-stretch px-4 md:px-6">
             <NuxtLink to="/">
                 <div class="flex flex-grow-0 items-center logo">
