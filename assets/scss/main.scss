@@ -60,6 +60,22 @@ h1 {
     overflow: hidden;
 }
 
+::-webkit-scrollbar {
+    background: transparent !important;
+    width: 10px;
+    cursor: grab;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(33, 37, 41, 0.45); 
+    cursor: grab;
+}
+
+::-webkit-scrollbar-corner {
+    border-radius: 10px;
+}
+
 .page-title {
     translate: none;
     rotate: none;
