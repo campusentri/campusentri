@@ -98,7 +98,7 @@ export default {
         .swiper-slide {
             @media screen and (max-width: 960px) {
                 width: 100% !important;
-                margin-right: 30px;
+                // margin-right: 30px;
             }
         }
 

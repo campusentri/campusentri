@@ -120,11 +120,11 @@ export default {
     }
 
     .slider-list {
-        padding-left: calc(12.5vw + 50px);
+        padding-left: calc(20.5vw + 50px);
         position: relative;
         
         @media screen and (max-width: 960px) {
-            padding-left: 20px;
+            padding-left: 0px;
         }
         .swiper {
             display: flex;
@@ -137,7 +137,7 @@ export default {
         .swiper-slide {
             @media screen and (max-width: 960px) {
                 width: 100%;
-                margin-right: 30px;
+                margin-right: 7px;
             }
         }
         
