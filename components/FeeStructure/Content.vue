@@ -15,32 +15,32 @@ const props = defineProps({
                 <h2 class="title">{{ get(courseInfo, 'course.shortName', '') }}</h2>
             </div>
             <div class="table-layout overflow-x-auto mt-6">
-                <!-- <div class="inline-block overflow-hidden"> -->
+                <div class="inline-block overflow-hidden">
                     <table class="table-fixed min-w-full">
                         <thead>
                             <tr>
-                                <th class="light w-28">Ranked Higher The better</th>
-                                <th class="light w-52">Duration / Info</th>
-                                <th class="blue w-24">First Year</th>
-                                <th class="w-24">Second Year</th>
-                                <th class="blue w-24">Third Year</th>
-                                <th class="w-24">Fourth Year</th>
-                                <th class="blue w-24">Fifth Year</th>
+                                <th class="light min-w-28">Ranked Higher The better</th>
+                                <th class="light min-w-52">Duration / Info</th>
+                                <th class="blue min-w-24">First Year</th>
+                                <th class="min-w-24">Second Year</th>
+                                <th class="blue min-w-24">Third Year</th>
+                                <th class="min-w-24">Fourth Year</th>
+                                <th class="blue min-w-24">Fifth Year</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="(item, index) of get(courseInfo, 'collegesFees', [])" :key="index">
-                                <td class="light w-28">{{ get(item, 'college', '') }}</td>
-                                <td class="light w-52">{{ get(item, 'information', '') }}</td>
-                                <td class="blue w-24">{{ get(item, 'fees.firstYear', '--') }}</td>
-                                <td class="w-24">{{ get(item, 'fees.secondYear', '--') }}</td>
-                                <td class="blue w-24">{{ get(item, 'fees.thirdYear', '--') }}</td>
-                                <td class="w-24">{{ get(item, 'fees.fourthYear', '--') }}</td>
-                                <td class="blue w-24">{{ get(item, 'fees.fifthYear', '--') }}</td>
+                                <td class="light min-w-28">{{ get(item, 'college', '') }}</td>
+                                <td class="light min-w-52">{{ get(item, 'information', '') }}</td>
+                                <td class="blue min-w-24">{{ get(item, 'fees.firstYear', '--') }}</td>
+                                <td class="min-w-24">{{ get(item, 'fees.secondYear', '--') }}</td>
+                                <td class="blue min-w-24">{{ get(item, 'fees.thirdYear', '--') }}</td>
+                                <td class="min-w-24">{{ get(item, 'fees.fourthYear', '--') }}</td>
+                                <td class="blue min-w-24">{{ get(item, 'fees.fifthYear', '--') }}</td>
                             </tr>
                         </tbody>
                     </table>
-                <!-- </div> -->
+                </div>
             </div>
         </div>
     </div>
