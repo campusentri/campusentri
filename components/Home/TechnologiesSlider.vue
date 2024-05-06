@@ -46,7 +46,7 @@ const filteredColleges = filter(colleges, (college) => filterNames.includes(coll
                             <SanityImage class="rounded-lg" :asset-id="get(slide, 'poster.asset._ref', '')" />
                             <!-- <img :src="slide.image" /> -->
                         </div>
-                        <h4>{{ get(item, 'name', '') }}</h4>
+                        <h4>{{ get(slide, 'name', '') }}</h4>
                     </div>
                 </NuxtLink>
             </SwiperSlide>
