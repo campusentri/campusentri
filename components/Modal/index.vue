@@ -15,11 +15,11 @@ export default {
         isOpen(newVal) {
             const navElement = document.querySelector('nav');
             if (newVal) {
-                document.body.classList.add('body-no-scroll');
-                navElement.classList.add('z-[1]');
+                document.body.classList.add('overflow-hidden');
+                navElement.classList.add('z-[2]');
             } else {
-                document.body.classList.remove('body-no-scroll');
-                navElement.classList.remove('z-[1]');
+                document.body.classList.remove('overflow-hidden');
+                navElement.classList.remove('z-[2]');
             }
         }
     }
