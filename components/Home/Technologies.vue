@@ -1,5 +1,19 @@
 <script>
 export default {
+    data() {
+        return {
+            isModalOpen: false
+        }
+    },
+    methods: {
+        openModal() {
+            this.$emit('open-contact-modal');
+            this.isModalOpen = true;
+        },
+        closeModal() {
+            this.isModalOpen = false;
+        }
+    },
     mounted() {
         const tl = this.$gsap.timeline({
             scrollTrigger: {
@@ -99,7 +113,7 @@ export default {
                     class="inner inner-promo p-6 md:p-0 bg-[#ff4134] text-white h-full flex justify-center order-2 md:order-1 items-center flex-col">
                     <h2 class="title">We are here to support you.</h2>
                     <div class="cta-container flex items-center gap-8 pl-0 md:pl-20 mt-6 md:mt-10">
-                        <button class="read-more-btn big-size white-color" data-v-a2720cde="">
+                        <button class="read-more-btn big-size white-color" @click="openModal" data-v-a2720cde="">
                             <div class="inner" data-v-a2720cde="">
                                 <span class="icon message" data-v-a2720cde="">
                                     <span class="icon-container message-icon-container" data-v-a2720cde="">
@@ -136,6 +150,7 @@ export default {
                 </div>
             </div>
         </section>
+        <ContactForm :is-open="isModalOpen" @close-contact-modal="closeModal" />
     </div>
 </template>
 

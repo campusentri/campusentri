@@ -13,10 +13,13 @@ export default {
     },
     watch: {
         isOpen(newVal) {
+            const navElement = document.querySelector('nav');
             if (newVal) {
                 document.body.classList.add('body-no-scroll');
+                navElement.classList.add('z-[1]');
             } else {
                 document.body.classList.remove('body-no-scroll');
+                navElement.classList.remove('z-[1]');
             }
         }
     }
@@ -31,7 +34,7 @@ export default {
                 <header class="modal-header" id="modalTitle">
                     <slot name="header">
                     </slot>
-                    <button type="button" class="btn-close" @click="closeModal" aria-label="Close modal">
+                    <button type="button" class="btn-close z-10" @click="closeModal" aria-label="Close modal">
                         <span class="bg"></span>
                         <span class="label"></span>
                         <span class="icon">

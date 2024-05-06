@@ -1,30 +1,18 @@
 <script setup>
-const slides = [
-    {
-        name: 'AJ Institute',
-        image: '/images/technologies/technology-1.png'
-    },
-    {
-        name: 'Yenepoya Institute',
-        image: '/images/technologies/technology-2.png'
-    },
-    {
-        name: 'Nitte Institute',
-        image: '/images/technologies/technology-3.png'
-    },
-    {
-        name: 'Srinivas Institute',
-        image: '/images/technologies/technology-4.png'
-    },
-    {
-        name: 'Mangala College',
-        image: '/images/technologies/technology-5.png'
-    },
-    {
-        name: 'Father Mullers Institute',
-        image: '/images/technologies/technology-6.png'
-    },
-]
+import { get, filter } from 'lodash';
+const query = groq`*[_type == "colleges"] {
+  ...,
+  collegeVideo {
+    asset-> {
+      url
+    }
+  }
+}
+`;
+const { data } = await useSanityQuery(query);
+const colleges = get(data, 'value', []);
+const filterNames = ['AJ Institute', 'Yenepoya Institute', 'NITTE', 'Srinivas College', 'Mangala College', 'Father Muller']
+const filteredColleges = filter(colleges, (college) => filterNames.includes(college.name));
 </script>
 
 <template>
@@ -48,16 +36,19 @@ const slides = [
         >
             <SwiperControls />
 
-            <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
-                <div class="slider-item">
-                    <div class="order-number">
-                        <span class="index">{{ idx + 1 }}</span>
+            <SwiperSlide v-for="(slide, idx) in filteredColleges" :key="idx">
+                <NuxtLink :to="`/colleges#${get(slide, 'name', '')}`">
+                    <div class="slider-item">
+                        <div class="order-number">
+                            <span class="index">{{ idx + 1 }}</span>
+                        </div>
+                        <div class="image-container">
+                            <SanityImage class="rounded-lg" :asset-id="get(slide, 'poster.asset._ref', '')" />
+                            <!-- <img :src="slide.image" /> -->
+                        </div>
+                        <h4>{{ get(item, 'name', '') }}</h4>
                     </div>
-                    <div class="image-container">
-                        <img :src="slide.image" />
-                    </div>
-                    <h4>{{ slide.name }}</h4>
-                </div>
+                </NuxtLink>
             </SwiperSlide>
 
         </Swiper>

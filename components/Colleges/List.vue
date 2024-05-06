@@ -41,7 +41,7 @@ function openModal(college) {
 <template>
     <div id="list" class="technologies-list-wrapper mt-28">
         <ul class="items-list technologies-list">
-            <li v-for="(item, index) of colleges" :key="index" class="item technologies-item">
+            <li v-for="(item, index) of colleges" :key="index" :id="get(item, 'name', '')" class="item technologies-item">
                 <span class="top-line"></span>
                 <span class="right-line"></span>
                 <div class="left-col">

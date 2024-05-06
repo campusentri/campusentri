@@ -6,7 +6,6 @@ export default {
                 name: '',
                 email: '',
                 phoneNumber: '',
-                courseInfo: '',
             },
             submitted: false
         }
@@ -36,7 +35,6 @@ export default {
                     name: '',
                     email: '',
                     phoneNumber: '',
-                    courseInfo: '',
                 }
                 this.submitted = true;
                 setTimeout(()=> {
@@ -53,10 +51,13 @@ export default {
     },
     watch: {
         isOpen(newVal) {
+            const navElement = document.querySelector('nav');
             if (newVal) {
                 document.body.classList.add('body-no-scroll');
+                navElement.classList.add('z-[1]');
             } else {
                 document.body.classList.remove('body-no-scroll');
+                navElement.classList.remove('z-[1]');
             }
         }
     }
@@ -69,7 +70,7 @@ export default {
             <div class="inner" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
 
                 <header class="modal-header" id="modalTitle">
-                    <button type="button" class="btn-close" @click="closeModal" aria-label="Close modal">
+                    <button type="button" class="btn-close z-10" @click="closeModal" aria-label="Close modal">
                         <span class="bg"></span>
                         <span class="label"></span>
                         <span class="icon">
@@ -91,7 +92,7 @@ export default {
                         <div class="contact-form-wrapper">
                             <div class="flex justify-center px-3 md:px-8">
                                 <div class="header-container w-full">
-                                    <h2 class="title">We're here to answer your questions!</h2>
+                                    <h2 class="title">Let's Explore Your Future Together!</h2>
                                 </div>
                             </div>
                         </div>
@@ -118,14 +119,6 @@ export default {
                                 </div>
                                 <div class="flex items-center form-cols px-3 w-full md:w-3/4">
                                     <input class="px-3" name="phoneNumber" id="phoneNumber" v-model="lead.phoneNumber" type="tel" required />
-                                </div>
-                            </div>
-                            <div class="form-line text-area-line flex flex-col md:flex-row md:px-8">
-                                <div class="flex items-start px-3 w-full md:w-1/4">
-                                    <label for="courseInfo">Course Info</label>
-                                </div>
-                                <div class="flex items-start px-3 w-full md:w-3/4">
-                                    <textarea name="courseInfo" id="courseInfo" v-model="lead.courseInfo" required></textarea>
                                 </div>
                             </div>
                             <div class="flex justify-center md:px-8 mt-12">
@@ -287,23 +280,6 @@ export default {
                                 height: 40px;
                             }
                         }
-
-                        textarea {
-                            background-color: #f1f2f2;
-                            border: none;
-                            border-radius: 2px;
-                            box-shadow: none;
-                            color: #2c2c2c;
-                            font-family: aeonik-regular;
-                            font-size: 1.125rem;
-                            height: calc(2.65625rem + 13.125vw);
-                            line-height: 1.3em;
-                            outline: none;
-                            padding: 10px;
-                            position: relative;
-                            width: 100%;
-                        }
-
 
                     }
 

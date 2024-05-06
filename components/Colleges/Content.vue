@@ -22,7 +22,7 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                 <div class="w-full md:w-[43.75%] ml-0 md:ml-[6.25%] px-3 left-col">
                     <h1 class="title">{{ get(college, 'name', '') }}</h1>
                     <div v-if="get(college, 'collegeVideo.asset.url', '')">
-                        <video class="p-0 w-full" autoplay muted loop="loop" webkit-playsinline="true"
+                        <video class="p-0 w-full rounded-lg" autoplay muted loop="loop" webkit-playsinline="true"
                             playsinline="true" disableRemotePlayback="true">
                             <source :src="get(college, 'collegeVideo.asset.url', '')" type="video/mp4">
                         </video>

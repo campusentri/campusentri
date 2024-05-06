@@ -1,29 +1,18 @@
-<script>
-export default {
-    data() {
-        const institutes = [
-            {
-                name: 'AJ Institute',
-                img: '/images/technologies/technology-3.png'
-            },
-            {
-                name: 'Nitte Institute',
-                img: '/images/technologies/technology-4.png'
-            },
-            {
-                name: 'Yenepoya Institute',
-                img: '/images/technologies/technology-6.png'
-            },
-            {
-                name: 'Father Mullers',
-                img: '/images/technologies/technology-2.png'
-            }
-        ];
-        return {
-            institutes
-        }
+<script setup>
+import { get, filter } from 'lodash';
+const query = groq`*[_type == "colleges"] {
+  ...,
+  collegeVideo {
+    asset-> {
+      url
     }
+  }
 }
+`;
+const { data } = await useSanityQuery(query);
+const colleges = get(data, 'value', []);
+const filterNames = ['AJ Institute', 'Yenepoya Institute', 'NITTE','Father Muller']
+const filteredColleges = filter(colleges, (college) => filterNames.includes(college.name));
 </script>
 
 <template>
@@ -70,58 +59,61 @@ export default {
                                     </div>
                                     <div class="technology-list-container">
                                         <ul class="technologies-list">
-                                            <li v-for="(institute, index) of institutes" :key="index" class="item">
-                                                <img :src="institute.img" />
-                                                <div class="text-container">
-                                                    <span class="name">{{ institute.name }}</span>
-                                                    <div class="read-more">
-                                                        <button class="read-more-btn big-size black-color"
-                                                            data-v-a2720cde="">
-                                                            <div class="inner" data-v-a2720cde="">
-                                                                <span class="icon arrow-right" data-v-a2720cde="">
-                                                                    <span
-                                                                        class="icon-container arrow-right-icon-container"
-                                                                        data-v-a2720cde="">
-                                                                        <svg width="11" height="10" viewBox="0 0 11 10"
-                                                                            fill="none"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            class="arrow-right-icon shadow-icon"
+                                            <li v-for="(institute, index) of filteredColleges" :key="index" class="item">
+                                                <NuxtLink :to="`/colleges#${get(institute, 'name', '')}`" class="flex">
+                                                    <SanityImage class="rounded-lg" :asset-id="get(institute, 'poster.asset._ref', '')" />
+                                                    <!-- <img :src="institute.img" /> -->
+                                                    <div class="text-container">
+                                                        <span class="name">{{ get(institute, 'name', '') }}</span>
+                                                        <div class="read-more">
+                                                            <button class="read-more-btn big-size black-color"
+                                                                data-v-a2720cde="">
+                                                                <div class="inner" data-v-a2720cde="">
+                                                                    <span class="icon arrow-right" data-v-a2720cde="">
+                                                                        <span
+                                                                            class="icon-container arrow-right-icon-container"
                                                                             data-v-a2720cde="">
-                                                                            <path d="M1.19922 4.82703L9.23616 4.82703"
-                                                                                stroke="#2C2C2C" stroke-width="1.5"
-                                                                                stroke-linecap="round"
-                                                                                stroke-linejoin="round"
-                                                                                data-v-a2720cde=""></path>
-                                                                            <path
-                                                                                d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
-                                                                                stroke="#2C2C2C" stroke-width="1.5"
-                                                                                stroke-linecap="round"
-                                                                                stroke-linejoin="round"
-                                                                                data-v-a2720cde=""></path>
-                                                                        </svg>
-                                                                        <svg width="11" height="10" viewBox="0 0 11 10"
-                                                                            fill="none"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            class="arrow-right-icon" data-v-a2720cde="">
-                                                                            <path d="M1.19922 4.82703L9.23616 4.82703"
-                                                                                stroke="#2C2C2C" stroke-width="1.5"
-                                                                                stroke-linecap="round"
-                                                                                stroke-linejoin="round"
-                                                                                data-v-a2720cde=""></path>
-                                                                            <path
-                                                                                d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
-                                                                                stroke="#2C2C2C" stroke-width="1.5"
-                                                                                stroke-linecap="round"
-                                                                                stroke-linejoin="round"
-                                                                                data-v-a2720cde=""></path>
-                                                                        </svg>
+                                                                            <svg width="11" height="10" viewBox="0 0 11 10"
+                                                                                fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                class="arrow-right-icon shadow-icon"
+                                                                                data-v-a2720cde="">
+                                                                                <path d="M1.19922 4.82703L9.23616 4.82703"
+                                                                                    stroke="#2C2C2C" stroke-width="1.5"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    data-v-a2720cde=""></path>
+                                                                                <path
+                                                                                    d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
+                                                                                    stroke="#2C2C2C" stroke-width="1.5"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    data-v-a2720cde=""></path>
+                                                                            </svg>
+                                                                            <svg width="11" height="10" viewBox="0 0 11 10"
+                                                                                fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                class="arrow-right-icon" data-v-a2720cde="">
+                                                                                <path d="M1.19922 4.82703L9.23616 4.82703"
+                                                                                    stroke="#2C2C2C" stroke-width="1.5"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    data-v-a2720cde=""></path>
+                                                                                <path
+                                                                                    d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
+                                                                                    stroke="#2C2C2C" stroke-width="1.5"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    data-v-a2720cde=""></path>
+                                                                            </svg>
+                                                                        </span>
                                                                     </span>
-                                                                </span>
-                                                                <span class="label-sizer" data-v-a2720cde="">More</span>
-                                                            </div>
-                                                        </button>
+                                                                    <span class="label-sizer" data-v-a2720cde="">More</span>
+                                                                </div>
+                                                            </button>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </NuxtLink>
                                             </li>
                                         </ul>
                                     </div>
@@ -377,7 +369,7 @@ export default {
 
                     img {
                         max-height: 70%;
-                        width: auto;
+                        width: 35%;
                     }
 
                     .text-container {

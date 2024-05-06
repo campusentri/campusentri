@@ -4,7 +4,7 @@ export default {
         const items = [
             {
                 title: 'Service',
-                description: 'At CampusEntri, our high-quality service is coupled with an exceptional customer experience. Our expert staff is known for thei supportive and professional manner. It is our goal to go above and beyond your expectations to support your success.'
+                description: 'At CampusEntri, our high-quality service is coupled with an exceptional customer experience. Our expert staff is known for their supportive and professional manner. It is our goal to go above and beyond your expectations to support your success.'
             },
             {
                 title: 'Accessibility',

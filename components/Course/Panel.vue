@@ -3,6 +3,33 @@ import { get, truncate } from 'lodash';
 const query = groq`*[_type == "course"]`;
 const { data } = await useSanityQuery(query);
 const courses = get(data, 'value');
+const sortedNames = [
+    'MBBS', 'BDS', "BSc. Cardiac Care Technology", "BSc. MIT", "BSc. MLT", "BSc. Renal Dialysis Technology", 
+    "BSc. Optometry", "BSC. AT & OT Technology", "BASLP", "BSc. Microbiology", "BSc. Food Nutrition and Dietetics",
+    "BSc. Perfusion Technology", "BSc. Neuroscience", "BPT", "BSc. Emergency and Trauma Care", "BSc. Occupational Therapy",
+    "Pharm.D", "BSc. Nursing", "BSc. Radiology", "BSc. Respiratory Therapy", "B.Pharm", "BSc. Cardiovascular Technology",
+    "BSc. Emergency Medicine"
+]
+const sortByCustomOrder = (a, b) => {
+    const indexA = sortedNames.indexOf(a.shortName);
+    const indexB = sortedNames.indexOf(b.shortName);
+
+    // If either index is not found in the sortedNames array, prioritize the one that is found
+    if (indexA === -1 && indexB === -1) {
+        // If both are not found, maintain original order
+        return 0;
+    } else if (indexA === -1) {
+        // If only indexA is not found, prioritize indexB
+        return 1;
+    } else if (indexB === -1) {
+        // If only indexB is not found, prioritize indexA
+        return -1;
+    } else {
+        // Both indexes found, sort based on their positions
+        return indexA - indexB;
+    }
+};
+const sortedCourses = courses.sort(sortByCustomOrder);
 const emitOpenModal = defineEmits(['open-modal']);
 function openModal(course) {
     emitOpenModal('open-modal', course);
@@ -21,7 +48,7 @@ const images = [
     <div class="panel-scroll-wrapper">
         <div class="panels-container">
             <div class="expertise-section panel-container">
-                <section v-for="(course, index) of courses" :key="index" :id="get(course, 'shortName', '')" class="inner-block">
+                <section v-for="(course, index) of sortedCourses" :key="index" :id="get(course, 'shortName', '')" class="inner-block">
                     <span class="background"></span>
                     <div class="block-inner">
                         <div class="scroll-wrapper">

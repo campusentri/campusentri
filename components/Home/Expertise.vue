@@ -5,8 +5,8 @@ export default {
             expertise: [
                 { id: '01', name: 'MBBS', link: '/courses#MBBS' },
                 { id: '02', name: 'Bachelor Dental Sciences', link: '/courses#BDS' },
-                { id: '03', name: 'Bachelor of Nursing', link: '/courses##BSc. Nursing' },
-                { id: '04', name: 'Bachelor of Physiotherapy', link: '/courses/BPT' },
+                { id: '03', name: 'Bachelor of Nursing', link: '/courses#BSc. Nursing' },
+                { id: '04', name: 'Bachelor of Physiotherapy', link: '/courses#BPT' },
                 { id: '05', name: 'Bachelor of Audiology & Speech', link: '/courses#BASLP' },
                 { id: '06', name: 'Bachelor of Medical Imaging Technology', link: '/courses#BSc. MIT' },
             ]

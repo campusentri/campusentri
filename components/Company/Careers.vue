@@ -38,7 +38,7 @@ export default {
         <div class="flex mb-20 px-6">
             <div class="w-full md:w-[37.5%] ml-0 md:ml-[43.75%] px-3">
                 <div class="text">
-                    <p class="mb-8 careers-text">CampusEntri is a fast-growing specialty reference laboratory committed to excellence
+                    <p class="mb-8 careers-text">CampusEntri is a fast-growing guidance team committed to excellence
                         and high-quality services. We treat all individuals with mutual respect and integrity, and we
                         value their contributions. We are committed to providing a positive and flexible environment
                         that supports work-life balance.</p>

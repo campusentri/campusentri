@@ -1,48 +1,56 @@
-<script>
-export default {
-    data() {
-        const items = [
-            { name: 'AJ Institute', img: '/images/technologies/technology-4.png' },
-            { name: 'Yenepoya Institute', img: '/images/technologies/technology-2.png' },
-            { name: 'Nitte Institute', img: '/images/technologies/technology-1.png' },
-            { name: 'Srinivas Institute', img: '/images/technologies/technology-5.png' }
-        ]
-        return {
-            items
-        }
-    },
-    mounted() {
-        const tl = this.$gsap.timeline({
-            scrollTrigger: {
-                trigger: '#results',
-                start: 'top center',
-                end: 'bottom center',
-                toggleActions: 'play none none reverse',
-            },
-        });
-        tl.from('.result-title', {
-            opacity: 0,
-            y: 20,
-            duration: 0.2,
-        });
-        const tl2 = this.$gsap.timeline({
-            scrollTrigger: {
-                trigger: '.result-list-items',
-                start: 'top center',
-                end: 'bottom center',
-                toggleActions: 'play none none reverse',
-            },
-        });
-        this.items.forEach((item, index) => {
-
-            tl2.from(`.results-list .results-items:nth-child(${index + 1})`, {
-                scale: 0, // Start with a scale of 0
-                duration: 0.5, // Adjust duration for the desired speed
-                ease: 'power2.out', // You can experiment with different easing functions
-            });
-        });
+<script setup>
+const { $gsap } = useNuxtApp();
+import { get, filter } from 'lodash';
+const query = groq`*[_type == "colleges"] {
+  ...,
+  collegeVideo {
+    asset-> {
+      url
     }
+  }
 }
+`;
+const { data } = await useSanityQuery(query);
+const colleges = get(data, 'value', []);
+const filterNames = ['AJ Institute', 'Yenepoya Institute', 'NITTE', 'Srinivas College'];
+const filteredColleges = filter(colleges, (college) => filterNames.includes(college.name));
+const items = [
+    { name: 'AJ Institute', img: '/images/technologies/technology-4.png' },
+    { name: 'Yenepoya Institute', img: '/images/technologies/technology-2.png' },
+    { name: 'Nitte Institute', img: '/images/technologies/technology-1.png' },
+    { name: 'Srinivas Institute', img: '/images/technologies/technology-5.png' }
+]
+onMounted(() => {
+    const tl = $gsap.timeline({
+        scrollTrigger: {
+            trigger: '#results',
+            start: 'top center',
+            end: 'bottom center',
+            toggleActions: 'play none none reverse',
+        },
+    });
+    tl.from('.result-title', {
+        opacity: 0,
+        y: 20,
+        duration: 0.2,
+    });
+    const tl2 = $gsap.timeline({
+        scrollTrigger: {
+            trigger: '.result-list-items',
+            start: 'top center',
+            end: 'bottom center',
+            toggleActions: 'play none none reverse',
+        },
+    });
+    items.forEach((item, index) => {
+
+        tl2.from(`.results-list .results-items:nth-child(${index + 1})`, {
+            scale: 0, // Start with a scale of 0
+            duration: 0.5, // Adjust duration for the desired speed
+            ease: 'power2.out', // You can experiment with different easing functions
+        });
+    });
+})
 </script>
 
 <template>
@@ -85,39 +93,42 @@ export default {
                         stroke-dasharray="2 10" data-v-4b2d19a0=""></path>
                 </svg>
                 <ul class="results-list">
-                    <li v-for="(item, index) of items" :key="index" class="item results-items">
-                        <img :src="item.img" />
-                        <span class="item-title">{{ item.name }}</span>
+                    <li v-for="(item, index) of filteredColleges" :key="index" class="item results-items">
+                        <!-- <img :src="item.img" /> -->
+                        <SanityImage class="rounded-lg w-full p-0" :asset-id="get(item, 'poster.asset._ref', '')" />
+                        <span class="item-title">{{ get(item, 'name', '') }}</span>
                         <div class="read-more item-title">
-                            <button class="read-more-btn big-size black-color" data-v-a2720cde="">
-                                <div class="inner" data-v-a2720cde="">
-                                    <span class="icon arrow-right" data-v-a2720cde="">
-                                        <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">
-                                            <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon shadow-icon"
-                                                data-v-a2720cde="">
-                                                <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                                    data-v-a2720cde=""></path>
-                                                <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
-                                                    stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" data-v-a2720cde=""></path>
-                                            </svg>
-                                            <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon"
-                                                data-v-a2720cde="">
-                                                <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                                    data-v-a2720cde=""></path>
-                                                <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
-                                                    stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" data-v-a2720cde=""></path>
-                                            </svg>
+                            <NuxtLink :to="`/colleges#${get(item, 'name', '')}`">
+                                <button class="read-more-btn big-size black-color" data-v-a2720cde="">
+                                    <div class="inner" data-v-a2720cde="">
+                                        <span class="icon arrow-right" data-v-a2720cde="">
+                                            <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">
+                                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon shadow-icon"
+                                                    data-v-a2720cde="">
+                                                    <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
+                                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                                        data-v-a2720cde=""></path>
+                                                    <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
+                                                        stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round" data-v-a2720cde=""></path>
+                                                </svg>
+                                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon"
+                                                    data-v-a2720cde="">
+                                                    <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C"
+                                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                                        data-v-a2720cde=""></path>
+                                                    <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
+                                                        stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round" data-v-a2720cde=""></path>
+                                                </svg>
+                                            </span>
                                         </span>
-                                    </span>
-                                    <span class="label-sizer" data-v-a2720cde="">More</span>
-                                </div>
-                            </button>
+                                        <span class="label-sizer" data-v-a2720cde="">More</span>
+                                    </div>
+                                </button>
+                            </NuxtLink>
                         </div>
                     </li>
                 </ul>
@@ -125,11 +136,19 @@ export default {
         </div>
         <div class="flex justify-center px-8 mt-20 md:mt-0">
             <div class="px-3 text-center md:w-[56.5%]">
-                <h5 class="description">Experienced counselors / CampusEntri review results and provide integrated reports for our students.</h5>
+                <h5 class="description">Experienced counselors / CampusEntri review results and provide integrated
+                    reports for our students.</h5>
                 <div class="results-cta-btn-wrapper">
                     <a href="#" class="results-cta-btn">
                         <span class="icon">
-                            <svg width="31" height="36" viewBox="0 0 31 36" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-4b2d19a0=""><path d="M4.47278 0C3.42921 0.0098955 2.43171 0.437445 1.69723 1.18965C0.96276 1.94185 0.550736 2.95787 0.550781 4.01668V25.0386C0.550781 26.313 1.04975 27.5351 1.93792 28.4362C2.82609 29.3373 4.03071 29.8436 5.28678 29.8436H13.1308C13.7098 30.9033 14.5068 31.8243 15.4676 32.5439C16.4284 33.2636 17.5306 33.765 18.6994 34.0143C19.8681 34.2636 21.076 34.2548 22.2411 33.9885C23.4062 33.7223 24.5012 33.2049 25.4518 32.4713L28.9298 36L30.4838 34.4234L27.0058 30.8947C27.8057 29.8415 28.348 28.6109 28.5883 27.3038C28.8286 25.9968 28.76 24.6505 28.388 23.3756C28.0161 22.1007 27.3515 20.9334 26.4487 19.9696C25.546 19.0058 24.4308 18.2729 23.1948 17.8311V5.74348H20.5308V0H4.47278ZM4.47278 2.25235H18.3108V5.74348H4.47278C4.05984 5.68188 3.68252 5.47165 3.4097 5.15118C3.13688 4.83071 2.98676 4.42137 2.98676 3.99791C2.98676 3.57446 3.13688 3.16512 3.4097 2.84465C3.68252 2.52418 4.05984 2.31395 4.47278 2.25235ZM26.4878 25.7518C26.4951 26.98 26.1423 28.1827 25.4743 29.2071C24.8063 30.2314 23.8532 31.0311 22.7362 31.5045C21.6192 31.978 20.3886 32.1038 19.2009 31.866C18.0132 31.6282 16.922 31.0375 16.066 30.169C15.21 29.3005 14.6278 28.1934 14.3934 26.9885C14.159 25.7835 14.283 24.535 14.7497 23.4017C15.2163 22.2683 16.0046 21.3014 17.0142 20.6236C18.0238 19.9459 19.2092 19.588 20.4198 19.5954C22.0261 19.6053 23.5639 20.257 24.6998 21.4095C25.8356 22.5619 26.4781 24.1221 26.4878 25.7518ZM20.9748 7.99583V17.3431H20.4198C19.1729 17.335 17.9404 17.6125 16.8139 18.1548C15.6874 18.6972 14.696 19.4904 13.9137 20.4754C13.1313 21.4604 12.578 22.6118 12.2951 23.8439C12.0122 25.0759 12.007 26.3568 12.2798 27.5912H5.24978C4.58249 27.5912 3.94254 27.3223 3.4707 26.8436C2.99886 26.3649 2.73378 25.7156 2.73378 25.0386V7.62044C3.27443 7.89194 3.86953 8.03325 4.47278 8.03337L20.9748 7.99583Z" fill="white" data-v-4b2d19a0=""></path> <path d="M17.6435 12.2754H6.0625V14.5277H17.6435V12.2754Z" fill="white" data-v-4b2d19a0=""></path></svg>
+                            <svg width="31" height="36" viewBox="0 0 31 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" data-v-4b2d19a0="">
+                                <path
+                                    d="M4.47278 0C3.42921 0.0098955 2.43171 0.437445 1.69723 1.18965C0.96276 1.94185 0.550736 2.95787 0.550781 4.01668V25.0386C0.550781 26.313 1.04975 27.5351 1.93792 28.4362C2.82609 29.3373 4.03071 29.8436 5.28678 29.8436H13.1308C13.7098 30.9033 14.5068 31.8243 15.4676 32.5439C16.4284 33.2636 17.5306 33.765 18.6994 34.0143C19.8681 34.2636 21.076 34.2548 22.2411 33.9885C23.4062 33.7223 24.5012 33.2049 25.4518 32.4713L28.9298 36L30.4838 34.4234L27.0058 30.8947C27.8057 29.8415 28.348 28.6109 28.5883 27.3038C28.8286 25.9968 28.76 24.6505 28.388 23.3756C28.0161 22.1007 27.3515 20.9334 26.4487 19.9696C25.546 19.0058 24.4308 18.2729 23.1948 17.8311V5.74348H20.5308V0H4.47278ZM4.47278 2.25235H18.3108V5.74348H4.47278C4.05984 5.68188 3.68252 5.47165 3.4097 5.15118C3.13688 4.83071 2.98676 4.42137 2.98676 3.99791C2.98676 3.57446 3.13688 3.16512 3.4097 2.84465C3.68252 2.52418 4.05984 2.31395 4.47278 2.25235ZM26.4878 25.7518C26.4951 26.98 26.1423 28.1827 25.4743 29.2071C24.8063 30.2314 23.8532 31.0311 22.7362 31.5045C21.6192 31.978 20.3886 32.1038 19.2009 31.866C18.0132 31.6282 16.922 31.0375 16.066 30.169C15.21 29.3005 14.6278 28.1934 14.3934 26.9885C14.159 25.7835 14.283 24.535 14.7497 23.4017C15.2163 22.2683 16.0046 21.3014 17.0142 20.6236C18.0238 19.9459 19.2092 19.588 20.4198 19.5954C22.0261 19.6053 23.5639 20.257 24.6998 21.4095C25.8356 22.5619 26.4781 24.1221 26.4878 25.7518ZM20.9748 7.99583V17.3431H20.4198C19.1729 17.335 17.9404 17.6125 16.8139 18.1548C15.6874 18.6972 14.696 19.4904 13.9137 20.4754C13.1313 21.4604 12.578 22.6118 12.2951 23.8439C12.0122 25.0759 12.007 26.3568 12.2798 27.5912H5.24978C4.58249 27.5912 3.94254 27.3223 3.4707 26.8436C2.99886 26.3649 2.73378 25.7156 2.73378 25.0386V7.62044C3.27443 7.89194 3.86953 8.03325 4.47278 8.03337L20.9748 7.99583Z"
+                                    fill="white" data-v-4b2d19a0=""></path>
+                                <path d="M17.6435 12.2754H6.0625V14.5277H17.6435V12.2754Z" fill="white"
+                                    data-v-4b2d19a0=""></path>
+                            </svg>
                         </span>
                         <span class="label">Full CampusEntri Capabilities</span>
                     </a>
@@ -199,6 +218,7 @@ export default {
             position: absolute;
             top: 0;
             width: 80%;
+
             @media screen and (max-width: 960px) {
                 display: none;
             }
@@ -211,6 +231,7 @@ export default {
             position: absolute;
             top: 300px;
             width: 90%;
+
             @media screen and (max-width: 960px) {
                 display: block;
                 top: 200px;
@@ -222,7 +243,7 @@ export default {
             justify-content: space-between;
             margin-top: calc(2.10938rem + 8.02083vw);
             position: relative;
-            
+
             @media screen and (max-width: 960px) {
                 flex-direction: column;
                 flex-wrap: wrap;
@@ -244,48 +265,55 @@ export default {
                 justify-content: space-evenly;
                 position: relative;
                 transition: background-color 1s cubic-bezier(.19, 1, .22, 1);
-                
+
                 @media screen and (max-width: 960px) {
                     height: 210px;
                     min-height: 210px;
                     width: 195px;
                 }
+
                 &:first-child {
                     top: -26.4705882353vw;
-                    
+
                     @media screen and (max-width: 960px) {
                         top: 0;
                     }
                 }
+
                 &:nth-child(2) {
                     left: -2.3529411765vw;
-                    
+
                     @media screen and (max-width: 960px) {
                         margin-left: calc(100% - 195px);
                         left: 0;
                     }
                 }
+
                 &:nth-child(3) {
                     left: 2.3529411765vw;
-                    
+
                     @media screen and (max-width: 960px) {
                         left: 0;
                     }
                 }
+
                 &:nth-child(4) {
                     top: -26.4705882353vw;
-                    
+
                     @media screen and (max-width: 960px) {
                         margin-left: calc(50% - 97.5px);
                         margin-top: calc(2.34375rem + 10.20833vw);
                         top: 0;
                     }
                 }
+
                 &:hover {
                     background-color: #f1f2f2;
+
                     img {
                         transform: scale(1.1);
                     }
+
                     .read-more {
                         .read-more-btn {
                             .inner {
@@ -324,7 +352,6 @@ export default {
                     margin-top: 15px;
                     max-height: 50%;
                     max-width: none;
-                    padding: 0 30%;
                     position: relative;
                     transition: transform 1s cubic-bezier(.19, 1, .22, 1);
                     will-change: transform;
@@ -507,6 +534,7 @@ export default {
     .results-cta-btn-wrapper {
         margin-top: calc(1.71875rem + 4.375vw);
         position: relative;
+
         .results-cta-btn {
             align-items: center;
             border-radius: 47px;
@@ -514,6 +542,7 @@ export default {
             justify-content: space-between;
             padding: 22px 50px;
             position: relative;
+
             &::before {
                 background: radial-gradient(162.35% 212.03% at 50.11% -62.03%, #21665e 0, #c3d1ab 100%);
                 border-radius: 47px;
@@ -524,10 +553,11 @@ export default {
                 position: absolute;
                 top: 0;
                 transform-origin: center;
-                transition: transform .5s cubic-bezier(.19,1,.22,1);
+                transition: transform .5s cubic-bezier(.19, 1, .22, 1);
                 width: 100%;
                 z-index: 1;
             }
+
             &:after {
                 border-radius: 47px;
                 content: "";
@@ -538,19 +568,22 @@ export default {
                 top: -25%;
                 width: 120%;
             }
+
             &:hover {
                 &:before {
                     transform: scale(1.1);
                 }
             }
+
             .shadow {
                 bottom: -60%;
                 left: 10%;
                 position: absolute;
-                transition: transform .5s cubic-bezier(.19,1,.22,1);
+                transition: transform .5s cubic-bezier(.19, 1, .22, 1);
                 width: 80%;
                 z-index: 0;
             }
+
             .icon {
                 align-items: center;
                 display: flex;
@@ -559,10 +592,12 @@ export default {
                 position: relative;
                 width: 40px;
                 z-index: 2;
+
                 svg {
                     position: relative;
                 }
             }
+
             .label {
                 font-size: calc(1.27344rem + .21875vw);
                 color: #fff;
@@ -572,7 +607,7 @@ export default {
                 margin-left: 1.25rem;
                 position: relative;
                 z-index: 2;
-                
+
                 @media screen and (max-width: 960px) {
                     font-size: 16px;
                     margin-left: 10px;
