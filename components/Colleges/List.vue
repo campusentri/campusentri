@@ -1,4 +1,5 @@
 <script setup>
+const { $gsap } = useNuxtApp();
 import { get } from 'lodash';
 const query = groq`*[_type == "colleges"] {
   ...,
@@ -15,27 +16,27 @@ const emitOpenModal = defineEmits(['open-modal']);
 function openModal(college) {
     emitOpenModal('open-modal', college);
 }
-// onMounted(() => {
-//     const tl = this.$gsap.timeline({
-//         scrollTrigger: {
-//             trigger: '#list',
-//             start: 'top center',
-//             end: 'bottom center',
-//             toggleActions: 'play none none reverse',
-//         },
-//     });
+onMounted(() => {
+    const tl = $gsap.timeline({
+        scrollTrigger: {
+            trigger: '#list',
+            start: 'top center',
+            end: 'bottom center',
+            toggleActions: 'play none none reverse',
+        },
+    });
 
-//     colleges.forEach((item, index) => {
-//         const direction = index % 2 === 0 ? -1 : 1; // Set the direction based on index
+    colleges.forEach((item, index) => {
+        const direction = index % 2 === 0 ? -1 : 1; // Set the direction based on index
 
-//         tl.from(`.technologies-list .technologies-item:nth-child(${index + 1})`, {
-//             scale: 0, // Start with a scale of 0
-//             duration: 0.5, // Adjust duration for the desired speed
-//             ease: 'power2.out', // You can experiment with different easing functions
-//             transformOrigin: direction === -1 ? 'left center' : 'right center', // Set transform origin based on direction
-//         });
-//     });
-// })
+        tl.from(`.technologies-list .technologies-item:nth-child(${index + 1})`, {
+            scale: 0, // Start with a scale of 0
+            duration: 0.5, // Adjust duration for the desired speed
+            ease: 'power2.out', // You can experiment with different easing functions
+            transformOrigin: direction === -1 ? 'left center' : 'right center', // Set transform origin based on direction
+        });
+    });
+})
 </script>
 
 <template>

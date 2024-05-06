@@ -31,6 +31,7 @@ export default {
                     _type: 'leads',
                     ...this.lead,
                 })
+                localStorage.setItem('user', JSON.stringify(this.lead));
                 this.lead = {
                     name: '',
                     email: '',

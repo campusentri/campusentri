@@ -1,4 +1,5 @@
 <script setup>
+const { $gsap } = useNuxtApp();
 import { get } from 'lodash';
 const query = groq`*[_type == "fees"] {
   ...,
@@ -22,39 +23,45 @@ function openCourseModal() {
 }
 function openModal(item) {
     courseInfo.value = item;
-    isModalOpen.value = true;
-    emitOpenModal('open-contact-modal', item);
+    const getUser = localStorage.getItem('user');
+    const user = JSON.parse(getUser);
+    if(!user) {
+        isModalOpen.value = true;
+        emitOpenModal('open-contact-modal', item);
+    } else {
+        emitOpenModal('open-modal', courseInfo.value);
+    }
 }
 function closeModal() {
     isModalOpen.value = false;
     emitOpenModal('close-contact-modal');
 }
 
-// onMounted(() => {
-//     const tl = this.$gsap.timeline({
-//         scrollTrigger: {
-//             trigger: '#fee-strutures',
-//             start: 'top center',
-//             end: 'bottom center',
-//             toggleActions: 'play none none reverse',
-//         },
-//     });
-//     tl.from('.fee-title', {
-//         opacity: 0,
-//         y: 20,
-//         duration: 0.2,
-//     });
+onMounted(() => {
+    const tl = $gsap.timeline({
+        scrollTrigger: {
+            trigger: '#fee-strutures',
+            start: 'top center',
+            end: 'bottom center',
+            toggleActions: 'play none none reverse',
+        },
+    });
+    tl.from('.fee-title', {
+        opacity: 0,
+        y: 20,
+        duration: 0.2,
+    });
 
-//     items.forEach((item, index) => {
-//         const delay = index * 0.01; // Adjust delay for each item
-//         tl.from(`.fee-items:nth-child(${index + 1})`, {
-//             opacity: 0,
-//             y: 20,
-//             duration: 0.1,
-//             delay,
-//         });
-//     });
-// });
+    courses.forEach((item, index) => {
+        const delay = index * 0.01; // Adjust delay for each item
+        tl.from(`.fee-items:nth-child(${index + 1})`, {
+            opacity: 0,
+            y: 20,
+            duration: 0.1,
+            delay,
+        });
+    });
+});
 </script>
 
 <template>

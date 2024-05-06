@@ -10,8 +10,8 @@ const props = defineProps({
 
 <template>
     <div class="fee-wrapper">
-        <div class="flex px-0 md:px-12 flex-col">
-            <div class="mb-8">
+        <div class="flex flex-col">
+            <div class="mb-8 px-0 md:px-12 ">
                 <h2 class="title">{{ get(courseInfo, 'course.shortName', '') }}</h2>
             </div>
             <div class="table-layout overflow-x-auto mt-6">
@@ -54,7 +54,7 @@ const props = defineProps({
     position: absolute;
     top: 40px;
     width: calc(100% - 40px);
-    padding: 8rem 3rem;
+    padding: 8rem 2rem;
 
     @media screen and (max-width: 768px) {
         padding: 4rem 0.5rem;
