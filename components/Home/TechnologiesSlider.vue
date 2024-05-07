@@ -21,7 +21,12 @@ const filteredColleges = filter(colleges, (college) => filterNames.includes(coll
         <Swiper 
             :height="200" 
             :modules="[SwiperScrollbar]" 
-            :slides-per-view="2.5" 
+            :slides-per-view="2"
+            :breakpoints="{
+                786: {
+                    slidesPerView: 2.5,
+                }
+            }"
             :loop="false"
             :effect="'scrollbar'"
             :scrollbar="{
@@ -162,5 +167,21 @@ h4 {
     letter-spacing: -.02em;
     line-height: 1em;
     position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .slider-item {
+        margin: 0 0.5rem;
+        padding: 1rem;
+        height: 60vw;
+    }
+    h4 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .image-container {
+        height: 35vw;
+    }
 }
 </style>

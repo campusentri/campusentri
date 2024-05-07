@@ -70,7 +70,7 @@ onMounted(() => {
             <div class="px-3 md:px-6">
                 <div class="px-3">
                     <div class="px-0 md:px-24">
-                        <div class="px-8 py-4 border-black border-t-2 border-b-2 mb-16">
+                        <div class="px-3 md:px-8 py-4 border-black fee-title-container mb-16">
                             <h2 class="fee-title">Fee Structure</h2>
                         </div>
                     </div>
@@ -147,6 +147,11 @@ onMounted(() => {
 <style lang="scss" scoped>
 .item-list-wrapper {
     margin-bottom: 3.125rem;
+
+    .fee-title-container {
+        border-bottom: 1.5px solid;
+        border-top: 1.5px solid;
+    }
 
     .fee-title {
         font-size: 3.75rem;

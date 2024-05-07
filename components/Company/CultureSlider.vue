@@ -117,6 +117,11 @@ export default {
             .arrows {
                 position: relative;
                 top: -20px;
+
+                @media screen and (max-width: 768px) {
+                    top: 0px;
+                    left: -34px;
+                }
             }
 
             .slider-item {

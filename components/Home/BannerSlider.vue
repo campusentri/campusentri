@@ -29,9 +29,9 @@ export default {
     data() {
         return {
             slides: [
-                { label: 'Press Release', date: '2019-03-11', text: 'hematogenix-r-marks-the-opening-of-the-first-central-laboratory-in-clinical-research-positioning-malaysia-as-the-asia-pacific-hub' },
-                { label: 'Press Release', date: '2020-09-12', text: 'hematogenix-launches-fda-approved-companion-diagnostic-immuno-oncology-test-for-triple-negative-breast-cancer' },
-                { label: 'Press Release', date: '2022-09-01', text: 'Concordance among four commercially available, validated programmed cell death ligand-1 assays in urothelial carcinoma' }
+                { label: 'Press Release', date: '2022-08-23', text: 'CampusEntriⓇ Marks the Opening Of The First educational Research, positioning Malaysia' },
+                { label: 'Press Release', date: '2022-08-23', text: 'CampusEntriⓇ Marks the Opening Of The First Central Laboratory in Clinical Research positioning Malaysia as the Asia Pacific Hub' },
+                { label: 'Publications', date: '2017-09-01', text: 'Agreement between Programmed Cell Death Ligand-1 Diagnostic Assays across Multiple Protein Expression Cutoffs in Non-Small Cell Lung Cancer' }
             ],
             currentIndex: 0,
             progressInterval: null,
