@@ -32,6 +32,7 @@
                 <li><NuxtLink class="other-links mb-2 text-white" to="/company#careers"><span>Careers</span></NuxtLink></li>
                 <li><NuxtLink class="other-links mb-2 text-white" to="/blogs"><span>Resources</span></NuxtLink></li>
                 <li><NuxtLink class="other-links mb-2 text-white" to="/colleges#promo"><span>Contacts</span></NuxtLink></li>
+                <li><NuxtLink class="other-links mb-2 text-white" to="/privacyPolicy"><span>Privacy Policy</span></NuxtLink></li>
             </ul>
         </nav>
     </div>
