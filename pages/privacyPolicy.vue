@@ -1,3 +1,9 @@
+<script setup>
+useHead({
+  title: 'CampusEntri | Privacy Policy'
+})
+</script>
+
 <template>
     <div id="privacy-policy" class="privacy-policy-page">
         <header>
