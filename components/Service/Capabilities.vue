@@ -67,7 +67,7 @@ export default {
 
 <template>
     <div id="capabilities" class="intro-block-wrapper">
-        <div class="px-8 flex justify-center">
+        <div class="px-8 flex justify-center mb-16">
             <div class="md:w-1/2 px-3 text-center capabilities-title">
                 <div class="order-number-wrapper">
                     <span class="index">01</span>
@@ -75,7 +75,7 @@ export default {
                 <h2 class="title">A Student & Counsellor-Centric Team</h2>
             </div>
         </div>
-        <div class="px-8 flex justify-center">
+        <!-- <div class="px-8 flex justify-center">
             <div class="px-3 md:w-[87.5%]">
                 <div class="pillars-list grid grid-cols-1 md:grid-cols-3">
                     <div v-for="(pillar, index) of pillars" :key="index" class="item pillars-items">
@@ -83,7 +83,7 @@ export default {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="px-8 flex justify-center flex-col items-center bg-[#D4E6DF] pt-16 pb-32">
             <div class="px-3 md:w-[62.5%]">
                 <h3 class="list-title">CampusEntri® is proud to offer the highest standard of Guidance and Admission

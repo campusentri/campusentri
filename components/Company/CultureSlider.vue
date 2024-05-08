@@ -32,7 +32,7 @@ export default {
     <div class="culture-slider-block-wrapper">
         <div class="slider-list mt-12">
             <div class="values-list">
-                <Swiper  :modules="[SwiperScrollbar]" :slides-per-view="1" :centered-slides="true" :loop="false"
+                <Swiper  :modules="[SwiperScrollbar]" :slides-per-view="1.5" :centered-slides="true" :loop="false"
                     :effect="'scrollbar'" :scrollbar="{
                     el: '.swiper-scrollbar',
                     draggable: true,
@@ -95,13 +95,6 @@ export default {
             }
         }
 
-        .swiper-slide {
-            @media screen and (max-width: 960px) {
-                width: 100% !important;
-                // margin-right: 30px;
-            }
-        }
-
         .swiper-scrollbar {
             &.swiper-scrollbar-horizontal {
                 top: unset;
@@ -120,7 +113,7 @@ export default {
 
                 @media screen and (max-width: 768px) {
                     top: 0px;
-                    left: -34px;
+                    left: 50px;
                 }
             }
 
@@ -132,6 +125,8 @@ export default {
 
                 @media screen and (max-width: 768px) {
                     padding: 20px;
+                    position: relative;
+                    top: 40px;
                 }
 
                 .name {

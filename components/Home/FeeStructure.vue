@@ -179,15 +179,19 @@ onMounted(() => {
             background: radial-gradient(85.94% 131.15% at 82.42% -2.57%, #ffb192 0, #ebb999 100%);
 
             @media screen and (max-width: 768px) {
-                padding: 3.3125rem 1.5rem;
+                padding: calc(1.32813rem + .72917vw) calc(1.35938rem + 1.02083vw);
             }
 
             h3 {
-                font-size: 55px;
+                font-size: calc(1.5625rem + 2.91667vw);
                 color: #2c2c2c;
                 font-family: 'Aeonik-Medium';
                 letter-spacing: -.02em;
                 line-height: 1.1em;
+
+                @media screen and (max-width: 768px) {
+                    font-size: calc(1.40625rem + 1.45833vw);
+                }
             }
 
             .list {
@@ -241,6 +245,11 @@ onMounted(() => {
                         line-height: 1em;
                         margin-left: 1.25rem;
                         position: relative;
+
+                        @media screen and (max-width: 768px) {
+                            font-size: 13px;
+                            margin-left: 10px;
+                        }
 
                         &:before {
                             color: #2c2c2c;
@@ -322,6 +331,9 @@ onMounted(() => {
                     position: relative;
                     transition: transform .5s cubic-bezier(.19, 1, .22, 1);
                     will-change: transform;
+                    @media screen and (max-width: 768px) {
+                        height: 3rem;
+                    }
 
                     &:before {
                         background-color: #2c2c2c;
@@ -349,6 +361,10 @@ onMounted(() => {
                         justify-content: center;
                         overflow: hidden;
                         position: relative;
+                        @media screen and (max-width: 768px) {
+                            height: 2rem;
+                            width: 2rem;
+                        }
 
                         svg {
                             path {
@@ -405,6 +421,9 @@ onMounted(() => {
                     position: absolute;
                     top: 0;
                     width: 100%;
+                    @media screen and (max-width: 768px) {
+                        left: 50px;
+                    }
                 }
 
                 .label-sizer {
@@ -418,6 +437,11 @@ onMounted(() => {
                     top: -1px;
                     transition: transform .5s cubic-bezier(.19, 1, .22, 1);
                     white-space: nowrap;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 15px;
+                        padding: 0 24px 0 12px;
+                    }
                 }
             }
         }

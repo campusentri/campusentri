@@ -60,35 +60,6 @@ const swiper = useSwiper()
         position: relative;
 
         &:hover {
-
-            &.arrow-left {
-                svg.shadow-icon {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-                svg {
-                    opacity: 0;
-                    transform: translateX(-10px);
-                }
-            }
-
-            &.arrow-right {
-                svg.shadow-icon {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-                svg {
-                    opacity: 0;
-                    transform: translateX(10px);
-                }
-            }
-
-            .shadow-icon {
-                path {
-                    stroke: #fff;
-                }
-            }
-
             .bg {
                 opacity: 1;
                 transform: scale(1);
@@ -96,7 +67,7 @@ const swiper = useSwiper()
         }
 
         &:before {
-            background-color: #f9f9f9;
+            background-color: #f1f2f2;
             border-radius: 100%;
             content: "";
             display: block;
@@ -118,7 +89,6 @@ const swiper = useSwiper()
         }
 
         .bg {
-            background-color: #2c2c2c;
             border-radius: 100%;
             content: "";
             display: block;

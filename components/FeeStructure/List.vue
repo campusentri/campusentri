@@ -180,34 +180,15 @@ onMounted(() => {
                     }
 
                     .item-row {
-                        .left-col {
-                            .order-number-wrapper {
-                                &:before {
-                                    border-color: #fff;
-                                }
-
-                                .index {
-                                    color: #fff;
-                                }
-                            }
-                        }
 
                         .middle-col {
-                            .title {
-                                color: #fff;
-                            }
 
                             .read-more {
                                 .read-more-btn {
                                     .inner {
                                         transform: scale(1.15);
 
-                                        &:before {
-                                            background-color: #fff;
-                                        }
-
                                         .icon {
-                                            background-color: #2c2c2c;
 
                                             &:before {
                                                 opacity: 1;
@@ -231,10 +212,6 @@ onMounted(() => {
                                                 opacity: 0;
                                                 transform: translate(30px);
                                             }
-                                        }
-
-                                        .label-sizer {
-                                            color: #2c2c2c;
                                         }
                                     }
 
@@ -284,7 +261,6 @@ onMounted(() => {
                 position: relative;
 
                 &:before {
-                    background-color: #2c2c2c;
                     content: "";
                     height: 100%;
                     left: 0;
