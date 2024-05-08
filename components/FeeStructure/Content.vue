@@ -19,24 +19,24 @@ const props = defineProps({
                     <table class="table-fixed min-w-full">
                         <thead>
                             <tr>
-                                <th class="light min-w-28">Ranked Higher The better</th>
-                                <th class="light min-w-52">Duration / Info</th>
-                                <th class="blue min-w-24">First Year</th>
-                                <th class="min-w-24">Second Year</th>
-                                <th class="blue min-w-24">Third Year</th>
-                                <th class="min-w-24">Fourth Year</th>
-                                <th class="blue min-w-24">Fifth Year</th>
+                                <th class="light">Ranked Higher The better</th>
+                                <th class="light">Duration / Info</th>
+                                <th class="blue">First Year</th>
+                                <th >Second Year</th>
+                                <th class="blue">Third Year</th>
+                                <th >Fourth Year</th>
+                                <th class="blue">Fifth Year</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="(item, index) of get(courseInfo, 'collegesFees', [])" :key="index">
-                                <td class="light min-w-28">{{ get(item, 'college', '') }}</td>
-                                <td class="light min-w-52">{{ get(item, 'information', '') }}</td>
-                                <td class="blue min-w-24">{{ get(item, 'fees.firstYear', '--') }}</td>
-                                <td class="min-w-24">{{ get(item, 'fees.secondYear', '--') }}</td>
-                                <td class="blue min-w-24">{{ get(item, 'fees.thirdYear', '--') }}</td>
-                                <td class="min-w-24">{{ get(item, 'fees.fourthYear', '--') }}</td>
-                                <td class="blue min-w-24">{{ get(item, 'fees.fifthYear', '--') }}</td>
+                                <td class="light">{{ get(item, 'college', '') }}</td>
+                                <td class="light min-w-16">{{ get(item, 'information', '') }}</td>
+                                <td class="blue">{{ get(item, 'fees.firstYear', '--') }}</td>
+                                <td >{{ get(item, 'fees.secondYear', '--') }}</td>
+                                <td class="blue">{{ get(item, 'fees.thirdYear', '--') }}</td>
+                                <td >{{ get(item, 'fees.fourthYear', '--') }}</td>
+                                <td class="blue">{{ get(item, 'fees.fifthYear', '--') }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -57,7 +57,7 @@ const props = defineProps({
     padding: 8rem 2rem;
 
     @media screen and (max-width: 768px) {
-        padding: 4rem 0.5rem;
+        padding: 4rem 0rem;
         top: 50px;
     }
 
@@ -82,6 +82,7 @@ const props = defineProps({
 
             @media screen and (max-width: 768px) {
                 padding: 5px;
+                font-size: 8px;
             }
 
             &:first-child {
@@ -105,6 +106,7 @@ const props = defineProps({
             text-align: start;
             @media screen and (max-width: 768px) {
                 padding: 5px 8px;
+                font-size: 7px !important;
             }
             &:first-child {
                 color: #909ea0;
