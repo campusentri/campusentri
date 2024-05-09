@@ -21,6 +21,15 @@ export default {
         watch(() => route.fullPath, () => {
             this.showNavbar = false;
         });
+    },
+    watch: {
+        showNavbar(newVal) {
+            if (newVal) {
+                document.body.classList.add('overflow-hidden');
+            } else {
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
     }
 };
 </script>

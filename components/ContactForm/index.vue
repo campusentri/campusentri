@@ -183,7 +183,8 @@ export default {
         display: flex;
         flex-direction: column;
         min-height: 90vh;
-        width: 70vw;
+        width: 60vw;
+        border-radius: 20px;
 
         @media screen and (max-width: 768px) {
             width: 95vw;

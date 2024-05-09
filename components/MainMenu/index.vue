@@ -18,7 +18,7 @@
                         <li><NuxtLink to="/" class="text-[4.5rem] mb-2 text-white"><span>Home</span></NuxtLink></li>
                         <li><NuxtLink to="/courses" class="text-[4.5rem] mb-2 text-white"><span>Course</span></NuxtLink></li>
                         <li><NuxtLink to="/colleges" class="text-[4.5rem] mb-2 text-white"><span>College</span></NuxtLink></li>
-                        <li><NuxtLink to="/fee" class="text-[4.5rem] mb-2 text-white"><span>Fee Structure</span></NuxtLink></li>
+                        <li><NuxtLink to="/fee" class="text-[4.5rem] mb-2 text-white"><span>Fees</span></NuxtLink></li>
                         <li><NuxtLink to="/company" class="text-[4.5rem] text-white"><span>Company</span></NuxtLink></li>
                         <li><NuxtLink to="/services" class="text-[4.5rem] text-white"><span>Services</span></NuxtLink></li>
                     </ul>
