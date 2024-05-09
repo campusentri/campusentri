@@ -6,7 +6,7 @@
                 <span class="label-wrapper">
                     <span>{{ slide.label }}</span>
                 </span>
-                <NuxtLink to="/blogs" class="ml-0 md:ml-4 h-full text-container">
+                <NuxtLink to="/blogs" class="ml-0 md:ml-4 h-auto md:h-full text-container">
                     <span class="mr-4 date">{{ slide.date }}</span>
                     <span class="title">{{ slide.text }}</span>
                 </NuxtLink>
@@ -132,7 +132,7 @@ export default {
             transition: opacity 0.5s ease, transform 0.5s ease;
             @media screen and (max-width: 768px) {
                 padding: 8px;
-                height: 60%;
+                height: 50%;
                 gap: 0;
             }
             .text-container {
@@ -206,7 +206,7 @@ export default {
                 transition: color .5s cubic-bezier(.19, 1, .22, 1), background-color .5s cubic-bezier(.19, 1, .22, 1);
                 @media screen and (max-width: 768px) {
                     width: 50px;
-                    font-size: 10px;
+                    font-size: 8px;
                     padding: 8px;
                 }
             }
@@ -231,6 +231,16 @@ export default {
                 justify-content: flex-end;
                 width: 100px;
 
+                @media screen and (max-width: 768px) {
+                    width: 70px;
+                }
+
+                span {
+                    @media screen and (max-width: 768px) {
+                        font-size: 10px;
+                    }
+                }
+
                 button {
                     margin: 0 5px;
                     background-color: transparent;
@@ -238,6 +248,12 @@ export default {
                     border: none;
                     border-radius: 3px;
                     cursor: pointer;
+
+                    svg {
+                        @media screen and (max-width: 768px) {
+                            height: 10px;
+                        }
+                    }
                 }
             }
         }

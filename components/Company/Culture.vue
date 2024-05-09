@@ -56,7 +56,7 @@ export default {
 <template>
     <div id="culture" class="culture-block-wrapper">
         <div class="flex items-end px-6">
-            <div class="w-full md:w-[50.5%] ml-0 md:ml-[6.25%]">
+            <div class="w-[50.5%] ml-0 md:ml-[6.25%]">
                 <h2 class="title culture-title">The elements that form our company</h2>
             </div>
         </div>

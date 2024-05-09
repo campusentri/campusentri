@@ -147,8 +147,8 @@ export default {
                     width: 7.7647058824vw;
 
                     @media screen and (max-width: 768px) {
-                        height: 100px;
-                        top: -60px;
+                        height: 70px;
+                        top: -80px;
                         width: 100px;
                     }
 
