@@ -205,7 +205,9 @@ export default {
                 width: 150px;
                 transition: color .5s cubic-bezier(.19, 1, .22, 1), background-color .5s cubic-bezier(.19, 1, .22, 1);
                 @media screen and (max-width: 768px) {
-                    width: 70px;
+                    width: 50px;
+                    font-size: 10px;
+                    padding: 8px;
                 }
             }
 

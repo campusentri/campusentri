@@ -69,6 +69,11 @@ export default {
     padding: 0;
     position: relative;
 
+    @media screen and (max-width: 768px) {
+        position: relative;
+        top: -160px;
+    }
+
     .arrow-container {
         align-items: flex-end;
         border-bottom: 1px solid hsla(0, 0%, 100%, .2);
