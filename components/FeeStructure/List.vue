@@ -1,7 +1,7 @@
 <script setup>
 const { $gsap } = useNuxtApp();
 import { get } from 'lodash';
-const query = groq`*[_type == "fees"] {
+const query = groq`*[_type == "fees"] | order(_createdAt asc) {
   ...,
   course -> {
     _id,
