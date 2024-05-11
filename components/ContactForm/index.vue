@@ -8,7 +8,8 @@ export default {
                 phoneNumber: '',
             },
             submitted: false,
-            user: null
+            user: null,
+            otplessCallbackSet: false
         }
     },
     props: {
@@ -26,6 +27,7 @@ export default {
             this.$emit('close-contact-modal');
         },
         async handleSubmit() {
+            if (!this.user) return;
             const sanity = useSanity();
             try {
                 await sanity.client.create({
@@ -38,19 +40,14 @@ export default {
                     email: '',
                     phoneNumber: '',
                 }
+                this.user = null;
                 this.submitted = true;
                 setTimeout(()=> {
-                    this.$emit('close-contact-modal');
+                    this.closeModal();
                     if(this.courseInfo) {
                         this.$emit('open-modal', this.courseInfo);
                     }
                     this.submitted = false;
-                    this.user = null;
-                    this.lead = {
-                        name: '',
-                        email: '',
-                        phoneNumber: '',
-                    }
                 }, 1000);
             } catch (error) {
                 console.error('Error submitting lead:', error);
@@ -82,15 +79,20 @@ export default {
         }
     },
     mounted() {
-        window.otpless = (otplessUser) => {
-            this.user = otplessUser.identities[0];
-            this.lead = {
-                name: this.user?.name,
-                phoneNumber: this.user?.identityValue,
-                email: this.user?.email
-            }
-            this.handleSubmit();
-        };
+        if (!this.otplessCallbackSet) {
+            window.otpless = (otplessUser) => {
+                if (!this.otplessCallbackSet) {
+                    this.otplessCallbackSet = true; // Set the flag to true
+                    this.user = otplessUser.identities[0];
+                    this.lead = {
+                        name: this.user?.name,
+                        phoneNumber: this.user?.identityValue,
+                        email: this.user?.email
+                    };
+                    this.handleSubmit(); // Call handleSubmit only if the flag is not set
+                }
+            };
+        }
     }
 }
 </script>
