@@ -1,7 +1,7 @@
 <script setup>
 const { $gsap } = useNuxtApp();
 import { get } from 'lodash';
-const query = groq`*[_type == "colleges"] {
+const query = groq`*[_type == "colleges"] | order(_createdAt asc) {
   ...,
   collegeVideo {
     asset-> {

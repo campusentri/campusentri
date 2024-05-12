@@ -2,33 +2,30 @@
 export default {
     data() {
         return {
-            isModalOpen: false
+            isModalOpen: false,
+        };
+    },
+    watch: {
+        '$route'() {
+                const user = localStorage?.getItem('user');
+                const parsedUser = JSON.parse(user);
+
+                if (!parsedUser) {
+                    this.isModalOpen = true;
+                    this.$emit('open-contact-modal');
+                } else {
+                    this.$emit('close-contact-modal');
+                    this.isModalOpen = false;
+                }
         }
     },
     methods: {
-        openModal() {
-            this.$emit('open-contact-modal');
-            this.isModalOpen = true;
-        },
         closeModal() {
             this.isModalOpen = false;
-        }
+            this.$emit('close-contact-modal');
+        },
     },
-    mounted() {
-        const route = useRoute();
-        const user = localStorage.getItem('user');
-        const parsedUser = JSON.parse(user);
-        if (!parsedUser) {
-            if (route.fullPath === '/') {
-                this.openModal();
-            } else {
-                watch(() => route.fullPath, () => {
-                    this.openModal();
-                });
-            }
-        }
-    },
-}
+};
 </script>
 
 <template>

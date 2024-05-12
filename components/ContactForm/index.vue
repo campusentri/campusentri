@@ -1,4 +1,5 @@
 <script>
+const route = useRoute();
 export default {
     data() {
         return {
@@ -7,7 +8,6 @@ export default {
                 email: '',
                 phoneNumber: '',
             },
-            submitted: false,
             user: null,
             otplessCallbackSet: false
         }
@@ -19,7 +19,7 @@ export default {
         },
         courseInfo: {
             type: Object,
-            default: {}
+            default: null
         }
     },
     methods: {
@@ -40,15 +40,12 @@ export default {
                     email: '',
                     phoneNumber: '',
                 }
-                this.user = null;
-                this.submitted = true;
-                setTimeout(()=> {
-                    this.closeModal();
-                    if(this.courseInfo) {
-                        this.$emit('open-modal', this.courseInfo);
-                    }
-                    this.submitted = false;
-                }, 1000);
+                this.closeModal();
+                if(this.courseInfo) {
+                    this.$emit('open-modal', this.courseInfo);
+                } else {
+                    navigateTo(route.fullPath);
+                }
             } catch (error) {
                 console.error('Error submitting lead:', error);
             }
@@ -62,7 +59,7 @@ export default {
             document.body.appendChild(script);
         },
         openModal() {
-            this.loadScript(); // Load OTPless script when modal is opened
+            this.loadScript();
         }
     },
     watch: {
@@ -82,14 +79,14 @@ export default {
         if (!this.otplessCallbackSet) {
             window.otpless = (otplessUser) => {
                 if (!this.otplessCallbackSet) {
-                    this.otplessCallbackSet = true; // Set the flag to true
+                    this.otplessCallbackSet = true;
                     this.user = otplessUser.identities[0];
                     this.lead = {
                         name: this.user?.name,
                         phoneNumber: this.user?.identityValue,
                         email: this.user?.email
                     };
-                    this.handleSubmit(); // Call handleSubmit only if the flag is not set
+                    this.handleSubmit();
                 }
             };
         }
