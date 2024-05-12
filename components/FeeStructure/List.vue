@@ -75,7 +75,7 @@ onMounted(() => {
                         </div>
                     </div>
                     <ul class="items-list">
-                        <li v-for="(item, index) of courses" :key="index" class="item fee-items leave-top">
+                        <li v-for="(item, index) of courses" :key="index" :id="get(item, 'course.shortName', '')" class="item fee-items leave-top">
                             <span class="bottom-line"></span>
                             <span class="inner-list">
                                 <div class="item-row">

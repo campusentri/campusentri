@@ -88,14 +88,14 @@ onMounted(() => {
                         <h3>At a Glance</h3>
                         <ul class="list my-6 grid grid-cols-2 gap-2">
                             <li v-for="(course, index) in courses" :key="index" class="item">
-                                <span class="flex items-center cursor-pointer">
+                                <NuxtLink :to="course.link" class="flex items-center cursor-pointer">
                                     <div class="image-wrapper">
                                         <span class="icon-svg" v-html="course.svg"></span>
                                     </div>
                                     <span class="label">
                                         <span class="inner">{{ course.name }}</span>
                                     </span>
-                                </span>
+                                </NuxtLink>
                             </li>
                         </ul>
                         <div class="btn-wrapper">
@@ -224,7 +224,7 @@ onMounted(() => {
 
                     }
 
-                    span {
+                    a {
                         &:hover {
                             .label {
                                 .inner {

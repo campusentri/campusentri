@@ -4,11 +4,12 @@ const query = groq`*[_type == "course"]`;
 const { data } = await useSanityQuery(query);
 const courses = get(data, 'value');
 const sortedNames = [
-    'MBBS', 'BDS', "BSc. Cardiac Care Technology", "BSc. MIT", "BSc. MLT", "BSc. Renal Dialysis Technology", 
-    "BSc. Optometry", "BSC. AT & OT Technology", "BASLP", "BSc. Microbiology", "BSc. Food Nutrition and Dietetics",
-    "BSc. Perfusion Technology", "BSc. Neuroscience", "BPT", "BSc. Emergency and Trauma Care", "BSc. Occupational Therapy",
-    "Pharm.D", "BSc. Nursing", "BSc. Radiology", "BSc. Respiratory Therapy", "B.Pharm", "BSc. Cardiovascular Technology",
-    "BSc. Emergency Medicine"
+    'MBBS', 'BDS', "BSc. Nursing", "BPT", "BSc. Radiology", "BSC. AT & OT Technology", 
+    "BSc. Renal Dialysis Technology", "BASLP", "BSc. MIT", "BSc. Optometry", "BSc. Respiratory Therapy",
+    "BSc. Occupational Therapy", "BSc. Perfusion Technology", "BSc. Cardiovascular Technology", 
+    "BSc. Cardiac Care Technology", "BSc. Emergency Medicine", "BSc. MLT", "BSc. Neuroscience",
+    "BSc. Food Nutrition and Dietetics", "BSc. Microbiology", "BSc. Emergency and Trauma Care",
+    "B.Pharm", "Pharm.D"
 ]
 const sortByCustomOrder = (a, b) => {
     const indexA = sortedNames.indexOf(a.shortName);
