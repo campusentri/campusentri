@@ -11,8 +11,10 @@ export default {
                 const parsedUser = JSON.parse(user);
 
                 if (!parsedUser) {
-                    this.isModalOpen = true;
-                    this.$emit('open-contact-modal');
+                    setTimeout(()=> {
+                        this.isModalOpen = true;
+                        this.$emit('open-contact-modal');
+                    }, 10000);
                 } else {
                     this.$emit('close-contact-modal');
                     this.isModalOpen = false;

@@ -43,6 +43,7 @@ export default {
                 if(this.courseInfo) {
                     this.$emit('open-modal', this.courseInfo);
                 } else {
+                    console.log(this.courseInfo, this.$route)
                     navigateTo(this.$route.fullPath);
                 }
             } catch (error) {
@@ -95,8 +96,8 @@ export default {
 
 <template>
     <transition name="modal-fade">
-        <div v-if="isOpen" class="fold-view">
-            <div class="inner" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <div v-if="isOpen && !user" class="fold-view">
+            <div :class="!user ? 'bg-transparent' : 'bg-[#fbfbfb]'" class="inner" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
 
                 <header class="modal-header" id="modalTitle">
                     <button type="button" class="btn-close z-10" @click="closeModal" aria-label="Close modal">
@@ -144,7 +145,7 @@ export default {
     z-index: 100;
 
     .inner {
-        background-color: #fbfbfb;
+        // background-color: #fbfbfb;
         overflow-x: auto;
         display: flex;
         flex-direction: column;
