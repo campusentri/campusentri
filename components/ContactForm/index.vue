@@ -1,5 +1,4 @@
 <script>
-const route = useRoute();
 export default {
     data() {
         return {
@@ -44,7 +43,7 @@ export default {
                 if(this.courseInfo) {
                     this.$emit('open-modal', this.courseInfo);
                 } else {
-                    navigateTo(route.fullPath);
+                    navigateTo(this.$route.fullPath);
                 }
             } catch (error) {
                 console.error('Error submitting lead:', error);
