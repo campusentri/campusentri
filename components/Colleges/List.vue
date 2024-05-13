@@ -48,7 +48,7 @@ onMounted(() => {
 
         tl.from(`.technologies-list .technologies-item:nth-child(${index + 1})`, {
             scale: 0, // Start with a scale of 0
-            duration: 0.5, // Adjust duration for the desired speed
+            duration: 0.2, // Adjust duration for the desired speed
             ease: 'power2.out', // You can experiment with different easing functions
             transformOrigin: direction === -1 ? 'left center' : 'right center', // Set transform origin based on direction
         });

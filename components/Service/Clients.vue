@@ -22,15 +22,15 @@ export default {
         tl.from('.client-title-container', {
             opacity: 0,
             y: 20,
-            duration: 0.15,
+            duration: 0.1,
         });
         this.clients.forEach((item, index) => {
-            const delay = index * 0.2; // Adjust the delay for each item
+            const delay = index * 0.05; // Adjust the delay for each item
 
             tl.from(`.client-student-list:nth-child(${index + 1})`, {
                 opacity: 0,
                 x: -20,
-                duration: 0.5,
+                duration: 0.1,
                 delay,
             });
         });

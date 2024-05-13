@@ -53,12 +53,10 @@ onMounted(() => {
     });
 
     courses.forEach((item, index) => {
-        const delay = index * 0.01; // Adjust delay for each item
         tl.from(`.fee-items:nth-child(${index + 1})`, {
             opacity: 0,
             y: 20,
             duration: 0.1,
-            delay,
         });
     });
 });

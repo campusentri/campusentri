@@ -34,41 +34,41 @@ export default {
         const tl = this.$gsap.timeline({
             scrollTrigger: {
                 trigger: '#services',
-                start: 'top center',
-                end: 'bottom center',
+                start: 'top',
+                end: 'bottom',
                 toggleActions: "play none none reverse",
             }
         });
         tl.from('.service-title', {
             opacity: 0,
             x: -60,
-            duration: 0.5,
+            duration: 0.1,
         });
 
         tl.from('.service-btn', {
             opacity: 0,
             x: 90,
-            duration: 0.3,
+            duration: 0.1,
         }, '-=0.2');
         tl.from('.service-text', {
             opacity: 0,
             y: 40,
-            duration: 0.5,
+            duration: 0.1,
         });
         tl.from('.service-item', {
             opacity: 0,
             x: -20,
-            duration: 0.3,
+            duration: 0.2,
         });
         tl.from('.service-list', {
             opacity: 0,
             y: 60,
-            duration: 0.3,
+            duration: 0.2,
         });
         tl.from('.clients-item', {
             opacity: 0,
             y: 60,
-            duration: 0.8,
+            duration: 0.2,
         });
     }
 }

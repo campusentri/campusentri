@@ -38,15 +38,16 @@ onMounted(() => {
     const tl = $gsap.timeline({
         scrollTrigger: {
             trigger: '#clinical-trials',
-            start: 'top',
+            start: 'top center',
             end: 'bottom',
             toggleActions: "play none none reverse",
         }
     });
-    tl.from('.fee-title', {
+    // console.log(tl)
+    tl.from('.fee-title-container .fee-title', {
         opacity: 0,
-        x: -60,
-        duration: 0.1,
+        x: -40,
+        duration: 0.05,
     });
     tl.from('.clinical-trials-block .fee-text-container-text', {
         opacity: 0,
@@ -56,16 +57,16 @@ onMounted(() => {
 
     tl.from(['.fee-img', '.fee-section'], {
         scale: 0,
-        duration: 2,
+        duration: 1,
         ease: 'power2.out',
-    }, '-=1');
+    });
 })
 </script>
 
 <template>
     <div id="clinical-trials" class="clinical-trials-block py-8 md:py-48">
-        <div class="flex items-center px-8 md:px-12">
-            <h2 class="w-3/4 mb-6 text-8xl title md:mx-auto fee-title">Fee Structure</h2>
+        <div class="flex items-center px-8 md:px-12 fee-title-container">
+            <h2 class="w-3/4 mb-6 text-8xl title md:mx-auto fee-title ">Fee Structure</h2>
         </div>
         <div class="text-container flex flex-col md:flex-row py-6 pl-8 md:pl-0 px-8 md:px-12 mt-8">
             <div class="w-full md:w-[31.25%] ml-0 md:ml-[12.5%] mb-12 md:mb-0 fee-text-container-text">
