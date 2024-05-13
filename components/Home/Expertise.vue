@@ -26,14 +26,14 @@ export default {
         tl.from('.expertise-title', {
             opacity: 0,
             y: 50,
-            duration: 0.2,
-            delay: 0.2
+            duration: 0.1,
+            delay: 0.1
         });
         tl.from('.section', {
             opacity: 0,
             y: 20,
-            duration: 0.2,
-            delay: 0.2
+            duration: 0.1,
+            delay: 0.1
         });
         tl.from('.section-line', {
             scale: 0,
@@ -127,7 +127,7 @@ export default {
     padding: 7.5rem 0 25rem;
 
     @media screen and (max-width: 768px) {
-        padding: 3rem 1rem;
+        padding: 2rem 1rem;
 
         h1 {
             font-size: calc(1.79688rem + 5.10417vw);

@@ -18,26 +18,26 @@ export default {
         const tl = this.$gsap.timeline({
             scrollTrigger: {
                 trigger: '#technologies',
-                start: 'top center',
-                end: 'bottom center',
+                start: 'top bottom',
+                end: 'bottom',
                 toggleActions: "play none none reverse",
             }
         });
         tl.from('.technology-title', {
             opacity: 0,
             x: -60,
-            duration: 0.5,
+            duration: 0.1,
         });
 
         tl.from('.choice-btn', {
             opacity: 0,
             x: 90,
-            duration: 0.3,
+            duration: 0.1,
         }, '-=0.2');
         tl.from('.text-container-text', {
             opacity: 0,
             y: 40,
-            duration: 0.5,
+            duration: 0.1,
         });
         tl.from('.promo-block-wrapper', {
             scale: 0,

@@ -38,20 +38,20 @@ onMounted(() => {
     const tl = $gsap.timeline({
         scrollTrigger: {
             trigger: '#clinical-trials',
-            start: 'top center',
-            end: 'bottom center',
+            start: 'top',
+            end: 'bottom',
             toggleActions: "play none none reverse",
         }
     });
     tl.from('.fee-title', {
         opacity: 0,
         x: -60,
-        duration: 0.5,
+        duration: 0.1,
     });
     tl.from('.clinical-trials-block .fee-text-container-text', {
         opacity: 0,
         y: 40,
-        duration: 0.2,
+        duration: 0.1,
     });
 
     tl.from(['.fee-img', '.fee-section'], {
@@ -63,7 +63,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div id="clinical-trials" class="clinical-trials-block py-24 md:py-48">
+    <div id="clinical-trials" class="clinical-trials-block py-8 md:py-48">
         <div class="flex items-center px-8 md:px-12">
             <h2 class="w-3/4 mb-6 text-8xl title md:mx-auto fee-title">Fee Structure</h2>
         </div>
