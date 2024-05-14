@@ -22,7 +22,7 @@ function openModal(item) {
     collegeInfo.value = item;
     const getUser = localStorage.getItem('user');
     const user = JSON.parse(getUser);
-    if(!user) {
+    if (!user) {
         isModalOpen.value = true;
         emitOpenModal('open-contact-modal', item);
     } else {
@@ -47,10 +47,9 @@ onMounted(() => {
         const direction = index % 2 === 0 ? -1 : 1; // Set the direction based on index
 
         tl.from(`.technologies-list .technologies-item:nth-child(${index + 1})`, {
-            scale: 0, // Start with a scale of 0
-            duration: 0.2, // Adjust duration for the desired speed
-            ease: 'power2.out', // You can experiment with different easing functions
-            transformOrigin: direction === -1 ? 'left center' : 'right center', // Set transform origin based on direction
+            opacity: 0,
+            y: direction === -1 ? 20 : -20,
+            duration: 0.1,
         });
     });
 })
@@ -59,7 +58,8 @@ onMounted(() => {
 <template>
     <div id="list" class="technologies-list-wrapper mt-28">
         <ul class="items-list technologies-list">
-            <li v-for="(item, index) of colleges" :key="index" :id="get(item, 'name', '')" class="item technologies-item">
+            <li v-for="(item, index) of colleges" :key="index" :id="get(item, 'name', '')"
+                class="item technologies-item">
                 <span class="top-line"></span>
                 <span class="right-line"></span>
                 <div class="left-col">
@@ -110,7 +110,8 @@ onMounted(() => {
                 </div>
             </li>
         </ul>
-        <ContactForm :is-open="isModalOpen" @close-contact-modal="closeModal" @open-modal="openCollegeModal" :course-info="collegeInfo" />
+        <ContactForm :is-open="isModalOpen" @close-contact-modal="closeModal" @open-modal="openCollegeModal"
+            :course-info="collegeInfo" />
     </div>
 </template>
 

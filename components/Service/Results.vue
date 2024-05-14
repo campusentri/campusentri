@@ -1,6 +1,8 @@
 <script setup>
 const { $gsap } = useNuxtApp();
 import { get, filter } from 'lodash';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const query = groq`*[_type == "colleges"] {
   ...,
   collegeVideo {
@@ -51,6 +53,9 @@ onMounted(() => {
         });
     });
 })
+function navigateToSection(itemName) {
+    router.push(`/colleges#${itemName}`);
+}
 </script>
 
 <template>
@@ -98,8 +103,8 @@ onMounted(() => {
                         <SanityImage class="rounded-lg w-full p-0" :asset-id="get(item, 'poster.asset._ref', '')" />
                         <span class="item-title">{{ get(item, 'name', '') }}</span>
                         <div class="read-more item-title">
-                            <NuxtLink :to="`/colleges#${get(item, 'name', '')}`">
-                                <button class="read-more-btn big-size black-color" data-v-a2720cde="">
+                            <!-- <NuxtLink :to="`/colleges#${get(item, 'name', '')}`"> -->
+                                <button @click="navigateToSection(get(item, 'name', ''))" class="read-more-btn big-size black-color" data-v-a2720cde="">
                                     <div class="inner" data-v-a2720cde="">
                                         <span class="icon arrow-right" data-v-a2720cde="">
                                             <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">
@@ -128,7 +133,7 @@ onMounted(() => {
                                         <span class="label-sizer" data-v-a2720cde="">More</span>
                                     </div>
                                 </button>
-                            </NuxtLink>
+                            <!-- </NuxtLink> -->
                         </div>
                     </li>
                 </ul>
