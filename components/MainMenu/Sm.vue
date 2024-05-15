@@ -48,7 +48,11 @@ export default {
             });
         },
         animateNav() {
-            this.$gsap.from(this.$refs.nav, { y: -window.innerHeight, duration: 0.5 });
+            this.$refs.nav.classList.add('transition-transform', 'translate-y-full');
+            
+            this.$refs.nav.classList.remove('translate-y-full');
+            // setTimeout(() => {
+            // }, 0);
         },
     },
     mounted() {
@@ -111,5 +115,8 @@ export default {
             }
         }
     }
+}
+.translate-y-full {
+    transform: translateY(-100%);
 }
 </style>

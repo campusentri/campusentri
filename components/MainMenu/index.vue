@@ -1,7 +1,7 @@
 <template>
     <div class="fixed top-0 left-0 w-full h-full z-[1000]">
         <div class="absolute top-0 left-0 w-full h-full" @click="closeNavbar"></div>
-        <nav ref="topNav" class="absolute top-0 left-0 bg-[#f23c2f] w-1/4 h-full p-8">
+        <nav ref="topNav" class="absolute top-nav top-0 left-0 bg-[#f23c2f] w-1/4 h-full p-8">
             <div class="flex flex-col justify-between h-full">
                 <NuxtLink to="/">
                     <div class="flex items-center logo">
@@ -11,7 +11,7 @@
                 <span class="text-white text-base">Made by CampusEntri</span>
             </div>
         </nav>
-        <nav ref="bottomNav" class="absolute top-0 right-0 bg-[#ff4134] w-3/4 h-full p-8">
+        <nav ref="bottomNav" class="absolute bottom-nav top-0 right-0 bg-[#ff4134] w-3/4 h-full p-8">
             <div class="grid grid-cols-3 gap-8 h-full">
                 <div class="col-span-2 flex items-center">
                     <ul class="menu-items">
@@ -56,8 +56,14 @@ export default {
             });
         },
         animateNav() {
-            this.$gsap.from(this.$refs.topNav, { y: -window.innerHeight, duration: 0.5 });
-            this.$gsap.from(this.$refs.bottomNav, { y: window.innerHeight, duration: 0.5 });
+            // Add CSS class to initiate the opening transition
+            this.$refs.topNav.classList.add('transition-transform', 'translate-y-full');
+            this.$refs.bottomNav.classList.add('transition-transform', '-translate-y-full');
+            
+            setTimeout(() => {
+                this.$refs.topNav.classList.remove('translate-y-full');
+                this.$refs.bottomNav.classList.remove('-translate-y-full');
+            }, 0);
         },
     },
     mounted() {
@@ -114,5 +120,17 @@ export default {
             }
         }
     }
+}
+.transition-transform {
+    transition-property: transform;
+    transition-duration: 0.5s; /* Adjust duration as needed */
+    transition-timing-function: ease;
+}
+
+.translate-y-full {
+    transform: translateY(100%);
+}
+.-translate-y-full {
+    transform: translateY(-100%);
 }
 </style>
