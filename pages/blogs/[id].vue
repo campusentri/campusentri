@@ -91,6 +91,13 @@ const blog = get(data, 'value', {});
     height: calc(100% - 40px);
     padding-bottom: calc(1.48438rem + 2.1875vw);
 
+    p {
+      font-family: 'Aeonik-Regular';
+      font-size: .8125rem;
+      line-height: 1.4em;
+      margin-bottom: calc(1.48438rem + 2.1875vw);
+    }
+
     .read-more {
       display: block;
 

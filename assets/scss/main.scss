@@ -230,3 +230,25 @@ h1 {
         }
     }
 }
+
+.blog-container {
+    p {
+        font-family: 'Aeonik-Regular';
+        font-size: 1rem;
+        line-height: 1.4em;
+        margin-bottom: calc(1rem + 0.1875vw);
+    }
+    h3, h4 {
+        font-family: 'Aeonik-Medium';
+        font-size: 1.25rem;
+        line-height: 1.6em;
+        margin-bottom: .625rem;
+    }
+
+    h5 {
+        font-family: 'Aeonik-Medium';
+        font-size: 1.15rem;
+        line-height: 1.6em;
+        margin-bottom: .625rem;
+    }
+}
