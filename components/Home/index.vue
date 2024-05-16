@@ -1,16 +1,16 @@
-<script>
-export default {
-    methods: {
-        async scrollToNextComponent() {
-            const nextComponent = document.getElementsByClassName('page-content');
-            if (nextComponent) {
-                const offsetTop = nextComponent[0].offsetTop;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth' // smooth scrolling behavior
-                });
-            }
-        }
+<script setup>
+import { get } from 'lodash';
+const query = groq`*[_type == "blogs"] | order(_createdAt desc) [0...2]`;
+const { data } = await useSanityQuery(query);
+const blogs = get(data, 'value', []);
+function scrollToNextComponent() {
+    const nextComponent = document.getElementsByClassName('page-content');
+    if (nextComponent) {
+        const offsetTop = nextComponent[0].offsetTop;
+        window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth' // smooth scrolling behavior
+        });
     }
 }
 </script>
@@ -36,7 +36,7 @@ export default {
                     </button>
                 </div>
                 <div class="flex-grow mx-1 md:ml-12 md:mr-6">
-                    <HomeBannerSlider />
+                    <HomeBannerSlider :blogs="blogs" />
                 </div>
                 <Audio :audioSrc="'/audio/home.mp3'" />
             </div>

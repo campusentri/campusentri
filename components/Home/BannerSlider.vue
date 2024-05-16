@@ -1,20 +1,20 @@
 <template>
     <div class="slider">
-        <div to="blogs" class="slide" v-for="(slide, index) in slides" :key="index" v-show="currentIndex === index">
+        <div to="blogs" class="slide" v-for="(blog, index) in blogs" :key="index" v-show="currentIndex === index">
             <div class="progress-bar" :style="{ width: progressBarWidth + '%' }"></div>
             <div class="press-release-container" :class="{ 'active': currentIndex === index }">
                 <span class="label-wrapper">
-                    <span>{{ slide.label }}</span>
+                    <span>{{ blog.blogType }}</span>
                 </span>
-                <NuxtLink to="/blogs" class="ml-0 md:ml-4 h-auto md:h-full text-container">
-                    <span class="mr-4 date">{{ slide.date }}</span>
-                    <span class="title">{{ slide.text }}</span>
+                <NuxtLink :to="'/blogs/' + blog._id" class="ml-0 md:ml-4 h-auto md:h-full text-container">
+                    <span class="mr-4 date">{{ new Date(blog?._createdAt).toLocaleDateString() }}</span>
+                    <span class="title">{{ blog.title }}</span>
                 </NuxtLink>
                 <div class="controls">
                     <button @click="prevSlide" :disabled="currentIndex === 0">
                         <IconsChevronLeft />
                     </button>
-                    <span>{{ currentIndex + 1 }} of {{ slides.length }}</span>
+                    <span>{{ currentIndex + 1 }} of {{ blogs.length }}</span>
                     <button @click="nextSlide">
                         <IconsChevronRight />
                     </button>
@@ -26,13 +26,19 @@
 
 <script>
 export default {
+    props: {
+        blogs: {
+            type: Array,
+            default: () => []
+        }
+    },
     data() {
         return {
-            slides: [
-                { label: 'Press Release', date: '2022-08-23', text: 'CampusEntriⓇ Marks the Opening Of The First educational Research, positioning Malaysia' },
-                { label: 'Press Release', date: '2022-08-23', text: 'CampusEntriⓇ Marks the Opening Of The First Central Laboratory in Clinical Research positioning Malaysia as the Asia Pacific Hub' },
-                { label: 'Publications', date: '2017-09-01', text: 'Agreement between Programmed Cell Death Ligand-1 Diagnostic Assays across Multiple Protein Expression Cutoffs in Non-Small Cell Lung Cancer' }
-            ],
+            // slides: [
+            //     { label: 'Press Release', date: '2022-08-23', text: 'CampusEntriⓇ Marks the Opening Of The First educational Research, positioning Malaysia' },
+            //     { label: 'Press Release', date: '2022-08-23', text: 'CampusEntriⓇ Marks the Opening Of The First Central Laboratory in Clinical Research positioning Malaysia as the Asia Pacific Hub' },
+            //     { label: 'Publications', date: '2017-09-01', text: 'Agreement between Programmed Cell Death Ligand-1 Diagnostic Assays across Multiple Protein Expression Cutoffs in Non-Small Cell Lung Cancer' }
+            // ],
             currentIndex: 0,
             progressInterval: null,
             progressBarWidth: 0,
@@ -54,7 +60,7 @@ export default {
             }, 100);
         },
         nextSlide() {
-            if (this.currentIndex < this.slides.length - 1) {
+            if (this.currentIndex < this.blogs?.length - 1) {
                 this.currentIndex++;
             } else {
                 this.currentIndex = 0;
@@ -65,7 +71,7 @@ export default {
             if (this.currentIndex > 0) {
                 this.currentIndex--;
             } else {
-                this.currentIndex = this.slides.length - 1;
+                this.currentIndex = this.blogs?.length - 1;
             }
             this.startProgress();
         }

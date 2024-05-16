@@ -1,30 +1,9 @@
 <script>
 export default {
-    data() {
-        const releases = [
-            {
-                date: '2022-08-23',
-                title: 'CampusEntriⓇ Marks the Opening Of The First educational Research, positioning Malaysia',
-                description: 'Asia Pacific Hub CampusEntriⓇ Marks the Opening Of The First Central Laboratory in Clinical Research, positioning Malaysia as the Asia Pacific Hub'
-            },
-            {
-                date: '2022-08-23',
-                title: 'CampusEntriⓇ Marks the Opening Of The First Central Laboratory in Clinical Research positioning Malaysia as the Asia Pacific Hub',
-                description: 'CampusEntriⓇ Marks the Opening Of The First Central Laboratory in Clinical Research, positioning Malaysia as the Asia Pacific Hub'
-            },
-            {
-                date: '2020-10-05',
-                title: 'CampusEntriⓇ Unites With 19 Organizations from the Healthcare Community to Form COVID Testing Industry Consortium',
-                description: 'CampusEntriⓇ Unites With 19 Organizations from the Healthcare Community to Form COVID-19 Testing Industry Consortium'
-            },
-            {
-                date: '2020-06-09',
-                title: 'CampusEntriⓇ Announces the Availability of COVID-19 Antibody Testing',
-                description: 'CampusEntriⓇ Announces the Availability of COVID-19 Antibody Testing'
-            }
-        ];
-        return {
-            releases
+    props: {
+        blogs: {
+            type: Array,
+            default: () => []
         }
     },
     mounted() {
@@ -43,7 +22,7 @@ export default {
             duration: 0.1,
         });
 
-        this.releases.forEach((item, index) => {
+        this.blogs.forEach((item, index) => {
             const direction = index % 2 === 0 ? -1 : 1; // Set the direction based on index
 
             tl.from(`.month-list:nth-child(${index + 1})`, {
@@ -66,15 +45,15 @@ export default {
         <div class="more-press-releases-wrapper">
             <span class="background"></span>
             <div class="press-releases-list-wrapper">
-                <div v-for="(release, index) of releases" :key="index" class="flex px-8 month-list">
+                <div v-for="(blog, index) of blogs" :key="index" class="flex px-8 month-list">
                     <div class="ml-0 md:ml-[18.75%] w-full md:w-3/4">
                         <ul class="list">
                             <li class="item">
                                 <a href="#">
-                                    <span class="date">{{ release.date }}</span>
-                                    <h3 class="title">{{ release.title }}</h3>
-                                    <p class="excerpt">{{ release.description }}</p>
-                                    <div class="read-more">
+                                    <span class="date">{{ new Date(blog?._createdAt).toDateString() }}</span>
+                                    <h3 class="title">{{ blog.title }}</h3>
+                                    <!-- <p class="excerpt">{{ blog.description }}</p> -->
+                                    <NuxtLink :to="'/blogs/' + blog._id" class="read-more">
                                         <button class="read-more-btn big-size black-color" data-v-a2720cde="">
                                             <div class="inner" data-v-a2720cde="">
                                                 <span class="icon arrow-right" data-v-a2720cde="">
@@ -107,13 +86,13 @@ export default {
                                                 <span class="label-sizer" data-v-a2720cde="">More</span>
                                             </div>
                                         </button>
-                                    </div>
+                                    </NuxtLink>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="read-more text-center mt-12 ml-0 md:ml-[18.75%] w-full md:w-3/4">
+                <!-- <div class="read-more text-center mt-12 ml-0 md:ml-[18.75%] w-full md:w-3/4">
                     <button class="read-more-btn big-size black-color" data-v-a2720cde="">
                         <div class="inner" data-v-a2720cde="">
                             <span class="icon arrow-right" data-v-a2720cde="">
@@ -125,7 +104,7 @@ export default {
                             <span class="label-sizer" data-v-a2720cde="">View All Releases</span>
                         </div>
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

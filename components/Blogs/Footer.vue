@@ -136,7 +136,7 @@ const footerData = [
         height: 99.9vh;
         justify-content: space-between;
         padding-top: 60px;
-        margin-top: 30rem;
+        // margin-top: 30rem;
     }
 
     .main-links-container {
