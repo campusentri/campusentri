@@ -1,59 +1,59 @@
 <script setup>
 const footerData = [
-    { 
+    {
         title: 'Courses',
         links: [
-            'MBBS', 
-            'Bachelor of Dental Sciences', 
-            'Bachelor of Nursing', 
-            'Bachelor of Physiotherapy', 
-            'Bachelor in Audiology & Speech', 
-            'Bachelor of Imaging Technology'
+            { label: 'MBBS', link: '/courses#MBBS' },
+            { label: 'Bachelor of Dental Sciences', link: '/courses#BDS' },
+            { label: 'Bachelor of Nursing', link: '/courses#BSc. Nursing' },
+            { label: 'Bachelor of Physiotherapy', link: '/courses#BPT' },
+            { label: 'Bachelor in Audiology & Speech', link: '/courses#BASLP' },
+            { label: 'Bachelor of Imaging Technology', link: '/courses#BSc. MIT' }
         ]
     },
-    { 
+    {
         title: 'Colleges',
         links: [
-            'AJ Institute',
-            'Yenepoya Institute',
-            'Nitte Institute',
-            'Srinivas Institute',
-            'Mangala Institute',
-            'Father Mullers',
-            'Kanachur Institute',
-            'Tejasvini Institute'
+            { label: 'AJ Institute', link: '/colleges#AJ Institute' },
+            { label: 'Yenepoya Institute', link: '/colleges#Yenepoya Institute' },
+            { label: 'Nitte Institute', link: '/colleges#NITTE' },
+            { label: 'Srinivas Institute', link: '/colleges#Srinivas College' },
+            { label: 'Mangala Institute', link: '/colleges#Mangala College' },
+            { label: 'Father Mullers', link: '/colleges#Father Muller' },
+            { label: 'Kanachur Institute', link: '/colleges#Kanachur Institute' },
+            { label: 'Tejasvini Institute', link: '/colleges#Tejasvini College' }
         ]
     },
-    { 
+    {
         title: 'Fee Structure',
         links: [
-            'Medical',
-            'Paramedical',
-            'Pharmacy',
-            'Nursing'
+            { label: 'Medical', link: '/fee#MBBS' },
+            { label: 'Dental', link: '/fee#BDS' },
+            { label: 'Pharmacy', link: '/fee#B.PHARM' },
+            { label: 'Nursing', link: '/fee#BSc. Nursing' }
         ]
     },
-    { 
+    {
         title: 'Services',
         links: [
-            'Career Guidance',
-            'College Selection',
-            'Application Support',
-            'Loan Assistance',
-            'Application Review',
-            'Scholarship Assistance',
-            'Campus Visit'
+            { label: 'Career Guidance', link: '/services#capabilities' },
+            { label: 'College Selection', link: '/services#college-selection' },
+            { label: 'Application Support', link: '/services#clients' },
+            { label: 'Loan Assistance', link: '/services#loan-assistance' },
+            { label: 'Application Review', link: '/services#results' },
+            { label: 'Student Stories', link: '/services#stories' },
+            { label: 'Campus Visit', link: '/services#campus-visits' }
         ]
     },
-    { 
+    {
         title: 'Company',
         links: [
-            'About', 
-            'Leader', 
-            'History', 
-            'Culture', 
-            'Mission', 
-            'Career'
+            { label: 'About', link: '/company#about' },
+            { label: 'Leader', link: '/company#leaders' },
+            { label: 'History', link: '/company#clients' },
+            { label: 'Culture', link: '/company#culture' },
+            { label: 'Mission', link: '/company#core-values' },
+            { label: 'Career', link: '/company#careers' }
         ]
     },
 ]
@@ -86,9 +86,9 @@ const footerData = [
                         <h2 class="title">{{ data.title }}</h2>
                         <ul>
                             <li v-for="(link, index) of data.links" :key="index">
-                                <a href="#">
-                                    <span class="label">{{ link }}</span>
-                                </a>
+                                <NuxtLink :to="link.link">
+                                    <span class="label">{{ link.label }}</span>
+                                </NuxtLink>
                             </li>
                         </ul>
                     </div>
@@ -168,7 +168,7 @@ const footerData = [
                     top: 0;
                     transform: scaleX(0);
                     transform-origin: left;
-                    transition: transform 1s cubic-bezier(.19,1,.22,1);
+                    transition: transform 1s cubic-bezier(.19, 1, .22, 1);
                 }
 
                 &:hover {
@@ -186,7 +186,7 @@ const footerData = [
                 .label {
                     display: block;
                     position: relative;
-                    transition: transform 1s cubic-bezier(.19,1,.22,1);
+                    transition: transform 1s cubic-bezier(.19, 1, .22, 1);
                 }
             }
         }
@@ -196,6 +196,7 @@ const footerData = [
         @media screen and (max-width: 768px) {
             order: 2;
         }
+
         .first-col {
             align-items: flex-start;
             border-bottom: 1px solid rgba(44, 44, 44, .4);
@@ -214,6 +215,7 @@ const footerData = [
                 opacity: .5;
             }
         }
+
         .second-col {
             align-items: center;
             border-bottom: 1px solid rgba(44, 44, 44, .4);
@@ -225,7 +227,7 @@ const footerData = [
             a {
                 opacity: .5;
                 position: relative;
-                transition: opacity 1s cubic-bezier(.19,1,.22,1);
+                transition: opacity 1s cubic-bezier(.19, 1, .22, 1);
 
                 &:before {
                     color: #fff;
@@ -236,7 +238,7 @@ const footerData = [
                     top: 0;
                     transform: scaleX(0);
                     transform-origin: left;
-                    transition: transform 1s cubic-bezier(.19,1,.22,1);
+                    transition: transform 1s cubic-bezier(.19, 1, .22, 1);
                 }
 
                 &:hover {
@@ -258,7 +260,7 @@ const footerData = [
                     font-size: 15px;
                     line-height: 1.5em;
                     position: relative;
-                    transition: transform 1s cubic-bezier(.19,1,.22,1);
+                    transition: transform 1s cubic-bezier(.19, 1, .22, 1);
                 }
             }
         }
@@ -283,6 +285,7 @@ const footerData = [
                 position: relative;
                 top: -10%;
                 width: auto;
+
                 @media screen and (max-width: 768px) {
                     height: 100%;
                     max-height: none;
