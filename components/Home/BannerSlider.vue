@@ -6,7 +6,7 @@
                 <span class="label-wrapper">
                     <span>{{ blog.blogType }}</span>
                 </span>
-                <NuxtLink :to="'/blogs/' + blog._id" class="ml-0 md:ml-4 h-auto md:h-full text-container">
+                <NuxtLink :to="'/blogs/' + blog._id" class="ml-0 md:ml-4 h-auto w-full text-container">
                     <span class="mr-4 date">{{ new Date(blog?._createdAt).toLocaleDateString() }}</span>
                     <span class="title">{{ blog.title }}</span>
                 </NuxtLink>
