@@ -34,7 +34,7 @@ const filteredColleges = filter(colleges, (college) => filterNames.includes(coll
                         <div>
                             <div class="px-8 flex flex-col md:flex-row first-content-container relative mt-12">
                                 <div class="w-full md:w-1/2 ml-0 md:ml-[6.25%] px-3">
-                                    <img class="main-img" src="/images/services/service-5.png" />
+                                    <NuxtImg class="main-img" src="/images/services/service-5.png" />
                                     <ul class="list">
                                         <li class="item">
                                             <span class="name">World-renowned counselors with expertise in multiple
@@ -62,7 +62,6 @@ const filteredColleges = filter(colleges, (college) => filterNames.includes(coll
                                             <li v-for="(institute, index) of filteredColleges" :key="index" class="item">
                                                 <NuxtLink :to="`/colleges#${get(institute, 'name', '')}`" class="flex">
                                                     <SanityImage class="rounded-lg" :asset-id="get(institute, 'poster.asset._ref', '')" />
-                                                    <!-- <img :src="institute.img" /> -->
                                                     <div class="text-container">
                                                         <span class="name">{{ get(institute, 'name', '') }}</span>
                                                         <div class="read-more">
@@ -156,7 +155,7 @@ const filteredColleges = filter(colleges, (college) => filterNames.includes(coll
                                     </div>
                                 </div>
                                 <div class="px-3 w-full md:w-[43.75%] flex justify-center">
-                                    <img src="/images/services/service-7.png" alt="" class="main-img">
+                                    <NuxtImg src="/images/services/service-7.png" alt="" class="main-img" />
                                 </div>
                             </div>
                         </div>
@@ -199,7 +198,7 @@ const filteredColleges = filter(colleges, (college) => filterNames.includes(coll
                         <div>
                             <div class="first-content-container relative px-8 mt-12 flex flex-col md:flex-row">
                                 <div class="px-3 ml-0 md:ml-[6.25%] w-full md:w-[43.75%] flex justify-center">
-                                    <img src="/images/services/service-6.png" alt="" class="main-img">
+                                    <NuxtImg src="/images/services/service-6.png" alt="" class="main-img" />
                                 </div>
                                 <div class=" w-full md:w-[43.25%] px-3">
                                     <div>

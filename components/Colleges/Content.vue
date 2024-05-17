@@ -30,7 +30,6 @@ const coursesInstitutes = filter(institutes, institute => get(institute, 'course
                     <figure v-else>
                         <div class="image-wrapper">
                             <SanityImage class="rounded-lg" :asset-id="get(college, 'poster.asset._ref')" />
-                            <!-- <img src="/images/technologies/technology-1.png" /> -->
                         </div>
                         <figcaption>{{ get(college, 'poster.caption', '') }}</figcaption>
                     </figure>

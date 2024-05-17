@@ -65,9 +65,9 @@ export default {
         </div>
         <div class="flex flex-col md:flex-row items-center px-8">
             <div class="relative mb-8 md:mb-0 ml-0 md:ml-[6.25%] w-full md:w-[56.25%] images-container">
-                <img :class="selectedIndex === 0 && 'active-img'" :style="selectedIndex === 0 && 'z-index: 2;'" src="/images/company/core-1.png" />
-                <img :class="selectedIndex === 1 && 'active-img'" :style="selectedIndex === 1 && 'z-index: 2;'" src="/images/company/core-2.png" />
-                <img :class="selectedIndex === 2 && 'active-img'" :style="selectedIndex === 2 && 'z-index: 2;'" src="/images/company/core-3.png" />
+                <NuxtImg :class="selectedIndex === 0 && 'active-img'" :style="selectedIndex === 0 && 'z-index: 2;'" src="/images/company/core-1.png" />
+                <NuxtImg :class="selectedIndex === 1 && 'active-img'" :style="selectedIndex === 1 && 'z-index: 2;'" src="/images/company/core-2.png" />
+                <NuxtImg :class="selectedIndex === 2 && 'active-img'" :style="selectedIndex === 2 && 'z-index: 2;'" src="/images/company/core-3.png" />
             </div>
             <div class="w-full md:w-[31.25%] m-auto">
                 <ul class="mission-list">

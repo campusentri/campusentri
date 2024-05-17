@@ -105,7 +105,6 @@ onMounted(() => {
                     </div>
                 </div>
                 <div class="right-col">
-                    <!-- <img :src="item.image" /> -->
                     <SanityImage class="rounded-lg" :asset-id="get(item, 'poster.asset._ref', '')" />
                 </div>
             </li>

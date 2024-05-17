@@ -93,7 +93,7 @@ export default {
                     <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
                         <div class="slider-item">
                             <div class="image-container">
-                                <img :src="slide" />
+                                <NuxtImg :src="slide" />
                             </div>
                         </div>
                     </SwiperSlide>
@@ -147,7 +147,7 @@ export default {
                             <li v-for="(service, index) of services" :key="index">
                                 <NuxtLink  class="item service-item cursor-pointer" :to="service.link">
                                     <div class="image-wrapper">
-                                        <img :src="service.image" />
+                                        <NuxtImg :src="service.image" />
                                     </div>
                                     <span class="label ml-3">{{ service.name }}</span>
                                 </NuxtLink>
@@ -160,7 +160,7 @@ export default {
                         <ul class="list">
                             <li v-for="(appreciation, index) of appreciations" :key="index" class="item service-list">
                                 <span class="label">{{ appreciation.name }}</span>
-                                <img v-if="appreciation.image" :src="appreciation.image" :alt="appreciation.name" />
+                                <NuxtImg v-if="appreciation.image" :src="appreciation.image" :alt="appreciation.name" />
                             </li>
                         </ul>
                     </div>
@@ -172,7 +172,7 @@ export default {
                         <div v-for="(client, index) of clients" :key="index"
                             class="item clients-item flex flex-col justify-around px-3">
                             <div class="image-wrapper">
-                                <img :src="client.svg" />
+                                <NuxtImg :src="client.svg" />
                             </div>
                             <div class="text-wrapper mt-6">
                                 <p class="text text-center">{{ client.text }}</p>

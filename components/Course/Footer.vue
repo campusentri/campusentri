@@ -107,7 +107,7 @@ const footerData = [
         </div>
         <div class="next-page-wrapper flex items-center justify-center">
             <div class="image-wrapper">
-                <img src="/images/courses/courses-footer-img.png" />
+                <NuxtImg src="/images/courses/courses-footer-img.png" />
             </div>
             <div class="text-container">
                 <NuxtLink class="next-page-btn" to="/colleges">

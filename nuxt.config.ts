@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
-  modules: ['@hypernym/nuxt-gsap', 'nuxt-swiper', '@nuxtjs/sanity', 'nuxt-lodash'],
+  modules: ['@hypernym/nuxt-gsap', 'nuxt-swiper', '@nuxtjs/sanity', 'nuxt-lodash', '@nuxt/image'],
   gsap: {
     extraPlugins: {
       scrollTrigger: true
@@ -29,6 +29,9 @@ export default defineNuxtConfig({
   },
   lodash: {
     prefix: "_",
+  },
+  image: {
+    format: ['webp']
   },
   alias: {
     assets: "/<rootDir>/assets",

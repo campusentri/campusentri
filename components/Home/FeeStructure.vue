@@ -82,7 +82,7 @@ onMounted(() => {
         <div class="flex justify-center px-4 md:px-14 h-full mt-16 inner">
             <div class="grid grid-cols-1 md:grid-cols-2  px-0 md:px-3 w-[95%] md:w-[87.25%] h-full">
                 <div class="image-col  h-full fee-img">
-                    <img src="@/assets/imgs/fee-structure/fee-structure.png" />
+                    <NuxtImg src="/images/fee-structure/fee-structure.png" />
                 </div>
                 <div class="text-col flex items-start flex-col  h-full fee-section">
                     <div>

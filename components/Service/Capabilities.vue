@@ -69,7 +69,7 @@ export default {
                 <ul class="list">
                     <li v-for="(appreciation, index) of appreciations" :key="index" class="item capabilities-items">
                         <span class="label">{{ appreciation.name }}</span>
-                        <img v-if="appreciation.image" :src="appreciation.image" :alt="appreciation.name" />
+                        <NuxtImg v-if="appreciation.image" :src="appreciation.image" :alt="appreciation.name" />
                     </li>
                 </ul>
             </div>

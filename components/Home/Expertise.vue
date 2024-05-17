@@ -47,11 +47,11 @@ export default {
 <template>
     <section id="expertise" class="expertise-container relative z-20">
         <div class="h-full absolute left-0 top-0 w-full hidden md:block">
-            <img class="absolute right-[12%] top-[5%] w-48" src="@/assets/imgs/expertise/expertise-1.jpg" />
-            <img class="absolute right-0 top-[40%] w-48" src="@/assets/imgs/expertise/expertise-2.jpg" />
-            <img class="absolute left-[10%] top-[70%] w-52" src="@/assets/imgs/expertise/expertise-3.jpg" />
-            <img class="absolute right-1/4 top-[80%] w-40" src="@/assets/imgs/expertise/expertise-4.jpg" />
-            <img class="absolute right-0 top-[-7%] w-40" src="@/assets/imgs/expertise/expertise-5.jpg" />
+            <NuxtImg class="absolute right-[12%] top-[5%] w-48" src="/images/expertise/expertise-1.jpg" />
+            <NuxtImg class="absolute right-0 top-[40%] w-48" src="/images/expertise/expertise-2.jpg" />
+            <NuxtImg class="absolute left-[10%] top-[70%] w-52" src="/images/expertise/expertise-3.jpg" />
+            <NuxtImg class="absolute right-1/4 top-[80%] w-40" src="/images/expertise/expertise-4.jpg" />
+            <NuxtImg class="absolute right-0 top-[-7%] w-40" src="/images/expertise/expertise-5.jpg" />
         </div>
         <div class="flex mx-auto px-12">
             <h1 class="w-1/2 ml-[15.75%] expertise-title text-white">Transforming Discoveries</h1>

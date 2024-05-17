@@ -86,9 +86,9 @@ const footerData = [
                         <h2 class="title">{{ data.title }}</h2>
                         <ul>
                             <li v-for="(link, index) of data.links" :key="index">
-                                <a href="#">
-                                    <span class="label">{{ link }}</span>
-                                </a>
+                                <NuxtLink :to="link.link">
+                                    <span class="label">{{ link.label }}</span>
+                                </NuxtLink>
                             </li>
                         </ul>
                     </div>
@@ -107,7 +107,7 @@ const footerData = [
         </div>
         <div class="next-page-wrapper flex items-center justify-center">
             <div class="image-wrapper">
-                <img src="/images/services/services-footer-img-2.png" />
+                <NuxtImg src="/images/services/services-footer-img-2.png" />
             </div>
             <div class="text-container">
                 <NuxtLink class="next-page-btn" to="/fee">

@@ -99,7 +99,6 @@ function navigateToSection(itemName) {
                 </svg>
                 <ul class="results-list">
                     <li v-for="(item, index) of filteredColleges" :key="index" class="item results-items">
-                        <!-- <img :src="item.img" /> -->
                         <SanityImage class="rounded-lg w-full p-0" :asset-id="get(item, 'poster.asset._ref', '')" />
                         <span class="item-title">{{ get(item, 'name', '') }}</span>
                         <div class="read-more item-title">
