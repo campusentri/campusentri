@@ -59,32 +59,9 @@ export default {
                 <div class="w-full md:w-[37.5%] text-center">
                     <p class="mb-12 careers-text">If you believe that you have what it takes to be part of a highly successful team
                         and you share our commitment to improve patient care, please send us your resume.</p>
-                    <button class="read-more-btn big-size black-color careers-btn" data-v-a2720cde="">
-                        <div class="inner" data-v-a2720cde="">
-                            <span class="icon arrow-right" data-v-a2720cde="">
-                                <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">
-                                    <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon shadow-icon"
-                                        data-v-a2720cde="">
-                                        <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" data-v-a2720cde=""></path>
-                                        <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526" stroke="#2C2C2C"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                            data-v-a2720cde=""></path>
-                                    </svg>
-                                    <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" class="arrow-right-icon" data-v-a2720cde="">
-                                        <path d="M1.19922 4.82703L9.23616 4.82703" stroke="#2C2C2C" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" data-v-a2720cde=""></path>
-                                        <path d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526" stroke="#2C2C2C"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                            data-v-a2720cde=""></path>
-                                    </svg>
-                                </span>
-                            </span>
-                            <span class="label-sizer" data-v-a2720cde="">Send us your resume</span>
-                        </div>
-                    </button>
+                    <div class="careers-btn">
+                        <BtnReadMore :title="'Send us your resume'" />
+                    </div>
                 </div>
             </div>
         </div>

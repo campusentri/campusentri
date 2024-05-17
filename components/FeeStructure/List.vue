@@ -85,46 +85,8 @@ onMounted(() => {
                                     </div>
                                     <div class="middle-col px-1 md:px-3 w-[68.5%] md:w-[62.5%]">
                                         <h2 class="title">{{ get(item, 'course.shortName', '') }}</h2>
-                                        <div class="read-more">
-                                            <!-- <NuxtLink to="/fee/mbbs"> -->
-                                            <button @click="openModal(item)" class="read-more-btn big-size black-color"
-                                                data-v-a2720cde="">
-                                                <div class="inner" data-v-a2720cde="">
-                                                    <span class="icon arrow-right" data-v-a2720cde="">
-                                                        <span class="icon-container arrow-right-icon-container"
-                                                            data-v-a2720cde="">
-                                                            <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                class="arrow-right-icon shadow-icon" data-v-a2720cde="">
-                                                                <path d="M1.19922 4.82703L9.23616 4.82703"
-                                                                    stroke="#2C2C2C" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    data-v-a2720cde=""></path>
-                                                                <path
-                                                                    d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
-                                                                    stroke="#2C2C2C" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    data-v-a2720cde=""></path>
-                                                            </svg>
-                                                            <svg width="11" height="10" viewBox="0 0 11 10" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                class="arrow-right-icon" data-v-a2720cde="">
-                                                                <path d="M1.19922 4.82703L9.23616 4.82703"
-                                                                    stroke="#2C2C2C" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    data-v-a2720cde=""></path>
-                                                                <path
-                                                                    d="M5.73438 8.8457L9.37779 4.89867L5.73437 1.25526"
-                                                                    stroke="#2C2C2C" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    data-v-a2720cde=""></path>
-                                                            </svg>
-                                                        </span>
-                                                    </span>
-                                                    <span class="label-sizer" data-v-a2720cde="">More</span>
-                                                </div>
-                                            </button>
-                                            <!-- </NuxtLink> -->
+                                        <div @click="openModal(item)" class="read-more">
+                                            <BtnReadMore :title="'More'" />
                                         </div>
                                     </div>
                                     <div class="right-col relative flex justify-center items-center px-3 md:w-[18.75%]">
@@ -178,45 +140,6 @@ onMounted(() => {
                     }
 
                     .item-row {
-
-                        .middle-col {
-
-                            .read-more {
-                                .read-more-btn {
-                                    .inner {
-                                        transform: scale(1.15);
-
-                                        .icon {
-
-                                            &:before {
-                                                opacity: 1;
-                                                transform: scale(1);
-                                            }
-                                        }
-
-                                        .arrow-right-icon-container {
-                                            .shadow-icon {
-                                                opacity: 1 !important;
-                                                transform: translate(0) !important;
-                                            }
-
-                                            svg {
-                                                path {
-                                                    stroke: #fff;
-                                                }
-                                            }
-
-                                            .arrow-right-icon {
-                                                opacity: 0;
-                                                transform: translate(30px);
-                                            }
-                                        }
-                                    }
-
-                                }
-                            }
-                        }
-
                         .right-col {
                             .icon-svg {
                                 svg {
