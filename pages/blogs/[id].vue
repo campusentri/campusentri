@@ -21,7 +21,6 @@ const blog = get(data, 'value', {});
       <div class="blog-container ml-0 md:ml-[18.75%] w-full md:w-3/4 px-4">
         <div v-if="get(blog, 'poster.asset._ref')" class="image-wrapper w-full">
           <SanityImage class="rounded-lg w-full" :asset-id="get(blog, 'poster.asset._ref')" />
-          <!-- <img src="/images/company/core-1.png" class="w-full" /> -->
         </div>
         <div class="mt-8">
           <SanityContent :blocks="blog.content" />

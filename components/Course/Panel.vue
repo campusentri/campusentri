@@ -68,7 +68,7 @@ const images = [
                                     </span>
                                 </div>
                                 <div class="w-full md:w-[37.5%] ml-[6.25%] px-3">
-                                    <NuxtImg class="main-img" :src="images[index % images.length]" />
+                                    <NuxtImg class="main-img" :src="images[index % images.length]" :alt="get(course, 'shortName', '')" />
                                 </div>
                             </div>
                         </div>

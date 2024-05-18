@@ -93,7 +93,7 @@ export default {
                     <SwiperSlide v-for="(slide, idx) in slides" :key="idx">
                         <div class="slider-item">
                             <div class="image-container">
-                                <NuxtImg :src="slide" />
+                                <NuxtImg :src="slide" :alt="'Slide ' + idx" />
                             </div>
                         </div>
                     </SwiperSlide>
@@ -118,7 +118,7 @@ export default {
                             <li v-for="(service, index) of services" :key="index">
                                 <NuxtLink  class="item service-item cursor-pointer" :to="service.link">
                                     <div class="image-wrapper">
-                                        <NuxtImg :src="service.image" />
+                                        <NuxtImg :src="service.image" :alt="service.name" />
                                     </div>
                                     <span class="label ml-3">{{ service.name }}</span>
                                 </NuxtLink>
@@ -143,7 +143,7 @@ export default {
                         <div v-for="(client, index) of clients" :key="index"
                             class="item clients-item flex flex-col justify-around px-3">
                             <div class="image-wrapper">
-                                <NuxtImg :src="client.svg" />
+                                <NuxtImg :src="client.svg" :alt="client.text" />
                             </div>
                             <div class="text-wrapper mt-6">
                                 <p class="text text-center">{{ client.text }}</p>

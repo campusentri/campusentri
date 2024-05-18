@@ -11,11 +11,11 @@
                     <span class="title">{{ blog.title }}</span>
                 </NuxtLink>
                 <div class="controls">
-                    <button @click="prevSlide" :disabled="currentIndex === 0">
+                    <button name="Prev Slide" @click="prevSlide" :disabled="currentIndex === 0">
                         <IconsChevronLeft />
                     </button>
                     <span>{{ currentIndex + 1 }} of {{ blogs.length }}</span>
-                    <button @click="nextSlide">
+                    <button name="Next Slide" @click="nextSlide">
                         <IconsChevronRight />
                     </button>
                 </div>

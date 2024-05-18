@@ -103,7 +103,7 @@ function navigateToSection(itemName) {
                         <span class="item-title">{{ get(item, 'name', '') }}</span>
                         <div class="read-more item-title">
                             <!-- <NuxtLink :to="`/colleges#${get(item, 'name', '')}`"> -->
-                                <button @click="navigateToSection(get(item, 'name', ''))" class="read-more-btn big-size black-color" data-v-a2720cde="">
+                                <button name="Results" @click="navigateToSection(get(item, 'name', ''))" class="read-more-btn big-size black-color" data-v-a2720cde="">
                                     <div class="inner" data-v-a2720cde="">
                                         <span class="icon arrow-right" data-v-a2720cde="">
                                             <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">

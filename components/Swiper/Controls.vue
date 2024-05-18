@@ -4,7 +4,7 @@ const swiper = useSwiper()
 
 <template>
     <div class="mb-6 flex justify-end w-5/6 slider-buttons" data-v-37808d0f="" data-v-8953d350="">
-        <button @click="swiper.slidePrev()" class="arrow-left arrow" data-v-37808d0f="">
+        <button name="Prev Slide" @click="swiper.slidePrev()" class="arrow-left arrow" data-v-37808d0f="">
             <span class="bg" data-v-37808d0f=""></span>
             <span class="icon" data-v-37808d0f="">
                 <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,7 @@ const swiper = useSwiper()
                 </svg>
             </span>
         </button>
-        <button @click="swiper.slideNext()" class="arrow-right arrow" data-v-37808d0f="">
+        <button name="Next Slide" @click="swiper.slideNext()" class="arrow-right arrow" data-v-37808d0f="">
             <span class="bg" data-v-37808d0f=""></span>
             <span class="icon" data-v-37808d0f="">
                 <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"

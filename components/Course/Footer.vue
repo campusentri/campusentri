@@ -107,11 +107,11 @@ const footerData = [
         </div>
         <div class="next-page-wrapper flex items-center justify-center">
             <div class="image-wrapper">
-                <NuxtImg src="/images/courses/courses-footer-img.png" />
+                <NuxtImg src="/images/courses/courses-footer-img.png" alt="Course Footer" />
             </div>
             <div class="text-container">
                 <NuxtLink class="next-page-btn" to="/colleges">
-                    <button class="big-circle-btn blue">
+                    <button name="Course" class="big-circle-btn blue">
                         <span class="icon-container">
                             <IconsArrowRightBtn />
                         </span>

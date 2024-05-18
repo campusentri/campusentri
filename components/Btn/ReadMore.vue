@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-    <button class="read-more-btn big-size black-color" data-v-a2720cde="">
+    <button :name="title" class="read-more-btn big-size black-color" data-v-a2720cde="">
         <div class="inner" data-v-a2720cde="">
             <span class="icon arrow-right" data-v-a2720cde="">
                 <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">

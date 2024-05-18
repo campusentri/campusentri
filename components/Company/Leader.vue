@@ -27,7 +27,7 @@ export default {
     <div id="leaders" class="leader-wrapper pb-48">
         <div class="flex flex-col md:flex-row px-6">
             <div class="block-bg-cover w-full md:w-1/2 relative px-3">
-                <NuxtImg src="/images/company/leader.png" />
+                <NuxtImg src="/images/company/leader.png" alt="Leader" />
             </div>
             <div class="text-container ml-0 md:ml-[6.25%] w-full md:w-[31.25%] px-3">
                 <div>

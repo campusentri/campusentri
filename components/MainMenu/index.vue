@@ -5,7 +5,7 @@
             <div class="flex flex-col justify-between h-full">
                 <NuxtLink to="/">
                     <div class="flex items-center logo">
-                        <img src="@/assets/imgs/logo-2.png" alt="Logo" class="h-full ml-0 md:ml-2" />
+                        <NxutImg src="/images/logo-2.png" alt="Logo" class="h-full ml-0 md:ml-2" />
                     </div>
                 </NuxtLink>
                 <span class="text-white text-base">Made by CampusEntri</span>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="flex justify-between flex-col">
                     <div class="flex justify-end">
-                        <button @click="closeNavbar"
+                        <button name="Close Nav" @click="closeNavbar"
                             class="menu-button w-11 h-11 bg-white rounded-full flex justify-center items-center gap-2">
                             <span class="flex flex-col gap-2">
                                 <span class="h-0.5 w-7 bg-black line-1 line"></span>

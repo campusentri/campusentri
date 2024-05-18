@@ -73,7 +73,7 @@ export default {
                             <div class="px-3 w-full md:w-[56.25%]">
                                 <h3 class="title">{{ publication.title }}</h3>
                                 <div class="read-more">
-                                    <button class="read-more-btn big-size black-color" data-v-a2720cde="">
+                                    <button name="Read More Button" class="read-more-btn big-size black-color" data-v-a2720cde="">
                                         <div class="inner" data-v-a2720cde="">
                                             <span class="icon arrow-right" data-v-a2720cde="">
                                                 <span class="icon-container arrow-right-icon-container"
@@ -116,7 +116,7 @@ export default {
                 </ul>
             </div>
             <div class="read-more text-center mt-12 ml-0 md:ml-[18.75%] w-full md:w-3/4">
-                <button class="read-more-btn big-size black-color" data-v-a2720cde="">
+                <button name="Read More Button" class="read-more-btn big-size black-color" data-v-a2720cde="">
                     <div class="inner" data-v-a2720cde="">
                         <span class="icon arrow-right" data-v-a2720cde="">
                             <span class="icon-container arrow-right-icon-container" data-v-a2720cde="">

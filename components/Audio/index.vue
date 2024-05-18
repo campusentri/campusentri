@@ -34,7 +34,7 @@ export default {
         <audio id="audioPlayer" autoplay loop>
             <source :src="audioSrc" type="audio/mpeg">
         </audio>
-        <button class="audio-btn" id="audioToggleBtn" @click="toggleAudio">
+        <button class="audio-btn" name="audio-btn" id="audioToggleBtn" @click="toggleAudio">
             <span class="icon">
                 <svg data-v-7d4dd1aa="" width="19" height="14" viewBox="0 0 19 14" fill="none"
                     xmlns="http://www.w3.org/2000/svg" class="audio-icon">

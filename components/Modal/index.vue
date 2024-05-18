@@ -34,7 +34,7 @@ export default {
                 <header class="modal-header" id="modalTitle">
                     <slot name="header">
                     </slot>
-                    <button type="button" class="btn-close z-10" @click="closeModal" aria-label="Close modal">
+                    <button name="Close Modal" type="button" class="btn-close z-10" @click="closeModal" aria-label="Close modal">
                         <span class="bg"></span>
                         <span class="label"></span>
                         <span class="icon">

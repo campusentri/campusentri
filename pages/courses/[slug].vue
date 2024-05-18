@@ -35,7 +35,7 @@ const articles = [
                             </div>
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div class="image-container">
-                                    <img src="/images/courses/mbbs.webp" />
+                                    <NuxtImg src="/images/courses/mbbs.webp" alt="MBBS" />
                                 </div>
                             </div>
                         </div>
@@ -214,7 +214,7 @@ const articles = [
                             </div>
                             <div class="w-full md:w-1/2 my-2 md:my-0 px-3 ml-0 md:ml-[6.25%]">
                                 <div class="image-container">
-                                    <img src="/images/courses/mbbs-2.webp" />
+                                    <NuxtImg src="/images/courses/mbbs-2.webp" alt="MBBS-2" />
                                 </div>
                             </div>
                         </div>

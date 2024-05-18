@@ -93,7 +93,7 @@ export default {
                 <div class="flex justify-between items-center flex-col md:flex-row clients-list">
                     <div v-for="(client, index) of clients" :key="index" class="item flex flex-col justify-around px-3 client-student-list">
                         <div class="image-wrapper">
-                            <NuxtImg :src="client.svg" />
+                            <NuxtImg :src="client.svg" :alt="client.text" />
                         </div>
                         <div class="text-wrapper mt-6">
                             <p class="text text-center">{{ client.text }}</p>

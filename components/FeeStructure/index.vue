@@ -44,7 +44,7 @@ export default {
             </div>
             <div class="flex items-stretch mt-10 w-full px-3 md:px-10">
                 <div class="scroll-btn h-full flex flex-grow-0">
-                    <button class="big-circle-btn" @click="scrollToNextComponent">
+                    <button name="Fee Structure" class="big-circle-btn" @click="scrollToNextComponent">
                         <span class="icon-container">
                             <IconsArrowDown />
                         </span>

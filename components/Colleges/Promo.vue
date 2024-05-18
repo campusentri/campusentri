@@ -29,7 +29,7 @@ export default {
                         <h3 class="subtitle">Contact us to find out how our services can help achieve your goals.</h3>
                         <div class="cta-container inline-flex items-center gap-8 w-full">
                             <div class="cta-btn">
-                                <button class="read-more-btn big-size white-color"  @click="openModal" data-v-a2720cde="">
+                                <button name="Read More" class="read-more-btn big-size white-color"  @click="openModal" data-v-a2720cde="">
                                     <div class="inner" data-v-a2720cde="">
                                         <span class="icon message" data-v-a2720cde="">
                                             <span class="icon-container message-icon-container" data-v-a2720cde="">

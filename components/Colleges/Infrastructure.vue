@@ -17,7 +17,7 @@ const props = defineProps({
         </div>
         <div class="history-item item-0">
             <div class="inner">
-                <NuxtImg src="/images/colleges/infrastructure-2.png" />
+                <NuxtImg src="/images/colleges/infrastructure-2.png" alt="Clinical Facilities" />
                 <span class="label-title">Clinical Facilities</span>
                 <span class="description">{{ get(infrastructure, 'clinicalFacilities', '') }}</span>
             </div>
@@ -37,7 +37,7 @@ const props = defineProps({
         </div>
         <div class="history-item item-3">
             <div class="inner">
-                <NuxtImg src="/images/colleges/infrastructure-4.png" />
+                <NuxtImg src="/images/colleges/infrastructure-4.png" alt="Gymnasium" />
                 <span class="label-title">Gymnasium</span>
                 <span class="description">{{ get(infrastructure, 'gymnasium', '') }}</span>
             </div>
@@ -50,14 +50,14 @@ const props = defineProps({
         </div>
         <div class="history-item item-5">
             <div class="inner">
-                <NuxtImg src="/images/colleges/infrastructure-2.png" />
+                <NuxtImg src="/images/colleges/infrastructure-2.png" alt="Medical Care" />
                 <span class="label-title">Medical Care</span>
                 <span class="description">{{ get(infrastructure, 'medicalCare', '') }}</span>
             </div>
         </div>
         <div class="history-item item-6">
             <div class="inner">
-                <NuxtImg src="/images/services/pillar-3.png" />
+                <NuxtImg src="/images/services/pillar-3.png" alt="Student Support and Extra-Curricular activity" />
                 <span class="label-title">Student Support and Extra-Curricular activity</span>
                 <span class="description">{{ get(infrastructure, 'activities', '') }}</span>
             </div>
@@ -70,14 +70,14 @@ const props = defineProps({
         </div>
         <div class="history-item item-8">
             <div class="inner">
-                <NuxtImg src="/images/services/service-7.png" />
+                <NuxtImg src="/images/services/service-7.png" alt="Hostles" />
                 <span class="label-title">Hostels</span>
                 <span class="description">{{ get(infrastructure, 'hostels', '') }}</span>
             </div>
         </div>
         <div class="history-item item-9">
             <div class="inner">
-                <NuxtImg src="/images/colleges/infrastructure-4.png" />
+                <NuxtImg src="/images/colleges/infrastructure-4.png" :alt="get(infrastructure, 'institueInfo.title', '')" />
                 <span class="label-title">{{ get(infrastructure, 'institueInfo.title', '') }}</span>
                 <span class="description">{{ get(infrastructure, 'institueInfo.description', '') }}</span>
             </div>

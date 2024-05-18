@@ -5,11 +5,11 @@
             <div class="flex justify-between">
                 <NuxtLink to="/">
                     <div class="flex flex-grow-0 items-center logo">
-                        <img src="@/assets/imgs/logo-2.png" alt="Logo" class="h-full ml-0 md:ml-2" />
+                        <NuxtImg src="/images/logo-2.png" alt="Logo" class="h-full ml-0 md:ml-2" />
                     </div>
                 </NuxtLink>
                 <div class="flex-grow flex justify-end">
-                    <button @click="closeNavbar"
+                    <button name="Close Nav" @click="closeNavbar"
                         class="menu-button w-11 h-11 bg-white rounded-full flex justify-center items-center gap-2">
                         <span class="flex flex-col gap-2">
                             <span class="h-0.5 w-7 bg-black line-1 line"></span>

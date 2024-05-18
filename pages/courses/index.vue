@@ -41,9 +41,9 @@ export default {
     <div class="courses-content">
         <Course />
         <div class="bubbles-container">
-            <img src="/images/courses/bubble-1.png" class="bubble-1" />
-            <img src="/images/courses/bubble-2.png" class="bubble-2" />
-            <img src="/images/courses/bubble-3.png" class="bubble-3" />
+            <NuxtImg src="/images/courses/bubble-1.png" class="bubble-1" alt="Bubble 1" />
+            <NuxtImg src="/images/courses/bubble-2.png" class="bubble-2" alt="Bubble 2" />
+            <NuxtImg src="/images/courses/bubble-3.png" class="bubble-3" alt="Bubble 3" />
         </div>
         <div>
             <main class="page-content">

@@ -100,7 +100,7 @@ export default {
             <div :class="!user ? 'bg-transparent' : 'bg-[#fbfbfb]'" class="inner" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
 
                 <header class="modal-header" id="modalTitle">
-                    <button type="button" class="btn-close z-10" @click="closeModal" aria-label="Close modal">
+                    <button name="Close Modal" type="button" class="btn-close z-10" @click="closeModal" aria-label="Close modal">
                         <span class="bg"></span>
                         <span class="label"></span>
                         <span class="icon">

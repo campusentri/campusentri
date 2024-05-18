@@ -11,6 +11,13 @@ export default defineNuxtConfig({
     },
   },
   app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      htmlAttrs: {
+        lang: 'en'
+      }
+    },
     pageTransition: { name: 'page', mode: 'out-in' }
   },
   modules: ['@hypernym/nuxt-gsap', 'nuxt-swiper', '@nuxtjs/sanity', 'nuxt-lodash', '@nuxt/image'],
