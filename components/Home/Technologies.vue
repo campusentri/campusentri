@@ -78,6 +78,11 @@ export default {
             <div>
                 <HomeTechnologiesSlider />
             </div>
+            <div class="w-full md:w-1/4 top-coices-wrapper mt-16 flex justify-center md:hidden">
+                <NuxtLink to="/colleges">
+                    <BtnReadMore :title="'Colleges'" />
+                </NuxtLink>
+            </div>
         </section>
         <section class="promo-block-wrapper ">
             <div class="grid grid-cols-1 md:grid-cols-2 md:flex-row h-full">

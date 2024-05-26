@@ -20,18 +20,10 @@ function openCollegeModal() {
 }
 function openModal(item) {
     collegeInfo.value = item;
-    const getUser = localStorage.getItem('user');
-    const user = JSON.parse(getUser);
-    if (!user) {
-        isModalOpen.value = true;
-        emitOpenModal('open-contact-modal', item);
-    } else {
-        emitOpenModal('open-modal', collegeInfo.value);
-    }
+    emitOpenModal('open-modal', collegeInfo.value);
 }
 function closeModal() {
     isModalOpen.value = false;
-    emitOpenModal('close-contact-modal');
 }
 onMounted(() => {
     const tl = $gsap.timeline({
@@ -81,8 +73,6 @@ onMounted(() => {
                 </div>
             </li>
         </ul>
-        <ContactForm :is-open="isModalOpen" @close-contact-modal="closeModal" @open-modal="openCollegeModal"
-            :course-info="collegeInfo" />
     </div>
 </template>
 

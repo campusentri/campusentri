@@ -18,7 +18,7 @@ export default {
         },
         courseInfo: {
             type: Object,
-            default: null
+            default: {}
         }
     },
     methods: {
@@ -40,7 +40,8 @@ export default {
                     phoneNumber: '',
                 }
                 this.closeModal();
-                if(this.courseInfo) {
+                console.log(this.courseInfo, this.$route)
+                if(Object.keys(this.courseInfo).length > 0) {
                     this.$emit('open-modal', this.courseInfo);
                 } else {
                     console.log(this.courseInfo, this.$route)
