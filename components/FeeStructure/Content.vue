@@ -27,6 +27,7 @@ const props = defineProps({
                                 <th class="blue">Third Year</th>
                                 <th >Fourth Year</th>
                                 <th class="blue">Fifth Year</th>
+                                <th>Total Fees</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,6 +74,9 @@ const props = defineProps({
                                 <td v-else class="blue">
                                     <span class="light sm-text" v-if="get(item, 'fees.fifthYear.feeBreakdown')">{{ get(item, 'fees.fifthYear.feeBreakdown', '--') }}</span>
                                     {{ get(item, 'fees.fifthYear.fee', '--') }}
+                                </td>
+                                <td>
+                                    {{ get(item, 'fees.totalFees', '--') }}
                                 </td>
                             </tr>
                         </tbody>
